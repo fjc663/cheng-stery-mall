@@ -19,7 +19,7 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping("/user/user")
 @RequiredArgsConstructor
-@Api("用户端用户相关接口")
+@Api(tags = "用户端用户相关接口")
 public class UserController {
 
     private final UserService userService;

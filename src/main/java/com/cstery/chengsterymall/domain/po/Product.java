@@ -1,6 +1,7 @@
 package com.cstery.chengsterymall.domain.po;
 
 import com.baomidou.mybatisplus.annotation.*;
+import io.swagger.annotations.ApiModel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,6 +14,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@ApiModel("商品实体")
 @TableName("product")
 public class Product {
     

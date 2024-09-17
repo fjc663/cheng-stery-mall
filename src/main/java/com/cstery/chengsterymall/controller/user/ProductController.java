@@ -27,10 +27,24 @@ public class ProductController {
      * @param id
      * @return
      */
-    @GetMapping
+    @GetMapping("/list")
     @ApiOperation("根据分类id返回商品")
     public Result<List<ProductVO>> getByCategoryId(@ApiParam("分类id") @RequestParam Long id){
         List<ProductVO> productVOList = productService.getByCategoryId(id);
         return Result.success(productVOList);
     }
+
+    /**
+     * 根据商品id返回商品
+     * @param id
+     * @return
+     */
+    @GetMapping
+    @ApiOperation("根据商品id返回商品详细信息")
+    public Result<ProductVO> getProductDetailInfo(@ApiParam("商品id") @RequestParam Long id){
+        ProductVO productVO = productService.getProductDetailInfo(id);
+        return Result.success(productVO);
+    }
+
+
 }

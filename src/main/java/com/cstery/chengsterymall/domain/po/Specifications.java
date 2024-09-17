@@ -1,6 +1,8 @@
 package com.cstery.chengsterymall.domain.po;
 
-import com.baomidou.mybatisplus.annotation.*;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,46 +17,38 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@ApiModel("分类实体")
-@TableName("category")
-public class Category implements Serializable {
+@ApiModel("商品规格实体")
+@TableName("specifications")
+public class Specifications implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;
 
-    // 分类主键，id
-    @TableId(type = IdType.AUTO)
+    // 主键，使用自增策略，数据库字段名为 "id"
+    @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
-    // 分类名称
+    // 规格名称
     private String name;
 
-    // 分类描述
+    // 规格描述
     private String description;
 
-    // 分类图片url
-    private String imageUrl;
-
-    // 分类状态
+    // 规格状态
     private Integer status;
 
-    // 排序字段
-    private Integer sortOrder;
-
-    // 父分类id
-    private Long parentId;
+    // 规格选项
+    private String specificationOptions;
 
     // 创建时间
-    @TableField(fill = FieldFill.INSERT)
     private LocalDateTime createdAt;
 
-    // 更新时间
-    @TableField(fill = FieldFill.INSERT_UPDATE)
+    // 最后更新时间
     private LocalDateTime updatedAt;
 
-    // 创建用户的ID
+    // 创建该规格的用户ID
     private Long createdBy;
 
-    // 更新用户的ID
+    // 最后更新该规格的用户ID
     private Long updatedBy;
 }

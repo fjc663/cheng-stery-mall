@@ -296,3 +296,94 @@ VALUES
     ('电视 I', '70寸智能电视，4K画质', 7800.00, 50, 18, 1, 55, 'http://localhost:8080/product/default_product.png', 1, 1),
     ('耳机 M', '耳机，舒适佩戴', 440.00, 320, 22, 1, 220, 'http://localhost:8080/product/default_product.png', 1, 1),
     ('显示器 I', '34寸超宽显示器，适合设计', 3200.00, 65, 23, 1, 65, 'http://localhost:8080/product/default_product.png', 1, 1);
+
+CREATE TABLE specifications (
+                                id BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT '规格ID',
+                                name VARCHAR(100) NOT NULL COMMENT '规格名称',
+                                description VARCHAR(255) DEFAULT NULL COMMENT '规格描述',
+                                status TINYINT DEFAULT 1 COMMENT '规格状态，1表示启用，0表示禁用',
+                                specification_options VARCHAR(255) NOT NULL COMMENT '规格选项，用逗号隔开',
+                                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+                                created_by BIGINT DEFAULT NULL COMMENT '创建用户的ID',
+                                updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '最后更新时间',
+                                updated_by BIGINT DEFAULT NULL COMMENT '最后更新用户的ID'
+) COMMENT='规格表，存储商品的规格信息';
+
+INSERT INTO specifications (name, description, status, specification_options, created_by)
+VALUES
+    ('颜色', '可选颜色', 1, '红色,蓝色,绿色,黄色,紫色', 1),
+    ('尺寸', '可选尺寸', 1, 'S,M,L,XL,XXL', 1),
+    ('材质', '可选材质', 1, '棉,涤纶,羊毛,丝绸,牛仔', 1),
+    ('容量', '容量规格', 1, '16GB,32GB,64GB,128GB,256GB', 2),
+    ('电池容量', '电池的容量', 1, '1000mAh,2000mAh,3000mAh,4000mAh', 2),
+    ('重量', '产品重量', 1, '0.5kg,1kg,1.5kg,2kg', 3),
+    ('功率', '电器功率', 1, '100W,200W,300W,500W,1000W', 2),
+    ('硬盘', '硬盘容量', 1, '256GB,512GB,1TB,2TB', 4),
+    ('处理器', '可选处理器型号', 1, 'i3,i5,i7,Ryzen 5,Ryzen 7', 5),
+    ('屏幕尺寸', '屏幕的尺寸', 1, '13英寸,14英寸,15英寸,17英寸', 3),
+    ('分辨率', '屏幕分辨率', 1, '1080p,2K,4K', 5),
+    ('接口类型', '设备接口类型', 1, 'USB-A,USB-C,HDMI,VGA,雷电3', 4),
+    ('刷新率', '屏幕刷新率', 1, '60Hz,90Hz,120Hz,144Hz', 5),
+    ('显卡', '显卡型号', 1, 'GTX 1650,RTX 2060,RTX 3070,RTX 3080', 6),
+    ('内存', '内存容量', 1, '4GB,8GB,16GB,32GB', 5),
+    ('手表表带', '手表表带类型', 1, '皮革,金属,硅胶,尼龙', 3),
+    ('鞋码', '鞋子尺码', 1, '35,36,37,38,39,40,41,42,43,44', 1),
+    ('风格', '服饰风格', 1, '休闲,商务,运动,时尚,复古', 3),
+    ('香型', '香水香型', 1, '花香型,果香型,木质香,麝香', 1),
+    ('音质', '耳机音质类型', 1, '低音加强,均衡,高音清晰', 2),
+    ('颜色分类', '常见颜色分类', 1, '黑色,白色,灰色,棕色,蓝色', 1),
+    ('灯光模式', 'RGB 灯光模式', 1, '单色,呼吸灯,彩虹灯效', 2),
+    ('材质分类', '材料类型', 1, '塑料,金属,玻璃,陶瓷', 3),
+    ('电压', '电压规格', 1, '110V,220V,380V', 5),
+    ('频率响应', '音频设备频率响应范围', 1, '20Hz-20kHz,50Hz-18kHz,10Hz-40kHz', 4),
+    ('接口数量', '可用接口数量', 1, '2个,4个,6个,8个', 4),
+    ('防水等级', '防水等级', 1, 'IPX3,IPX5,IPX7,IP68', 6),
+    ('时区', '时区选择', 1, 'GMT+0,GMT+1,GMT+8,GMT-5', 5),
+    ('温度范围', '工作温度范围', 1, '-20°C-50°C,0°C-100°C', 3),
+    ('速度', '传输速度', 1, '10Mbps,100Mbps,1Gbps,10Gbps', 4);
+
+CREATE TABLE product_specifications (
+                                        id BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT '商品规格关联ID',
+                                        product_id BIGINT NOT NULL COMMENT '关联的商品ID',
+                                        specification_id BIGINT NOT NULL COMMENT '关联的规格ID',
+                                        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+                                        created_by BIGINT DEFAULT NULL COMMENT '创建用户ID',
+                                        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '最后更新时间',
+                                        updated_by BIGINT DEFAULT NULL COMMENT '最后更新用户ID',
+                                        FOREIGN KEY (product_id) REFERENCES product(id) ON DELETE CASCADE,
+                                        FOREIGN KEY (specification_id) REFERENCES specifications(id) ON DELETE CASCADE
+) COMMENT='商品与规格选项关联表';
+
+INSERT INTO product_specifications (product_id, specification_id, created_by, updated_by)
+VALUES
+    (1, 1, 1, 1),
+    (1, 2, 1, 1),
+    (1, 3, 1, 1),
+    (2, 1, 2, 2),
+    (2, 2, 2, 2),
+    (2, 4, 2, 2),
+    (3, 1, 3, 3),
+    (3, 3, 3, 3),
+    (3, 5, 3, 3),
+    (4, 1, 4, 4),
+    (4, 2, 4, 4),
+    (4, 3, 4, 4),
+    (5, 2, 5, 5),
+    (5, 4, 5, 5),
+    (5, 6, 5, 5),
+    (6, 1, 6, 6),
+    (6, 3, 6, 6),
+    (6, 5, 6, 6),
+    (7, 2, 7, 7),
+    (7, 4, 7, 7),
+    (7, 6, 7, 7),
+    (8, 1, 8, 8),
+    (8, 2, 8, 8),
+    (8, 3, 8, 8),
+    (9, 1, 9, 9),
+    (9, 3, 9, 9),
+    (9, 5, 9, 9),
+    (10, 2, 10, 10),
+    (10, 4, 10, 10),
+    (10, 6, 10, 10);
+

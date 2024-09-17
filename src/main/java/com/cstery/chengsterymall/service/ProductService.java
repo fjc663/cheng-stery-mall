@@ -14,4 +14,11 @@ public interface ProductService extends IService<Product> {
      * @return
      */
     List<ProductVO> getByCategoryId(Long categoryId);
+
+    /**
+     * 根据商品id返回商品
+     * @param id
+     * @return
+     */
+    ProductVO getProductDetailInfo(Long id);
 }

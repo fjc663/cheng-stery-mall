@@ -13,6 +13,7 @@ csm:
 
     user-secret-key: fjcstery
     user-ttl: 7200000
-    user-token-name: authorization
+    user-token-name:
+
 
 

@@ -1,5 +1,7 @@
 package com.cstery.chengsterymall.domain.vo;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,26 +11,27 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@ApiModel(description = "分类视图对象")
 public class CategoryVO {
 
-    // 分类id
+    @ApiModelProperty(value = "分类ID", example = "1")
     private Long id;
 
-    // 分类名称
+    @ApiModelProperty(value = "分类名称", example = "电子产品")
     private String name;
 
-    // 分类描述
+    @ApiModelProperty(value = "分类描述", example = "包括手机、电脑、家电等电子产品")
     private String description;
 
-    // 分类图片url
+    @ApiModelProperty(value = "分类图片URL", example = "http://localhost:8080/category_jiu.png")
     private String imageUrl;
 
-    // 分类状态
-    private Integer status;
+    @ApiModelProperty(value = "分类状态", allowableValues = "0, 1", example = "1")
+    private Integer status; // 1表示启用，0表示禁用
 
-    // 排序字段
+    @ApiModelProperty(value = "排序字段", example = "1")
     private Integer sortOrder;
 
-    // 父分类id
-    private Long parentId;
+    @ApiModelProperty(value = "父分类ID", example = "0")
+    private Long parentId; // 0表示无父级分类
 }

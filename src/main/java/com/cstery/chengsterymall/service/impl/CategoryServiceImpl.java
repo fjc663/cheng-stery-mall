@@ -15,7 +15,7 @@ import java.util.List;
 public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> implements CategoryService {
 
     /**
-     * 获取无父级分类
+     * 获取无父级分类的分类
      * @return
      */
     @Override
@@ -25,5 +25,20 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
         List<Category> categoryList = list(categoryLambdaQueryWrapper);
 
         return BeanUtil.copyToList(categoryList, CategoryVO.class);
+    }
+
+    /**
+     * 根据父级分类id获得子级分类
+     * @param parentId
+     * @return
+     */
+    @Override
+    public List<CategoryVO> getSubCategoryList(Long parentId) {
+        LambdaQueryWrapper<Category> categoryLambdaQueryWrapper = new LambdaQueryWrapper<Category>()
+                .eq(Category::getParentId, parentId);
+        List<Category> categoryList = list(categoryLambdaQueryWrapper);
+
+        return BeanUtil.copyToList(categoryList, CategoryVO.class);
+
     }
 }

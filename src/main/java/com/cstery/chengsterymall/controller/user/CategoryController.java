@@ -5,8 +5,11 @@ import com.cstery.chengsterymall.result.Result;
 import com.cstery.chengsterymall.service.CategoryService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import lombok.RequiredArgsConstructor;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,13 +24,25 @@ public class CategoryController {
     private final CategoryService categoryService;
 
     /**
-     * 获取无父级分类
+     * 获取无父级分类的分类
      * @return
      */
     @GetMapping("/list")
     @ApiOperation("获得全部分类信息")
     public Result<List<CategoryVO>> getCategoryList(){
         List<CategoryVO> categoryVOList = categoryService.getCategoryList();
+        return Result.success(categoryVOList);
+    }
+
+    /**
+     * 根据父级分类id获得子级分类
+     * @param id
+     * @return
+     */
+    @GetMapping("/list/{id}")
+    @ApiOperation("根据父级分类id获得子级分类")
+    public Result<List<CategoryVO>> getSubCategoryList(@PathVariable @ApiParam("父级分类id") Long id){
+        List<CategoryVO> categoryVOList = categoryService.getSubCategoryList(id);
         return Result.success(categoryVOList);
     }
 

@@ -9,8 +9,15 @@ import java.util.List;
 public interface CategoryService extends IService<Category> {
 
     /**
-     * 获取无父级分类
+     * 获取无父级分类的分类
      * @return
      */
     List<CategoryVO> getCategoryList();
+
+    /**
+     * 根据父级分类id获得子级分类
+     * @param parentId
+     * @return
+     */
+    List<CategoryVO> getSubCategoryList(Long parentId);
 }

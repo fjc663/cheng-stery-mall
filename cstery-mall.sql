@@ -387,3 +387,14 @@ VALUES
     (10, 4, 10, 10),
     (10, 6, 10, 10);
 
+CREATE TABLE cart (
+                      id BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT '购物车记录ID',
+                      user_id BIGINT NOT NULL COMMENT '用户ID',
+                      product_id BIGINT NOT NULL COMMENT '商品ID',
+                      quantity INT NOT NULL DEFAULT 1 COMMENT '商品数量',
+                      created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '添加到购物车的时间',
+                      updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '最后更新时间',
+                      specifications TEXT COMMENT '商品规格，JSON 格式',
+                      FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE,
+                      FOREIGN KEY (product_id) REFERENCES product(id) ON DELETE CASCADE
+) COMMENT='购物车表';

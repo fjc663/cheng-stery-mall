@@ -4,6 +4,7 @@ import cn.hutool.core.bean.BeanUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.baomidou.mybatisplus.extension.toolkit.Db;
+import com.cstery.chengsterymall.constant.StatusConstant;
 import com.cstery.chengsterymall.domain.po.Product;
 import com.cstery.chengsterymall.domain.po.ProductSpecifications;
 import com.cstery.chengsterymall.domain.po.Specifications;
@@ -26,6 +27,7 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
     @Override
     public List<ProductVO> getByCategoryId(Long categoryId) {
         LambdaQueryWrapper<Product> productLambdaQueryWrapper = new LambdaQueryWrapper<Product>()
+                .eq(Product::getStatus, StatusConstant.ENABLE)
                 .eq(Product::getCategoryId, categoryId);
 
         List<Product> productList = list(productLambdaQueryWrapper);

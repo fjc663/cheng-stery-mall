@@ -3,6 +3,7 @@ package com.cstery.chengsterymall.service.impl;
 import cn.hutool.core.bean.BeanUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.cstery.chengsterymall.constant.StatusConstant;
 import com.cstery.chengsterymall.domain.po.Category;
 import com.cstery.chengsterymall.domain.vo.CategoryVO;
 import com.cstery.chengsterymall.mapper.CategoryMapper;
@@ -21,7 +22,9 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
     @Override
     public List<CategoryVO> getCategoryList() {
         LambdaQueryWrapper<Category> categoryLambdaQueryWrapper = new LambdaQueryWrapper<Category>()
-                .isNull(Category::getParentId);
+                .eq(Category::getStatus, StatusConstant.ENABLE)
+                .isNull(Category::getParentId)
+                .orderByAsc(Category::getSortOrder);
         List<Category> categoryList = list(categoryLambdaQueryWrapper);
 
         return BeanUtil.copyToList(categoryList, CategoryVO.class);
@@ -35,7 +38,9 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
     @Override
     public List<CategoryVO> getSubCategoryList(Long parentId) {
         LambdaQueryWrapper<Category> categoryLambdaQueryWrapper = new LambdaQueryWrapper<Category>()
-                .eq(Category::getParentId, parentId);
+                .eq(Category::getStatus, StatusConstant.ENABLE)
+                .eq(Category::getParentId, parentId)
+                .orderByAsc(Category::getSortOrder);
         List<Category> categoryList = list(categoryLambdaQueryWrapper);
 
         return BeanUtil.copyToList(categoryList, CategoryVO.class);

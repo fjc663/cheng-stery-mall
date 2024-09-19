@@ -11,6 +11,8 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.io.Serial;
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 @Data
@@ -18,7 +20,10 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @Builder
 @ApiModel(description = "商品数据传输对象")
-public class ProductDTO {
+public class ProductDTO implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
+
     @ApiModelProperty(value = "商品名称", required = true, example = "红酒 A")
     @NotBlank(message = "商品名称不能为空")
     @Size(min = 1, max = 50, message = "商品名字符长度为1到50")

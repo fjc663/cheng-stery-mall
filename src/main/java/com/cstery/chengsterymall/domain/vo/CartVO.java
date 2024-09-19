@@ -7,6 +7,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
@@ -15,7 +17,9 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Builder
 @ApiModel(description = "购物车对象")
-public class CartVO {
+public class CartVO implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
 
     // 购物车记录ID
     @ApiModelProperty(value = "购物车记录ID", example = "1")

@@ -12,7 +12,7 @@ import com.cstery.chengsterymall.domain.dto.CartDTO;
 import com.cstery.chengsterymall.domain.po.Cart;
 import com.cstery.chengsterymall.domain.po.Product;
 import com.cstery.chengsterymall.domain.vo.CartVO;
-import com.cstery.chengsterymall.exceptions.GetCartFailException;
+import com.cstery.chengsterymall.exceptions.CartException;
 import com.cstery.chengsterymall.mapper.CartMapper;
 import com.cstery.chengsterymall.service.CartService;
 import org.springframework.stereotype.Service;
@@ -84,7 +84,7 @@ public class CartServiceImpl extends ServiceImpl<CartMapper, Cart> implements Ca
         List<Cart> cartList = list(cartLambdaQueryWrapper);
 
         if (CollUtil.isEmpty(cartList)){
-            throw new GetCartFailException(MessageConstant.CARTEMPTY);
+            throw new CartException(MessageConstant.CARTEMPTY);
         }
 
         List<CartVO> cartVOList = BeanUtil.copyToList(cartList, CartVO.class);

@@ -7,6 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 @Data
@@ -15,6 +16,8 @@ import java.io.Serializable;
 @Builder
 @ApiModel(description = "登录视图对象")
 public class LoginVO implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
 
     @ApiModelProperty(value = "用户ID", example = "1")
     private Long id;

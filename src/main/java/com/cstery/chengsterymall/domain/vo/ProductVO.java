@@ -7,6 +7,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -15,7 +17,9 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 @ApiModel(description = "商品视图对象")
-public class ProductVO {
+public class ProductVO implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
 
     @ApiModelProperty(value = "商品ID", example = "1")
     private Long id;

@@ -7,12 +7,17 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serial;
+import java.io.Serializable;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @ApiModel(description = "分类视图对象")
-public class CategoryVO {
+public class CategoryVO implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
 
     @ApiModelProperty(value = "分类ID", example = "1")
     private Long id;

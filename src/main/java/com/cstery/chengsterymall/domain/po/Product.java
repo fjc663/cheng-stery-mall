@@ -7,6 +7,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
@@ -16,7 +18,9 @@ import java.time.LocalDateTime;
 @Builder
 @ApiModel("商品实体")
 @TableName("product")
-public class Product {
+public class Product implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
     
     // 商品ID，自增主键
     @TableId(type = IdType.AUTO)

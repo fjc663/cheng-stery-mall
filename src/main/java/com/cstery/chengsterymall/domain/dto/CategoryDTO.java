@@ -10,13 +10,17 @@ import lombok.NoArgsConstructor;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.io.Serial;
+import java.io.Serializable;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @ApiModel(description = "分类数据传输对象")
-public class CategoryDTO {
+public class CategoryDTO implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
 
     @ApiModelProperty(value = "分类名称", required = true, example = "饮料")
     @NotBlank(message = "分类名称不能为空")

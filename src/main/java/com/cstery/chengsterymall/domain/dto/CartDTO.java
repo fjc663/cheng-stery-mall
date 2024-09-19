@@ -11,13 +11,17 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.io.Serial;
+import java.io.Serializable;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @ApiModel(description = "购物车数据传输对象")
-public class CartDTO {
+public class CartDTO implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
     
     // 商品ID，关联商品表
     @ApiModelProperty(value = "商品ID", required = true, example = "1")

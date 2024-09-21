@@ -1,11 +1,13 @@
 package com.cstery.chengsterymall.domain.vo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -39,18 +41,22 @@ public class UserVO implements Serializable {
     @ApiModelProperty(value = "性别", allowableValues = "0, 1", example = "1")
     private Integer gender; // 0: 女, 1: 男
 
-    @ApiModelProperty(value = "生日", example = "1990-01-01T00:00:00")
+    @ApiModelProperty(value = "生日", example = "1990-01-01")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date birthdate;
 
     @ApiModelProperty(value = "地址", example = "北京市朝阳区")
     private String address;
 
-    @ApiModelProperty(value = "创建时间", example = "2024-01-01T12:00:00")
+    @ApiModelProperty(value = "创建时间", example = "2024-01-01 12:00:00")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime createdAt;
 
-    @ApiModelProperty(value = "更新时间", example = "2024-01-02T15:00:00")
+    @ApiModelProperty(value = "更新时间", example = "2024-01-02 15:00:00")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime updatedAt;
 
-    @ApiModelProperty(value = "最后登录时间", example = "2024-01-03T18:00:00")
+    @ApiModelProperty(value = "最后登录时间", example = "2024-01-03 18:00:00")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime lastLogin;
 }

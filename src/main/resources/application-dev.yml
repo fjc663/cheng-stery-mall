@@ -14,6 +14,13 @@ csm:
     user-secret-key: fjcstery
     user-ttl: 7200000
     user-token-name: authorization
-
-
+  servlet:
+    multipart:
+      max-request-size: 50MB
+      max-file-size: 20MB   # 设置上传文件大小，默认是1M
+  alioss:
+    endpoint: oss-cn-beijing.aliyuncs.com
+    bucket-name: cstery-sky
+    access-key-secret: zZhUThCwH54quUEKL8l2UvBtavsj6W
+    access-key-id: LTAI5tMLyK8pQCwzKqqnPoyk
 

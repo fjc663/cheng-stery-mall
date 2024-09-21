@@ -64,7 +64,7 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         }
 
         // 订单总额异常
-        if (totalAmoun.equals(orderDTO.getTotalAmount())){
+        if (totalAmoun.compareTo(orderDTO.getTotalAmount()) != 0){
             throw new OrderException(MessageConstant.TOTALAMOUTERROR);
         }
 

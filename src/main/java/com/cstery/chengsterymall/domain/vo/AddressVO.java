@@ -48,10 +48,6 @@ public class AddressVO implements Serializable {
     @ApiModelProperty(value = "详细地址", example = "天河路1号")
     private String detailedAddress;
 
-    // 邮政编码
-    @ApiModelProperty(value = "邮政编码", example = "510000")
-    private String postalCode;
-
     // 是否为默认地址
     @ApiModelProperty(value = "是否为默认地址", example = "true")
     private Boolean isDefault;

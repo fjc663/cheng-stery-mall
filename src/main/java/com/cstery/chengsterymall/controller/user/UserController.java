@@ -1,18 +1,17 @@
 package com.cstery.chengsterymall.controller.user;
 
+import com.cstery.chengsterymall.domain.dto.UserDTO;
 import com.cstery.chengsterymall.domain.dto.UserLoginDTO;
 import com.cstery.chengsterymall.domain.dto.UserRegisterDTO;
 import com.cstery.chengsterymall.domain.vo.LoginVO;
+import com.cstery.chengsterymall.domain.vo.UserVO;
 import com.cstery.chengsterymall.result.Result;
 import com.cstery.chengsterymall.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -48,6 +47,29 @@ public class UserController {
     public Result<LoginVO> login(@Valid @RequestBody  UserLoginDTO userLoginDTO) {
         LoginVO loginVO = userService.login(userLoginDTO);
         return Result.success(loginVO);
+    }
+
+    /**
+     * 返回当前用户的用户信息
+     * @return
+     */
+    @GetMapping
+    @ApiOperation("返回当前用户的用户信息")
+    public Result<UserVO> getUserInfo() {
+        UserVO userVO = userService.getUserInfo();
+        return Result.success(userVO);
+    }
+
+    /**
+     * 修改用户信息
+     * @param userDTO
+     * @return
+     */
+    @PutMapping
+    @ApiOperation("修改用户信息")
+    public Result updateUserInfo(@Valid @RequestBody UserDTO userDTO) {
+        userService.updateUserInfo(userDTO);
+        return Result.success();
     }
 
 }

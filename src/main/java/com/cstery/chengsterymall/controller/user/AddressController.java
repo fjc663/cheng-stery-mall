@@ -1,14 +1,14 @@
 package com.cstery.chengsterymall.controller.user;
 
+import com.cstery.chengsterymall.domain.dto.AddressDTO;
 import com.cstery.chengsterymall.domain.vo.AddressVO;
 import com.cstery.chengsterymall.result.Result;
 import com.cstery.chengsterymall.service.AddressService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,5 +29,53 @@ public class AddressController {
     public Result<List<AddressVO>> getAddress(){
         List<AddressVO> addressVOList = addressService.getAddress();
         return Result.success(addressVOList);
+    }
+
+    /**
+     * 根据id设置默认地址
+     * @param id
+     * @return
+     */
+    @PutMapping("/{id}")
+    @ApiOperation("根据id设置默认地址")
+    public Result setDefaultAddress(@PathVariable @ApiParam("地址id") Long id) {
+        addressService.setDefaultAddress(id);
+        return Result.success();
+    }
+
+    /**
+     * 添加新地址
+     * @param addressDTO
+     * @return
+     */
+    @PostMapping
+    @ApiOperation("添加新地址")
+    public Result addAddress(@RequestBody AddressDTO addressDTO) {
+        addressService.addAddress(addressDTO);
+        return Result.success();
+    }
+
+    /**
+     * 修改地址
+     * @param addressDTO
+     * @return
+     */
+    @PutMapping
+    @ApiOperation("修改地址")
+    public Result updateAddress(@RequestBody AddressDTO addressDTO) {
+        addressService.updateAddress(addressDTO);
+        return Result.success();
+    }
+
+    /**
+     * 删除地址
+     * @param id
+     * @return
+     */
+    @DeleteMapping
+    @ApiOperation("删除地址")
+    public Result deleteAddress(@RequestParam @ApiParam("地址id") Long id){
+        addressService.deleteAddress(id);
+        return Result.success();
     }
 }

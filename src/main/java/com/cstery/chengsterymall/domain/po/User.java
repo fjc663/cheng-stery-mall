@@ -82,7 +82,7 @@ public class User implements Serializable {
     @TableField(value = "birthdate")
     private Date birthdate;
 
-    // 默认收货地址，数据库字段名为 "address"
+    // 地址
     @TableField(value = "address")
     private String address;
 }

@@ -23,6 +23,10 @@ public class AddressDTO implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
+    // 地址ID
+    @ApiModelProperty(value = "地址ID", example = "1")
+    private Long id;
+
     // 收货人姓名
     @ApiModelProperty(value = "收货人姓名", required = true, example = "张三")
     @NotBlank(message = "收货人姓名不能为空")
@@ -54,11 +58,6 @@ public class AddressDTO implements Serializable {
     @ApiModelProperty(value = "详细地址", required = true, example = "天河路1号")
     @NotBlank(message = "详细地址不能为空")
     private String detailedAddress;
-
-    // 邮政编码
-    @ApiModelProperty(value = "邮政编码", example = "510000")
-    @Size(min = 6, max = 6, message = "邮政编码长度应为6位")
-    private String postalCode;
 
     // 是否为默认地址
     @ApiModelProperty(value = "是否为默认地址", example = "true")

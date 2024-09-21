@@ -10,4 +10,5 @@ public class MessageConstant {
     public static final String CARTEMPTY = "购物车为空，请先购物";
     public static final String ADDRESSEMPTY = "请正确设置送货地址";
     public static final String TOTALAMOUTERROR = "订单总金额异常";
+    public static final String UPLOAD_FAILED = "文件上传失败";
 }

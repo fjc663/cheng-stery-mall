@@ -51,9 +51,6 @@ public class Address implements Serializable {
     // 详细地址
     private String detailedAddress;
 
-    // 邮政编码
-    private String postalCode;
-
     // 是否为默认地址
     private Boolean isDefault;
 

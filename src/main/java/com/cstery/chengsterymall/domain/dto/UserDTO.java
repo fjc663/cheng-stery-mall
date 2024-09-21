@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.*;
 import java.io.Serial;
@@ -30,17 +31,12 @@ public class UserDTO implements Serializable {
     @ApiModelProperty(value = "用户名", example = "john_doe")
     private String username;
 
-    @Email(message = "请输入正确的邮箱") // TODO 好像未生效
+    @Email(message = "请输入正确的邮箱")
     @ApiModelProperty(value = "用户邮箱", example = "john_doe@example.com")
     private String email;
 
     @ApiModelProperty(value = "用户手机号", example = "1234567890")
     private String phone;
-
-    @NotBlank(message = "密码不能为空")
-    @Size(min = 6, max = 18, message = "密码字符长度为6到18")
-    @ApiModelProperty(value = "用户密码", example = "password123")
-    private String password;
 
     @ApiModelProperty(value = "用户状态（1=正常，0=禁用）", example = "1")
     private Integer status;
@@ -55,6 +51,7 @@ public class UserDTO implements Serializable {
     private Integer gender;
 
     @ApiModelProperty(value = "生日", example = "2000-01-01")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birthdate;
 
     @ApiModelProperty(value = "默认收货地址", example = "123 Main St, City, Country")

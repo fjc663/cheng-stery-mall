@@ -27,7 +27,7 @@ public class UserRegisterDTO implements Serializable {
     @ApiModelProperty(value = "用户名", example = "john_doe")
     private String username;
 
-    @Email(message = "请输入正确的邮箱") // TODO 好像未生效
+    @Email(message = "请输入正确的邮箱")
     @ApiModelProperty(value = "用户邮箱", example = "john_doe@example.com")
     private String email;
 

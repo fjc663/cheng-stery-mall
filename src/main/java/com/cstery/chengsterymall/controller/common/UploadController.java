@@ -46,7 +46,7 @@ public class UploadController {
             userService.updateAvatarUrl(imgPath);
             return Result.success(imgPath);
         } catch (IOException e) {
-            throw new UploadFailException(MessageConstant.UPLOAD_FAILED);
+            throw new UploadFailException(MessageConstant.UPLOADFAILED);
         }
 
     }

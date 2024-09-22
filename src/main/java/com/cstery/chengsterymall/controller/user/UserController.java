@@ -1,5 +1,6 @@
 package com.cstery.chengsterymall.controller.user;
 
+import com.cstery.chengsterymall.domain.dto.EditPasswordDTO;
 import com.cstery.chengsterymall.domain.dto.UserDTO;
 import com.cstery.chengsterymall.domain.dto.UserLoginDTO;
 import com.cstery.chengsterymall.domain.dto.UserRegisterDTO;
@@ -69,6 +70,18 @@ public class UserController {
     @ApiOperation("修改用户信息")
     public Result updateUserInfo(@Valid @RequestBody UserDTO userDTO) {
         userService.updateUserInfo(userDTO);
+        return Result.success();
+    }
+
+    /**
+     * 修改密码
+     * @param editPasswordDTO
+     * @return
+     */
+    @PutMapping("/editPassword")
+    @ApiOperation("修改密码")
+    public Result editPassword(@Valid @RequestBody EditPasswordDTO editPasswordDTO) {
+        userService.editPassword(editPasswordDTO);
         return Result.success();
     }
 

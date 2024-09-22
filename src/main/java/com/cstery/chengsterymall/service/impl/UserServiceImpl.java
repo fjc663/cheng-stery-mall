@@ -9,6 +9,7 @@ import com.cstery.chengsterymall.constant.JwtClaimConstant;
 import com.cstery.chengsterymall.constant.MessageConstant;
 import com.cstery.chengsterymall.constant.StatusConstant;
 import com.cstery.chengsterymall.context.BaseContext;
+import com.cstery.chengsterymall.domain.dto.EditPasswordDTO;
 import com.cstery.chengsterymall.domain.dto.UserDTO;
 import com.cstery.chengsterymall.domain.dto.UserLoginDTO;
 import com.cstery.chengsterymall.domain.dto.UserRegisterDTO;
@@ -16,6 +17,7 @@ import com.cstery.chengsterymall.domain.po.User;
 import com.cstery.chengsterymall.domain.vo.LoginVO;
 import com.cstery.chengsterymall.domain.vo.UserVO;
 import com.cstery.chengsterymall.exceptions.LoginFailException;
+import com.cstery.chengsterymall.exceptions.UpdateFailException;
 import com.cstery.chengsterymall.mapper.UserMapper;
 import com.cstery.chengsterymall.properties.JwtProperties;
 import com.cstery.chengsterymall.service.UserService;
@@ -151,6 +153,43 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
                 .id(BaseContext.getCurrentId())
                 .avatarUrl(newAvaratUrl)
                 .build();
+        updateById(user);
+    }
+
+    /**
+     * 修改密码
+     * @param editPasswordDTO
+     */
+    @Override
+    @Transactional
+    public void editPassword(EditPasswordDTO editPasswordDTO) {
+        // 查询用户信息
+        User user = getById(BaseContext.getCurrentId());
+
+        // 加密传过来的旧密码，同时比较查到的密码
+        String saltOldPassword = user.getSalt() + editPasswordDTO.getOldPassword();
+        String cOldPassword = DigestUtil.md5Hex(saltOldPassword.getBytes());
+
+        // 不正确抛出异常
+        if (!cOldPassword.equals(user.getPassword())){
+            throw new UpdateFailException(MessageConstant.OLDPASSWORDERROR);
+        }
+
+        // 加密新密码并换盐值
+        String salt = SaltGeneratorUtil.generateSalt();
+        String saltNewPassword = salt + editPasswordDTO.getNewPassword();
+        String cNewPassword = DigestUtil.md5Hex(saltNewPassword.getBytes());
+
+        // 修改密码
+        user = User
+                .builder()
+                .id(BaseContext.getCurrentId())
+                .salt(salt)
+                .password(cNewPassword)
+                .updatedAt(LocalDateTime.now())
+                .build();
+
+        // 更新
         updateById(user);
     }
 }

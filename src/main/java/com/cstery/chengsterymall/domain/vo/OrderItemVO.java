@@ -16,14 +16,10 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @Builder
 @ApiModel(description = "订单商品对象")
-class OrderItemVO implements Serializable {
+public class OrderItemVO implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;
-
-    // 订单编号
-    @ApiModelProperty(value = "订单编号", example = "3")
-    private Long orderId;
 
     // 商品名称
     @ApiModelProperty(value = "商品名称", example = "红酒")

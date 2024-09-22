@@ -1,5 +1,6 @@
 package com.cstery.chengsterymall.domain.vo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
@@ -64,23 +65,28 @@ public class OrderVO implements Serializable {
     private BigDecimal discountAmount;
 
     // 订单创建时间
-    @ApiModelProperty(value = "订单创建时间", example = "2024-09-20T10:00:00")
+    @ApiModelProperty(value = "订单创建时间", example = "2024-09-20 10:00:00")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime createdAt;
 
     // 支付时间
-    @ApiModelProperty(value = "支付时间", example = "2024-09-20T10:30:00")
+    @ApiModelProperty(value = "支付时间", example = "2024-09-20 10:30:00")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime paidAt;
 
     // 发货时间
-    @ApiModelProperty(value = "发货时间", example = "2024-09-21T15:00:00")
+    @ApiModelProperty(value = "发货时间", example = "2024-09-21 15:00:00")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime shippedAt;
 
     // 订单完成时间
-    @ApiModelProperty(value = "订单完成时间", example = "2024-09-23T18:00:00")
+    @ApiModelProperty(value = "订单完成时间", example = "2024-09-23 18:00:00")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime completedAt;
 
     // 订单取消时间
-    @ApiModelProperty(value = "订单取消时间", example = "2024-09-21T10:00:00")
+    @ApiModelProperty(value = "订单取消时间", example = "2024-09-21 10:00:00")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime canceledAt;
 
     // 订单备注

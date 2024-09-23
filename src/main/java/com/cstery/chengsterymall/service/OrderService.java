@@ -28,4 +28,16 @@ public interface OrderService extends IService<Order> {
      * @return
      */
     OrderVO getOrderDetail(Long id);
+
+    /**
+     * 根据订单id取消订单
+     * @param id
+     */
+    void cancelOrder(Long id);
+
+    /**
+     * 再次购买
+     * @param id
+     */
+    void buyAgain(Long id);
 }

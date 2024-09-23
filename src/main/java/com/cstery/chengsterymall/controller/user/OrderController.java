@@ -56,4 +56,28 @@ public class OrderController {
         OrderVO orderVO = orderService.getOrderDetail(id);
         return Result.success(orderVO);
     }
+
+    /**
+     * 根据订单id取消订单
+     * @param id
+     * @return
+     */
+    @PutMapping("/cancel/{id}")
+    @ApiOperation("根据订单id取消订单")
+    public Result cancelOrder(@PathVariable @ApiParam("订单id") Long id) {
+        orderService.cancelOrder(id);
+        return Result.success();
+    }
+
+    /**
+     * 再次购买
+     * @param id
+     * @return
+     */
+    @PostMapping("/buyagain/{id}")
+    @ApiOperation("再次购买")
+    public Result buyAgain(@PathVariable @ApiParam("订单id") Long id) {
+        orderService.buyAgain(id);
+        return Result.success();
+    }
 }

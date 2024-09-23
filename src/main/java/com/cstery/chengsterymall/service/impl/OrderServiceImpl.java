@@ -8,15 +8,14 @@ import com.baomidou.mybatisplus.extension.toolkit.Db;
 import com.cstery.chengsterymall.constant.MessageConstant;
 import com.cstery.chengsterymall.context.BaseContext;
 import com.cstery.chengsterymall.domain.dto.OrderDTO;
-import com.cstery.chengsterymall.domain.po.Address;
-import com.cstery.chengsterymall.domain.po.Order;
-import com.cstery.chengsterymall.domain.po.OrderItem;
+import com.cstery.chengsterymall.domain.po.*;
 import com.cstery.chengsterymall.domain.vo.CartVO;
 import com.cstery.chengsterymall.domain.vo.OrderItemVO;
 import com.cstery.chengsterymall.domain.vo.OrderVO;
 import com.cstery.chengsterymall.exceptions.AddressException;
 import com.cstery.chengsterymall.exceptions.CartException;
 import com.cstery.chengsterymall.exceptions.OrderException;
+import com.cstery.chengsterymall.exceptions.ProductException;
 import com.cstery.chengsterymall.mapper.OrderMapper;
 import com.cstery.chengsterymall.service.CartService;
 import com.cstery.chengsterymall.service.OrderService;
@@ -43,10 +42,7 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
     @Transactional
     public void createOrder(OrderDTO orderDTO) {
         // 查出购物车数据
-        List<CartVO> cartList = cartService.getByUserId();
-        if (CollUtil.isEmpty(cartList)){
-            throw new CartException(MessageConstant.CARTEMPTY);
-        }
+        List<CartVO> cartList = cartService.getBySelectId(orderDTO.getSelectedCardId());
 
         // 根据地址ID查出送货地址
         Address address = Db.getById(orderDTO.getAddressId(), Address.class);
@@ -96,8 +92,8 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         // 批量插入订单商品对象
         Db.saveBatch(orderItemList);
 
-        // 清空购物车
-        cartService.deleteAllItem();
+        // 根据购物车id列表删除购物车数据
+        cartService.deleteItemBySelectId(orderDTO.getSelectedCardId());
 
     }
 
@@ -162,5 +158,59 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         orderVO.setOrderItemVOList(orderItemVOList);
 
         return orderVO;
+    }
+
+    /**
+     * 根据订单id取消订单
+     * @param id
+     */
+    @Override
+    @Transactional
+    public void cancelOrder(Long id) {
+        Order order = Order
+                .builder()
+                .id(id)
+                .canceledAt(LocalDateTime.now())
+                .status(Order.CANCELED)
+                .build();
+
+        updateById(order);
+    }
+
+    /**
+     * 再次购买
+     * @param id
+     */
+    @Override
+    @Transactional
+    public void buyAgain(Long id) {
+        // 根据订单id查询订单商品数据
+        List<OrderItem> orderItemList = Db.lambdaQuery(OrderItem.class).eq(OrderItem::getOrderId, id).list();
+
+        if (orderItemList == null || orderItemList.isEmpty()){
+            throw new OrderException(MessageConstant.ORDERNOTEXIST);
+        }
+
+        // 复制订单商品到购物车
+        List<Cart> cartList = BeanUtil.copyToList(orderItemList, Cart.class);
+
+        // 判断商品是否存在，并设置价格到购物车
+        for (Cart cart : cartList) {
+            // 查询商品数据
+            Product product = Db.getById(cart.getProductId(), Product.class);
+
+            if (product == null){
+                throw new ProductException("订单中有" + MessageConstant.PRODUCTNOTEXIST);
+            }
+
+            // 设置购物车其他信息
+            cart.setId(null);
+            cart.setUserId(BaseContext.getCurrentId());
+            cart.setCreatedAt(LocalDateTime.now());
+            cart.setUpdatedAt(LocalDateTime.now());
+        }
+
+        // 插入购物车数据
+        Db.saveBatch(cartList);
     }
 }

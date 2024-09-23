@@ -44,4 +44,17 @@ public interface CartService extends IService<Cart> {
      * 根据用户id清空购物车
      */
     void deleteAllItem();
+
+    /**
+     * 根据选中的id返回购物车商品数据
+     * @param selectedCardId
+     * @return
+     */
+    List<CartVO> getBySelectId(List<Long> selectedCardId);
+
+    /**
+     * 根据购物车id列表删除购物车数据
+     * @param selectedCardId
+     */
+    void deleteItemBySelectId(List<Long> selectedCardId);
 }

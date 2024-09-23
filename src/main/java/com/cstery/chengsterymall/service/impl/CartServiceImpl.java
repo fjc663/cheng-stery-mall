@@ -137,4 +137,48 @@ public class CartServiceImpl extends ServiceImpl<CartMapper, Cart> implements Ca
                 .eq(Cart::getUserId, BaseContext.getCurrentId());
         remove(cartLambdaQueryWrapper);
     }
+
+    /**
+     * 根据选中的id返回购物车商品数据
+     * @param selectedCardId
+     * @return
+     */
+    @Override
+    public List<CartVO> getBySelectId(List<Long> selectedCardId) {
+        LambdaQueryWrapper<Cart> cartLambdaQueryWrapper = new LambdaQueryWrapper<Cart>()
+                .in(Cart::getId, selectedCardId)
+                .orderByDesc(Cart::getCreatedAt);
+
+        List<Cart> cartList = list(cartLambdaQueryWrapper);
+
+        if (CollUtil.isEmpty(cartList)){
+            throw new CartException(MessageConstant.NOTSELECTPRODUCT);
+        }
+
+        // 转发为vo对象
+        List<CartVO> cartVOList = BeanUtil.copyToList(cartList, CartVO.class);
+
+        // 增加商品数据
+        cartVOList.forEach(cartVO -> {
+            Product product = Db.getById(cartVO.getProductId(), Product.class);
+
+            cartVO.setProductName(product.getName());
+            cartVO.setProductImageUrl(product.getImageUrl());
+            cartVO.setProductPrice(product.getPrice());
+        });
+
+        return cartVOList;
+    }
+
+    /**
+     * 根据购物车id列表删除购物车数据
+     * @param selectedCardId
+     */
+    @Override
+    @Transactional
+    public void deleteItemBySelectId(List<Long> selectedCardId) {
+        LambdaQueryWrapper<Cart> cartLambdaQueryWrapper = new LambdaQueryWrapper<Cart>()
+                .in(Cart::getId, selectedCardId);
+        remove(cartLambdaQueryWrapper);
+    }
 }

@@ -24,11 +24,11 @@ public class CategoryController {
     private final CategoryService categoryService;
 
     /**
-     * 获取无父级分类的分类
+     * 获取一级分类
      * @return
      */
     @GetMapping("/list")
-    @ApiOperation("获得全部分类信息")
+    @ApiOperation("获得全部一级分类信息")
     public Result<List<CategoryVO>> getCategoryList(){
         List<CategoryVO> categoryVOList = categoryService.getCategoryList();
         return Result.success(categoryVOList);

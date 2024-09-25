@@ -9,7 +9,7 @@ import java.util.List;
 public interface CategoryService extends IService<Category> {
 
     /**
-     * 获取无父级分类的分类
+     * 获取一级分类
      * @return
      */
     List<CategoryVO> getCategoryList();

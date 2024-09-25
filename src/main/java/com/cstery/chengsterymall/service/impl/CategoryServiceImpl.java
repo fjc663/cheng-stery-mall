@@ -16,7 +16,7 @@ import java.util.List;
 public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> implements CategoryService {
 
     /**
-     * 获取无父级分类的分类
+     * 获取一级分类
      * @return
      */
     @Override

@@ -545,15 +545,15 @@ CREATE TABLE orders
 
 CREATE TABLE order_items
 (
-    id             BIGINT AUTO_INCREMENT PRIMARY KEY COMMENT '订单商品记录ID',
-    order_id       BIGINT          NOT NULL COMMENT '订单ID，关联到订单表',
-    product_id     BIGINT UNSIGNED NOT NULL COMMENT '商品ID，关联到商品表',
-    product_name   VARCHAR(255)    NOT NULL COMMENT '商品名称，冗余字段',
-    quantity       INT             NOT NULL COMMENT '购买数量',
-    unit_price     DECIMAL(10, 2)  NOT NULL COMMENT '商品单价',
-    product_image_url   VARCHAR(255) COMMENT '商品图片地址',
-    specifications VARCHAR(255) DEFAULT NULL COMMENT '商品规格，JSON格式',
-    created_at     TIMESTAMP    DEFAULT CURRENT_TIMESTAMP COMMENT '记录创建时间',
+    id                BIGINT AUTO_INCREMENT PRIMARY KEY COMMENT '订单商品记录ID',
+    order_id          BIGINT          NOT NULL COMMENT '订单ID，关联到订单表',
+    product_id        BIGINT UNSIGNED NOT NULL COMMENT '商品ID，关联到商品表',
+    product_name      VARCHAR(255)    NOT NULL COMMENT '商品名称，冗余字段',
+    quantity          INT             NOT NULL COMMENT '购买数量',
+    unit_price        DECIMAL(10, 2)  NOT NULL COMMENT '商品单价',
+    product_image_url VARCHAR(255) COMMENT '商品图片地址',
+    specifications    VARCHAR(255) DEFAULT NULL COMMENT '商品规格，JSON格式',
+    created_at        TIMESTAMP    DEFAULT CURRENT_TIMESTAMP COMMENT '记录创建时间',
     FOREIGN KEY (order_id) REFERENCES orders (id) ON DELETE CASCADE,
     FOREIGN KEY (product_id) REFERENCES product (id) ON DELETE RESTRICT
 ) ENGINE = InnoDB
@@ -577,8 +577,37 @@ CREATE TABLE address
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4 COMMENT ='用户地址表';
 
-INSERT INTO address (user_id, receiver_name, receiver_phone, province, city, district, detailed_address, postal_code, is_default, created_at, updated_at)
-VALUES
-    (9, '张三', '13800138000', '北京市', '北京市', '朝阳区', 'XX路XX号', '100020', 1, '2024-09-20 10:00:00', '2024-09-20 10:00:00'),
-    (9, '李四', '13900139000', '上海市', '上海市', '浦东新区', 'YY路YY号', '200120', 0, '2024-09-20 11:00:00', '2024-09-20 11:00:00'),
-    (9, '王五', '13700137000', '广东省', '广州市', '天河区', 'ZZ路ZZ号', '510000', 0, '2024-09-20 12:00:00', '2024-09-20 12:00:00');
+INSERT INTO address (user_id, receiver_name, receiver_phone, province, city, district, detailed_address, postal_code,
+                     is_default, created_at, updated_at)
+VALUES (9, '张三', '13800138000', '北京市', '北京市', '朝阳区', 'XX路XX号', '100020', 1, '2024-09-20 10:00:00',
+        '2024-09-20 10:00:00'),
+       (9, '李四', '13900139000', '上海市', '上海市', '浦东新区', 'YY路YY号', '200120', 0, '2024-09-20 11:00:00',
+        '2024-09-20 11:00:00'),
+       (9, '王五', '13700137000', '广东省', '广州市', '天河区', 'ZZ路ZZ号', '510000', 0, '2024-09-20 12:00:00',
+        '2024-09-20 12:00:00');
+
+CREATE TABLE featured_product
+(
+    id            BIGINT AUTO_INCREMENT PRIMARY KEY COMMENT '主键ID',
+    product_id    BIGINT UNSIGNED NOT NULL COMMENT '商品ID，关联到商品表',
+    type          TINYINT         NOT NULL COMMENT '类型: 1-轮播图商品, 2-热门商品, 3-新品商品',
+    display_order INT       DEFAULT 0 COMMENT '显示顺序，数值越大越优先显示',
+    created_at    TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '记录创建时间',
+    updated_at    TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '记录更新时间',
+    FOREIGN KEY (product_id) REFERENCES product (id) ON DELETE CASCADE
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4 COMMENT ='轮播图、热门、新品商品表';
+
+INSERT INTO featured_product (product_id, type, display_order)
+VALUES (1, 1, 10), -- 轮播图商品，优先级 10
+       (2, 2, 5),  -- 热门商品，优先级 5
+       (3, 3, 7),  -- 新品商品，优先级 7
+       (4, 1, 15), -- 另一个轮播图商品，优先级 15
+       (5, 2, 3),  -- 另一个热门商品，优先级 3
+       (6, 3, 8),  -- 另一个新品商品，优先级 8
+       (7, 1, 11),
+       (8, 2, 5),
+       (9, 3, 7),
+       (10, 1, 23),
+       (11, 2, 12),
+       (12, 3, 22);

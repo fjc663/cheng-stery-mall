@@ -1,7 +1,9 @@
 package com.cstery.chengsterymall.controller.user;
 
+import com.cstery.chengsterymall.domain.vo.FeaturedProductVO;
 import com.cstery.chengsterymall.domain.vo.ProductVO;
 import com.cstery.chengsterymall.result.Result;
+import com.cstery.chengsterymall.service.FeaturedProductService;
 import com.cstery.chengsterymall.service.ProductService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -21,6 +23,7 @@ import java.util.List;
 public class ProductController {
 
     private final ProductService productService;
+    private final FeaturedProductService featuredProductService;
 
     /**
      * 根据分类id返回商品
@@ -44,6 +47,17 @@ public class ProductController {
     public Result<ProductVO> getProductDetailInfo(@ApiParam("商品id") @RequestParam Long id){
         ProductVO productVO = productService.getProductDetailInfo(id);
         return Result.success(productVO);
+    }
+
+    /**
+     * 返回特色商品数据
+     * @return
+     */
+    @GetMapping("/featured")
+    @ApiOperation("返回特色商品数据")
+    public  Result<List<FeaturedProductVO>> getFeaturedProducts() {
+        List<FeaturedProductVO> featuredProductVOList = featuredProductService.getFeaturedProducts();
+        return Result.success(featuredProductVOList);
     }
 
 

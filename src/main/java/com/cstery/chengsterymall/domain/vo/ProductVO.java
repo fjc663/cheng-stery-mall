@@ -51,4 +51,7 @@ public class ProductVO implements Serializable {
     @ApiModelProperty(value = "商品图片的URL地址", example = "http://localhost:8080/product/default_product.png")
     private String imageUrl;
 
+    @ApiModelProperty(value = "该商品是否被收藏", example = "true")
+    private Boolean isFavorites;
+
 }

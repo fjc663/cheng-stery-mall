@@ -611,3 +611,14 @@ VALUES (1, 1, 10), -- 轮播图商品，优先级 10
        (10, 1, 23),
        (11, 2, 12),
        (12, 3, 22);
+
+CREATE TABLE product_favorites (
+                                   id BIGINT AUTO_INCREMENT PRIMARY KEY COMMENT '收藏ID',
+                                   user_id BIGINT UNSIGNED NOT NULL COMMENT '用户ID, 关联用户表',
+                                   product_id BIGINT UNSIGNED NOT NULL COMMENT '商品ID, 关联商品表',
+                                   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '收藏时间',
+                                   updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+                                   UNIQUE KEY unique_user_product (user_id, product_id) COMMENT '防止重复收藏',
+                                   FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE,
+                                   FOREIGN KEY (product_id) REFERENCES product(id) ON DELETE CASCADE
+) COMMENT '商品收藏表' ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

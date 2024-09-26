@@ -1,18 +1,17 @@
 package com.cstery.chengsterymall.controller.user;
 
 import com.cstery.chengsterymall.domain.vo.FeaturedProductVO;
+import com.cstery.chengsterymall.domain.vo.ProductFavoriteVO;
 import com.cstery.chengsterymall.domain.vo.ProductVO;
 import com.cstery.chengsterymall.result.Result;
 import com.cstery.chengsterymall.service.FeaturedProductService;
+import com.cstery.chengsterymall.service.ProductFavoritesService;
 import com.cstery.chengsterymall.service.ProductService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -55,10 +54,9 @@ public class ProductController {
      */
     @GetMapping("/featured")
     @ApiOperation("返回特色商品数据")
-    public  Result<List<FeaturedProductVO>> getFeaturedProducts() {
+    public Result<List<FeaturedProductVO>> getFeaturedProducts() {
         List<FeaturedProductVO> featuredProductVOList = featuredProductService.getFeaturedProducts();
         return Result.success(featuredProductVOList);
     }
-
 
 }

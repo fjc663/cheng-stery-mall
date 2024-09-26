@@ -15,4 +15,5 @@ public class MessageConstant {
     public static final String OLDPASSWORDERROR = "旧密码错误";
     public static final String ORDERNOTEXIST = "订单不存在";
     public static final String PRODUCTNOTEXIST = "商品不存在";
+    public static final String ALREADYINFAVOITES = "商品已在收藏夹";
 }

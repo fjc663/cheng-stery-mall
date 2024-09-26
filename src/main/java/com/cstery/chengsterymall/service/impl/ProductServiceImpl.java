@@ -2,10 +2,13 @@ package com.cstery.chengsterymall.service.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.extension.conditions.query.LambdaQueryChainWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.baomidou.mybatisplus.extension.toolkit.Db;
 import com.cstery.chengsterymall.constant.StatusConstant;
+import com.cstery.chengsterymall.context.BaseContext;
 import com.cstery.chengsterymall.domain.po.Product;
+import com.cstery.chengsterymall.domain.po.ProductFavorite;
 import com.cstery.chengsterymall.domain.po.ProductSpecifications;
 import com.cstery.chengsterymall.domain.po.Specifications;
 import com.cstery.chengsterymall.domain.vo.ProductVO;
@@ -44,15 +47,24 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
     public ProductVO getProductDetailInfo(Long id) {
         Product product = getById(id);
 
+        // 转化为VO对象
+        ProductVO productVO = BeanUtil.copyProperties(product, ProductVO.class);
+
+        // 查询收藏表
+        List<ProductFavorite> productFavoriteList = Db.lambdaQuery(ProductFavorite.class)
+                .eq(ProductFavorite::getUserId, BaseContext.getCurrentId())
+                .eq(ProductFavorite::getProductId, id)
+                .list();
+
+        // 设置是否被收藏字段
+        productVO.setIsFavorites(productFavoriteList != null && !productFavoriteList.isEmpty());
+
         // 查询商品规格关联表
         List<Long> specificationIdList = Db.lambdaQuery(ProductSpecifications.class)
                 .select(ProductSpecifications::getSpecificationId)
                 .eq(ProductSpecifications::getProductId, id)
                 .list()
                 .stream().map(ProductSpecifications::getSpecificationId).toList();
-
-        // 转化为VO对象
-        ProductVO productVO = BeanUtil.copyProperties(product, ProductVO.class);
 
         if (specificationIdList.isEmpty()){
             return productVO;

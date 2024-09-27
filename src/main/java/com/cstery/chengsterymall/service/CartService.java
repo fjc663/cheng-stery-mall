@@ -12,8 +12,9 @@ public interface CartService extends IService<Cart> {
     /**
      * 添加商品到购物车
      * @param cartDTO
+     * @return
      */
-    void add(CartDTO cartDTO);
+    Long add(CartDTO cartDTO);
 
     /**
      * 获得当前用户购物车的商品数量（同种商品算一个）

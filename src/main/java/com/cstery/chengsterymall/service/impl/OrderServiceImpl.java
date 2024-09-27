@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.baomidou.mybatisplus.extension.toolkit.Db;
 import com.cstery.chengsterymall.constant.MessageConstant;
 import com.cstery.chengsterymall.context.BaseContext;
+import com.cstery.chengsterymall.domain.dto.CartDTO;
 import com.cstery.chengsterymall.domain.dto.OrderDTO;
 import com.cstery.chengsterymall.domain.po.*;
 import com.cstery.chengsterymall.domain.vo.CartVO;
@@ -25,6 +26,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -44,6 +46,29 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         // 查出购物车数据
         List<CartVO> cartList = cartService.getBySelectId(orderDTO.getSelectedCardId());
 
+
+        // 校验订单总金额
+        BigDecimal totalAmoun = BigDecimal.ZERO; // 订单总金额
+        for (CartVO cart : cartList) {
+            totalAmoun = totalAmoun.add(cart.getProductPrice().multiply(BigDecimal.valueOf(cart.getQuantity())));
+
+            // 判断库存是否充足
+            Product product = Db.getById(cart.getProductId(), Product.class);
+            if (product.getStock() < cart.getQuantity()) {
+                throw new OrderException(cart.getProductName() + MessageConstant.COMMODITYSHORTAGE);
+            }
+
+            // 减少库存
+            product.setStock(product.getStock() - cart.getQuantity());
+            product.setUpdatedAt(LocalDateTime.now());
+            Db.updateById(product);
+        }
+
+        // 订单总额异常
+        if (totalAmoun.compareTo(orderDTO.getTotalAmount()) != 0){
+            throw new OrderException(MessageConstant.TOTALAMOUTERROR);
+        }
+
         // 根据地址ID查出送货地址
         Address address = Db.getById(orderDTO.getAddressId(), Address.class);
         if (address == null){
@@ -55,18 +80,6 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
                 + address.getCity() + " "
                 + address.getDistrict() + " "
                 + address.getDetailedAddress();
-
-
-        // 校验订单总金额
-        BigDecimal totalAmoun = BigDecimal.ZERO; // 订单总金额
-        for (CartVO cart : cartList) {
-            totalAmoun = totalAmoun.add(cart.getProductPrice().multiply(BigDecimal.valueOf(cart.getQuantity()))) ;
-        }
-
-        // 订单总额异常
-        if (totalAmoun.compareTo(orderDTO.getTotalAmount()) != 0){
-            throw new OrderException(MessageConstant.TOTALAMOUTERROR);
-        }
 
         // 创建订单对象
         Order order = BeanUtil.copyProperties(orderDTO, Order.class);
@@ -167,6 +180,21 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
     @Override
     @Transactional
     public void cancelOrder(Long id) {
+
+        // 查询订单商品
+        List<OrderItem> orderItemList = Db.lambdaQuery(OrderItem.class)
+                .eq(OrderItem::getOrderId, id)
+                .list();
+
+        // 增加被取消商品的库存
+        for (OrderItem orderItem : orderItemList) {
+            Product product = Db.getById(orderItem.getProductId(), Product.class);
+            product.setStock(product.getStock() + orderItem.getQuantity());
+            product.setUpdatedAt(LocalDateTime.now());
+
+            Db.updateById(product);
+        }
+
         Order order = Order
                 .builder()
                 .id(id)
@@ -183,7 +211,7 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
      */
     @Override
     @Transactional
-    public void buyAgain(Long id) {
+    public List<Long> buyAgain(Long id) {
         // 根据订单id查询订单商品数据
         List<OrderItem> orderItemList = Db.lambdaQuery(OrderItem.class).eq(OrderItem::getOrderId, id).list();
 
@@ -192,25 +220,26 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         }
 
         // 复制订单商品到购物车
-        List<Cart> cartList = BeanUtil.copyToList(orderItemList, Cart.class);
+        List<CartDTO> cartDTOList = BeanUtil.copyToList(orderItemList, CartDTO.class);
+
+        // 返回插入购物车后的购物车记录id
+        List<Long> cartIds = new ArrayList<>();
 
         // 判断商品是否存在，并设置价格到购物车
-        for (Cart cart : cartList) {
+        for (CartDTO cartDTO : cartDTOList) {
             // 查询商品数据
-            Product product = Db.getById(cart.getProductId(), Product.class);
+            Product product = Db.getById(cartDTO.getProductId(), Product.class);
 
             if (product == null){
                 throw new ProductException("订单中有" + MessageConstant.PRODUCTNOTEXIST);
             }
 
-            // 设置购物车其他信息
-            cart.setId(null);
-            cart.setUserId(BaseContext.getCurrentId());
-            cart.setCreatedAt(LocalDateTime.now());
-            cart.setUpdatedAt(LocalDateTime.now());
+            // 插入购物车数据，可判断商品是否否已在购物车
+            Long cartId = cartService.add(cartDTO);
+
+            cartIds.add(cartId);
         }
 
-        // 插入购物车数据
-        Db.saveBatch(cartList);
+        return cartIds;
     }
 }

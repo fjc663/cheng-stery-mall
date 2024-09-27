@@ -48,5 +48,6 @@ public class OrderDTO implements Serializable {
     private String remark;
 
     // 购物车中选中的商品
+    @ApiModelProperty(value = "购物车中选中的商品", example = "[1,2,3,4]")
     private List<Long> selectedCardId;
 }

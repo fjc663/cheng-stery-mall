@@ -19,6 +19,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -27,10 +28,11 @@ public class CartServiceImpl extends ServiceImpl<CartMapper, Cart> implements Ca
     /**
      * 添加商品到购物车
      * @param cartDTO
+     * @return
      */
     @Override
     @Transactional
-    public void add(CartDTO cartDTO) {
+    public Long add(CartDTO cartDTO) {
 
         Long userId = BaseContext.getCurrentId();
 
@@ -57,6 +59,8 @@ public class CartServiceImpl extends ServiceImpl<CartMapper, Cart> implements Ca
 
             save(cart);
         }
+
+        return cart.getId();
     }
 
     /**

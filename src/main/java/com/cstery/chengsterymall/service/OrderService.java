@@ -38,6 +38,7 @@ public interface OrderService extends IService<Order> {
     /**
      * 再次购买
      * @param id
+     * @return
      */
-    void buyAgain(Long id);
+    List<Long> buyAgain(Long id);
 }

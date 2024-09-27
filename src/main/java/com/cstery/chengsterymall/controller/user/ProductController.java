@@ -1,8 +1,10 @@
 package com.cstery.chengsterymall.controller.user;
 
+import com.cstery.chengsterymall.domain.dto.ProductPageQueryDTO;
 import com.cstery.chengsterymall.domain.vo.FeaturedProductVO;
 import com.cstery.chengsterymall.domain.vo.ProductFavoriteVO;
 import com.cstery.chengsterymall.domain.vo.ProductVO;
+import com.cstery.chengsterymall.result.PageResult;
 import com.cstery.chengsterymall.result.Result;
 import com.cstery.chengsterymall.service.FeaturedProductService;
 import com.cstery.chengsterymall.service.ProductFavoritesService;
@@ -34,6 +36,18 @@ public class ProductController {
     public Result<List<ProductVO>> getByCategoryId(@ApiParam("分类id") @RequestParam Long id){
         List<ProductVO> productVOList = productService.getByCategoryId(id);
         return Result.success(productVOList);
+    }
+
+    /**
+     * 分页查询商品数据
+     * @param productPageQueryDTO
+     * @return
+     */
+    @GetMapping("/page")
+    @ApiOperation("分页查询商品数据")
+    public Result<PageResult> productPageQuery(ProductPageQueryDTO productPageQueryDTO){
+        PageResult pageResult = productService.productPageQuery(productPageQueryDTO);
+        return Result.success(pageResult);
     }
 
     /**

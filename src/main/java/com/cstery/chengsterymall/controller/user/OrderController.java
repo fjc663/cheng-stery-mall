@@ -76,8 +76,8 @@ public class OrderController {
      */
     @PostMapping("/buyagain/{id}")
     @ApiOperation("再次购买")
-    public Result buyAgain(@PathVariable @ApiParam("订单id") Long id) {
-        orderService.buyAgain(id);
-        return Result.success();
+    public Result<List<Long>> buyAgain(@PathVariable @ApiParam("订单id") Long id) {
+        List<Long> cartIds = orderService.buyAgain(id);
+        return Result.success(cartIds);
     }
 }

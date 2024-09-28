@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -39,4 +40,7 @@ public class CategoryVO implements Serializable {
 
     @ApiModelProperty(value = "父分类ID", example = "0")
     private Long parentId; // 0表示无父级分类
+
+    @ApiModelProperty(value = "一级分类下的二级分类")
+    private List<CategoryVO> subCategories;
 }

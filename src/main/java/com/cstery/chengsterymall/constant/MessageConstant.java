@@ -17,4 +17,5 @@ public class MessageConstant {
     public static final String PRODUCTNOTEXIST = "商品不存在";
     public static final String ALREADYINFAVOITES = "商品已在收藏夹";
     public static final String COMMODITYSHORTAGE = "库存不足";
+    public static final String CATEGORYRELATEDPRODUCT = "有商品属于该分类，无法删除";
 }

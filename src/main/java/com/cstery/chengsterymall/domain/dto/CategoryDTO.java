@@ -22,6 +22,9 @@ public class CategoryDTO implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
+    @ApiModelProperty(value = "分类ID", example = "1")
+    private Long id;
+
     @ApiModelProperty(value = "分类名称", required = true, example = "饮料")
     @NotBlank(message = "分类名称不能为空")
     @Size(min = 1, max = 20, message = "用户名字符长度为1到20")

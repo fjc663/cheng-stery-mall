@@ -34,8 +34,9 @@ public class UploadController {
     @PostMapping("/user/avatar")
     @ApiOperation("头像上传")
     public Result<String> uploadAvatar(MultipartFile avatarFile){
-        return upload(avatarFile, "avatar");
-
+        String avatar = upload(avatarFile, "avatar/");
+        userService.updateAvatarUrl(avatar);
+        return Result.success(avatar);
     }
 
     /**
@@ -46,7 +47,21 @@ public class UploadController {
     @PostMapping("/admin/category")
     @ApiOperation("分类图片上传")
     public Result<String> uploadCategory(MultipartFile categoryFile){
-        return upload(categoryFile, "category/");
+        String category = upload(categoryFile, "category/");
+        return Result.success(category);
+    }
+
+    /**
+     * 管理员头像上传
+     * @param avatarFile
+     * @return
+     */
+    @PostMapping("/admin/avatar")
+    @ApiOperation("管理员头像上传")
+    public Result<String> uploadAdminAvatar(MultipartFile avatarFile){
+        String avatar = upload(avatarFile, "avatar/");
+        userService.updateAvatarUrl(avatar);
+        return Result.success(avatar);
     }
 
     /**
@@ -55,7 +70,7 @@ public class UploadController {
      * @param prefix
      * @return
      */
-    private  Result<String> upload(MultipartFile file, String prefix) {
+    private String upload(MultipartFile file, String prefix) {
         String originalFilename = file.getOriginalFilename();
 
         assert originalFilename != null;
@@ -63,9 +78,7 @@ public class UploadController {
         String newFilename = prefix + UUID.randomUUID() + extension;
 
         try {
-            String imgPath = aliOssUtil.upload(file.getBytes(), newFilename);
-            userService.updateAvatarUrl(imgPath);
-            return Result.success(imgPath);
+            return aliOssUtil.upload(file.getBytes(), newFilename);
         } catch (IOException e) {
             throw new UploadFailException(MessageConstant.UPLOADFAILED);
         }

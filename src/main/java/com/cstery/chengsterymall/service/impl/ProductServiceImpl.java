@@ -27,6 +27,7 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
 
     /**
      * 根据分类id返回商品
+     *
      * @param categoryId
      * @return
      */
@@ -43,6 +44,7 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
 
     /**
      * 根据商品id返回商品
+     *
      * @param id
      * @return
      */
@@ -69,7 +71,7 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
                 .list()
                 .stream().map(ProductSpecifications::getSpecificationId).toList();
 
-        if (specificationIdList.isEmpty()){
+        if (specificationIdList.isEmpty()) {
             return productVO;
         }
 
@@ -85,6 +87,7 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
 
     /**
      * 分页查询商品数据
+     *
      * @param productPageQueryDTO
      * @return
      */
@@ -98,7 +101,7 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
             productLambdaQueryWrapper.eq(Product::getCategoryId, productPageQueryDTO.getCategoryId());
         }
 
-        if (productPageQueryDTO.getName() != null){
+        if (productPageQueryDTO.getName() != null) {
             productLambdaQueryWrapper.like(Product::getName, productPageQueryDTO.getName());
         }
 

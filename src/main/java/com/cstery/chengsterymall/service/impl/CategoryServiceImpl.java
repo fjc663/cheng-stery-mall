@@ -89,7 +89,7 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
 
         // 设置查询条件
         LambdaQueryWrapper<Category> categoryLambdaQueryWrapper = new LambdaQueryWrapper<>();
-        categoryLambdaQueryWrapper.isNull(Category::getParentId);
+        categoryLambdaQueryWrapper.isNull(Category::getParentId).orderByAsc(Category::getSortOrder);
         if (categoryPageQueryDTO.getName() != null) {
             categoryLambdaQueryWrapper.like(Category::getName, categoryPageQueryDTO.getName());
         }

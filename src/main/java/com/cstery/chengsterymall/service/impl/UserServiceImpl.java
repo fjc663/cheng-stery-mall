@@ -71,7 +71,102 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
      * @return
      */
     @Override
-    public LoginVO login(UserLoginDTO userLoginDTO) {
+    public LoginVO userLogin(UserLoginDTO userLoginDTO) {
+        return login(userLoginDTO, JwtClaimConstant.USER_ID, jwtProperties.getUserSecretKey(), jwtProperties.getUserTtl());
+    }
+
+    /**
+     * 返回当前用户的用户信息
+     *
+     * @return
+     */
+    @Override
+    public UserVO getUserInfo() {
+        User user = getById(BaseContext.getCurrentId());
+
+        return BeanUtil.copyProperties(user, UserVO.class);
+    }
+
+    /**
+     * 修改用户信息
+     *
+     * @param userDTO
+     */
+    @Override
+    @Transactional
+    public void updateUserInfo(UserDTO userDTO) {
+        User user = BeanUtil.copyProperties(userDTO, User.class);
+        user.setUpdatedAt(LocalDateTime.now());
+
+        updateById(user);
+    }
+
+    /**
+     * 更新头像
+     *
+     * @param newAvaratUrl
+     */
+    @Override
+    @Transactional
+    public void updateAvatarUrl(String newAvaratUrl) {
+        User user = User
+                .builder()
+                .id(BaseContext.getCurrentId())
+                .avatarUrl(newAvaratUrl)
+                .build();
+        updateById(user);
+    }
+
+    /**
+     * 修改密码
+     *
+     * @param editPasswordDTO
+     */
+    @Override
+    @Transactional
+    public void editPassword(EditPasswordDTO editPasswordDTO) {
+        // 查询用户信息
+        User user = getById(BaseContext.getCurrentId());
+
+        // 加密传过来的旧密码，同时比较查到的密码
+        String saltOldPassword = user.getSalt() + editPasswordDTO.getOldPassword();
+        String cOldPassword = DigestUtil.md5Hex(saltOldPassword.getBytes());
+
+        // 不正确抛出异常
+        if (!cOldPassword.equals(user.getPassword())) {
+            throw new UpdateFailException(MessageConstant.OLDPASSWORDERROR);
+        }
+
+        // 加密新密码并换盐值
+        String salt = SaltGeneratorUtil.generateSalt();
+        String saltNewPassword = salt + editPasswordDTO.getNewPassword();
+        String cNewPassword = DigestUtil.md5Hex(saltNewPassword.getBytes());
+
+        // 修改密码
+        user = User
+                .builder()
+                .id(BaseContext.getCurrentId())
+                .salt(salt)
+                .password(cNewPassword)
+                .updatedAt(LocalDateTime.now())
+                .build();
+
+        // 更新
+        updateById(user);
+    }
+
+    /**
+     * 管理端用户登录
+     *
+     * @param userLoginDTO
+     * @return
+     */
+    @Override
+    public LoginVO adminLogin(UserLoginDTO userLoginDTO) {
+        return login(userLoginDTO, JwtClaimConstant.ADMIN_ID, jwtProperties.getAdminSecretKey(), jwtProperties.getAdminTtl());
+    }
+
+    private LoginVO login(UserLoginDTO userLoginDTO, String ID, String secretKey, Long ttl) {
         // 根据用户名查询用户信息
         LambdaQueryWrapper<User> userLambdaQueryWrapper = new LambdaQueryWrapper<>();
         userLambdaQueryWrapper.eq(User::getUsername, userLoginDTO.getUsername());
@@ -80,6 +175,13 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         // 用户不存在
         if (user == null) {
             throw new LoginFailException(MessageConstant.USERNAMEORPASSWORDERROR);
+        }
+
+        if (ID.equals(JwtClaimConstant.ADMIN_ID)) {
+            // 判断用户权限
+            if (!user.getRole().equals("SUPER") && !user.getRole().equals("ADMIN")) {
+                throw new LoginFailException(MessageConstant.PERMISSIONDENIED);
+            }
         }
 
         // 判断账号是否被禁用
@@ -100,8 +202,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         // 账号密码正确生成jwt令牌
         Long userId = user.getId();
         Map<String, Object> map = new HashMap<>();
-        map.put(JwtClaimConstant.USER_ID, userId);
-        String jwt = JwtUtil.createJWT(jwtProperties.getUserSecretKey(), jwtProperties.getUserTtl(), map);
+        map.put(ID, userId);
+        String jwt = JwtUtil.createJWT(secretKey, ttl, map);
 
         // 更新登录时间
         LambdaUpdateWrapper<User> userLambdaUpdateWrapper = new LambdaUpdateWrapper<User>()
@@ -115,81 +217,5 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
                 .token(jwt)
                 .avatarUrl(user.getAvatarUrl())
                 .build();
-    }
-
-    /**
-     * 返回当前用户的用户信息
-     * @return
-     */
-    @Override
-    public UserVO getUserInfo() {
-        User user = getById(BaseContext.getCurrentId());
-
-        return BeanUtil.copyProperties(user, UserVO.class);
-    }
-
-    /**
-     * 修改用户信息
-     * @param userDTO
-     */
-    @Override
-    @Transactional
-    public void updateUserInfo(UserDTO userDTO) {
-        User user = BeanUtil.copyProperties(userDTO, User.class);
-        user.setUpdatedAt(LocalDateTime.now());
-
-        updateById(user);
-    }
-
-    /**
-     * 更新头像
-     * @param newAvaratUrl
-     */
-    @Override
-    @Transactional
-    public void updateAvatarUrl(String newAvaratUrl) {
-        User user = User
-                .builder()
-                .id(BaseContext.getCurrentId())
-                .avatarUrl(newAvaratUrl)
-                .build();
-        updateById(user);
-    }
-
-    /**
-     * 修改密码
-     * @param editPasswordDTO
-     */
-    @Override
-    @Transactional
-    public void editPassword(EditPasswordDTO editPasswordDTO) {
-        // 查询用户信息
-        User user = getById(BaseContext.getCurrentId());
-
-        // 加密传过来的旧密码，同时比较查到的密码
-        String saltOldPassword = user.getSalt() + editPasswordDTO.getOldPassword();
-        String cOldPassword = DigestUtil.md5Hex(saltOldPassword.getBytes());
-
-        // 不正确抛出异常
-        if (!cOldPassword.equals(user.getPassword())){
-            throw new UpdateFailException(MessageConstant.OLDPASSWORDERROR);
-        }
-
-        // 加密新密码并换盐值
-        String salt = SaltGeneratorUtil.generateSalt();
-        String saltNewPassword = salt + editPasswordDTO.getNewPassword();
-        String cNewPassword = DigestUtil.md5Hex(saltNewPassword.getBytes());
-
-        // 修改密码
-        user = User
-                .builder()
-                .id(BaseContext.getCurrentId())
-                .salt(salt)
-                .password(cNewPassword)
-                .updatedAt(LocalDateTime.now())
-                .build();
-
-        // 更新
-        updateById(user);
     }
 }

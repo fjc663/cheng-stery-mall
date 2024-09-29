@@ -35,6 +35,9 @@ public class UserVO implements Serializable {
     @ApiModelProperty(value = "电话", example = "+1234567890")
     private String phone;
 
+    @ApiModelProperty(value = "职位", example = "ADMIN")
+    private String role;
+
     @ApiModelProperty(value = "头像存储地址", example = "http://example.com/avatar.jpg")
     private String avatarUrl;
 

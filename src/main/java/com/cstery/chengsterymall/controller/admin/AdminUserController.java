@@ -1,4 +1,4 @@
-package com.cstery.chengsterymall.controller.user;
+package com.cstery.chengsterymall.controller.admin;
 
 import com.cstery.chengsterymall.domain.dto.EditPasswordDTO;
 import com.cstery.chengsterymall.domain.dto.UserDTO;
@@ -11,63 +11,49 @@ import com.cstery.chengsterymall.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("/user/user")
+@RequestMapping("/admin/user")
 @RequiredArgsConstructor
-@Api(tags = "用户端用户相关接口")
-public class UserController {
+@Api(tags = "管理端用户相关接口")
+public class AdminUserController {
 
     private final UserService userService;
 
     /**
-     * 用户端用户注册
-     *
-     * @param userRegisterDTO
-     * @return
-     */
-    @PostMapping("/register")
-    @ApiOperation("用户端用户注册")
-    public Result register(@Valid @RequestBody  UserRegisterDTO userRegisterDTO) {
-        userService.register(userRegisterDTO);
-        return Result.success();
-    }
-
-    /**
-     * 用户端用户登录
+     * 管理端用户登录
      *
      * @param userLoginDTO
      * @return
      */
     @PostMapping("/login")
-    @ApiOperation("用户端用户登录")
+    @ApiOperation("管理端用户登录")
     public Result<LoginVO> login(@Valid @RequestBody  UserLoginDTO userLoginDTO) {
-        LoginVO loginVO = userService.userLogin(userLoginDTO);
+        LoginVO loginVO = userService.adminLogin(userLoginDTO);
         return Result.success(loginVO);
     }
 
     /**
-     * 返回当前用户的用户信息
+     * 返回当前管理员的用户信息
      * @return
      */
     @GetMapping
-    @ApiOperation("返回当前用户的用户信息")
-    public Result<UserVO> getUserInfo() {
+    @ApiOperation("返回当前管理员的用户信息")
+    public Result<UserVO> getAdminUserInfo() {
         UserVO userVO = userService.getUserInfo();
         return Result.success(userVO);
     }
 
     /**
-     * 修改用户信息
+     * 保存用户信息
      * @param userDTO
      * @return
      */
     @PutMapping
-    @ApiOperation("修改用户信息")
+    @ApiOperation("保存用户信息")
     public Result updateUserInfo(@Valid @RequestBody UserDTO userDTO) {
         userService.updateUserInfo(userDTO);
         return Result.success();

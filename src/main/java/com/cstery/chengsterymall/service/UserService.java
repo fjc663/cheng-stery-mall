@@ -23,7 +23,7 @@ public interface UserService extends IService<User> {
      * @param userLoginDTO
      * @return
      */
-    LoginVO login(UserLoginDTO userLoginDTO);
+    LoginVO userLogin(UserLoginDTO userLoginDTO);
 
     /**
      * 返回当前用户的用户信息
@@ -48,4 +48,11 @@ public interface UserService extends IService<User> {
      * @param editPasswordDTO
      */
     void editPassword(EditPasswordDTO editPasswordDTO);
+
+    /**
+     * 管理端用户登录
+     * @param userLoginDTO
+     * @return
+     */
+    LoginVO adminLogin(UserLoginDTO userLoginDTO);
 }

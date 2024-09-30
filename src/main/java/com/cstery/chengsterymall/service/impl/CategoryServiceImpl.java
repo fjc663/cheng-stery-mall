@@ -71,8 +71,8 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
         // 设置分类对象其他数据
         category.setCreatedAt(LocalDateTime.now());
         category.setUpdatedAt(LocalDateTime.now());
-        category.setCreatedBy(/*BaseContext.getCurrentId()*/ 9L);
-        category.setUpdatedBy(/*BaseContext.getCurrentId()*/ 9L);
+        category.setCreatedBy(BaseContext.getCurrentId());
+        category.setUpdatedBy(BaseContext.getCurrentId());
 
         save(category);
     }
@@ -130,7 +130,7 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
         Category category = BeanUtil.copyProperties(categoryDTO, Category.class);
 
         category.setCreatedAt(LocalDateTime.now());
-        category.setCreatedBy(/*BaseContext.getCurrentId()*/ 9L);
+        category.setCreatedBy(BaseContext.getCurrentId());
 
         updateById(category);
     }

@@ -1,8 +1,5 @@
-package com.cstery.chengsterymall.domain.vo;
+package com.cstery.chengsterymall.domain.dto;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
@@ -12,14 +9,13 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@ApiModel("规格视图对象")
-public class SpecificationVO implements Serializable {
+@ApiModel("规格传输对象")
+public class SpecificationDTO implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;
@@ -38,5 +34,4 @@ public class SpecificationVO implements Serializable {
 
     @ApiModelProperty(value = "规格选项", example = "黑色,白色,灰色,棕色,蓝色")
     private String specificationOptions;
-
 }

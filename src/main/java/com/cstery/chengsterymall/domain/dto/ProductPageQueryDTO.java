@@ -36,6 +36,9 @@ public class ProductPageQueryDTO implements Serializable {
     @ApiModelProperty(value = "商品名称", example = "红酒 A")
     private String name;
 
+    @ApiModelProperty(value = "商品状态，1=上架，0=下架", example = "1")
+    private Integer status;
+
     @ApiModelProperty(value = "是否按照商品价格升序排序", example = "true")
     private Boolean isOrderBypriceASC;
 

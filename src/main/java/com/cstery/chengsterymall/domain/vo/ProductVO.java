@@ -45,7 +45,7 @@ public class ProductVO implements Serializable {
     @ApiModelProperty(value = "商品销量", example = "120")
     private Integer sales;
 
-    @ApiModelProperty(value = "商品规格", example = "[\"红色,黑色,白色\", \"小号,中号,大号\"]")
+    @ApiModelProperty(value = "商品规格")
     private List<SpecificationVO> specifications;
 
     @ApiModelProperty(value = "商品图片的URL地址", example = "http://localhost:8080/product/default_product.png")

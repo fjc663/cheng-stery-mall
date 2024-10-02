@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.baomidou.mybatisplus.extension.toolkit.Db;
 import com.cstery.chengsterymall.constant.MessageConstant;
+import com.cstery.chengsterymall.constant.StatusConstant;
 import com.cstery.chengsterymall.context.BaseContext;
 import com.cstery.chengsterymall.domain.dto.SpecificationDTO;
 import com.cstery.chengsterymall.domain.dto.SpecificationPageQueryDTO;
@@ -114,5 +115,19 @@ public class SpecificationServiceImpl extends ServiceImpl<SpecificationsMapper, 
 
         // 删除
         removeById(id);
+    }
+
+    /**
+     * 获得所有启用的规格
+     * @return
+     */
+    @Override
+    public List<SpecificationVO> getAllSpecification() {
+        LambdaQueryWrapper<Specifications> specificationsLambdaQueryWrapper = new LambdaQueryWrapper<Specifications>()
+                .eq(Specifications::getStatus, StatusConstant.ENABLE);
+
+        List<Specifications> specificationsList = list(specificationsLambdaQueryWrapper);
+
+        return BeanUtil.copyToList(specificationsList, SpecificationVO.class);
     }
 }

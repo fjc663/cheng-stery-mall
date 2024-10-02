@@ -2,6 +2,7 @@ package com.cstery.chengsterymall.controller.admin;
 
 import com.cstery.chengsterymall.domain.dto.SpecificationDTO;
 import com.cstery.chengsterymall.domain.dto.SpecificationPageQueryDTO;
+import com.cstery.chengsterymall.domain.vo.SpecificationVO;
 import com.cstery.chengsterymall.result.PageResult;
 import com.cstery.chengsterymall.result.Result;
 import com.cstery.chengsterymall.service.SpecificationService;
@@ -10,6 +11,8 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/admin/spec")
@@ -65,5 +68,16 @@ public class AdminSpecificationController {
     public Result add(@RequestParam @ApiParam("规格id") Long id) {
         specificationService.delete(id);
         return Result.success();
+    }
+
+    /**
+     * 获得所有启用的规格
+     * @return
+     */
+    @GetMapping
+    @ApiOperation("获得所有启用的规格")
+    public Result<List<SpecificationVO>> getAllSpecification() {
+        List<SpecificationVO> specificationVOList = specificationService.getAllSpecification();
+        return Result.success(specificationVOList);
     }
 }

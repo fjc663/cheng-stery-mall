@@ -48,4 +48,10 @@ public interface CategoryService extends IService<Category> {
      * @param id
      */
     void delete(Long id);
+
+    /**
+     * 查询所有可用的二级分类
+     * @return
+     */
+    List<CategoryVO> getAllSubCategory();
 }

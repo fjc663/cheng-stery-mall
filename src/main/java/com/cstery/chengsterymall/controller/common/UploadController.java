@@ -65,6 +65,18 @@ public class UploadController {
     }
 
     /**
+     * 商品图片上传
+     * @param productFile
+     * @return
+     */
+    @PostMapping("/admin/product")
+    @ApiOperation("分类图片上传")
+    public Result<String> uploadProduct(MultipartFile productFile){
+        String product = upload(productFile, "product/");
+        return Result.success(product);
+    }
+
+    /**
      * 文件上传
      * @param file
      * @param prefix

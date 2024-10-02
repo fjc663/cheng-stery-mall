@@ -1,5 +1,6 @@
 package com.cstery.chengsterymall.domain.dto;
 
+import com.cstery.chengsterymall.domain.vo.SpecificationVO;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
@@ -14,6 +15,7 @@ import javax.validation.constraints.Size;
 import java.io.Serial;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -23,6 +25,9 @@ import java.math.BigDecimal;
 public class ProductDTO implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
+
+    @ApiModelProperty(value = "商品ID", example = "1")
+    private Long id;
 
     @ApiModelProperty(value = "商品名称", required = true, example = "红酒 A")
     @NotBlank(message = "商品名称不能为空")
@@ -51,4 +56,7 @@ public class ProductDTO implements Serializable {
 
     @ApiModelProperty(value = "商品图片地址", example = "http://localhost:8080/product_hongjiu.png")
     private String imageUrl;
+
+    @ApiModelProperty(value = "商品关联的规格id", example = "[1, 2, 3]")
+    private List<Long> specIds;
 }

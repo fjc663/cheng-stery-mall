@@ -2,6 +2,7 @@ package com.cstery.chengsterymall.controller.admin;
 
 import com.cstery.chengsterymall.domain.dto.CategoryDTO;
 import com.cstery.chengsterymall.domain.dto.CategoryPageQueryDTO;
+import com.cstery.chengsterymall.domain.vo.CategoryVO;
 import com.cstery.chengsterymall.result.PageResult;
 import com.cstery.chengsterymall.result.Result;
 import com.cstery.chengsterymall.service.CategoryService;
@@ -68,5 +69,16 @@ public class AdminCategoryController {
     public Result deleteCategory(@RequestParam @ApiParam("分类id") Long id) {
         categoryService.delete(id);
         return Result.success();
+    }
+
+    /**
+     * 查询所有可用的二级分类
+     * @return
+     */
+    @GetMapping("/allSub")
+    @ApiOperation("查询所有可用的二级分类")
+    public Result<List<CategoryVO>> getAllSubCategory() {
+        List<CategoryVO> categoryVOList = categoryService.getAllSubCategory();
+        return Result.success(categoryVOList);
     }
 }

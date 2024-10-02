@@ -4,7 +4,10 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.cstery.chengsterymall.domain.dto.SpecificationDTO;
 import com.cstery.chengsterymall.domain.dto.SpecificationPageQueryDTO;
 import com.cstery.chengsterymall.domain.po.Specifications;
+import com.cstery.chengsterymall.domain.vo.SpecificationVO;
 import com.cstery.chengsterymall.result.PageResult;
+
+import java.util.List;
 
 public interface SpecificationService extends IService<Specifications> {
 
@@ -32,4 +35,10 @@ public interface SpecificationService extends IService<Specifications> {
      * @param id
      */
     void delete(Long id);
+
+    /**
+     * 获得所有启用的规格
+     * @return
+     */
+    List<SpecificationVO> getAllSpecification();
 }

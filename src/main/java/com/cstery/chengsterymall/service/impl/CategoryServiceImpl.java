@@ -17,6 +17,7 @@ import com.cstery.chengsterymall.domain.vo.CategoryVO;
 import com.cstery.chengsterymall.exceptions.CategoryException;
 import com.cstery.chengsterymall.mapper.CategoryMapper;
 import com.cstery.chengsterymall.result.PageResult;
+import com.cstery.chengsterymall.result.Result;
 import com.cstery.chengsterymall.service.CategoryService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -150,5 +151,22 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
 
         // 删除分类
         removeById(id);
+    }
+
+    /**
+     * 查询所有可用的二级分类
+     * @return
+     */
+    @Override
+    public List<CategoryVO> getAllSubCategory() {
+        // 构造查询条件
+        LambdaQueryWrapper<Category> categoryLambdaQueryWrapper = new LambdaQueryWrapper<Category>()
+                .isNotNull(Category::getParentId)
+                .eq(Category::getStatus, StatusConstant.ENABLE);
+
+        // 查询
+        List<Category> categoryList = list(categoryLambdaQueryWrapper);
+
+        return BeanUtil.copyToList(categoryList, CategoryVO.class);
     }
 }

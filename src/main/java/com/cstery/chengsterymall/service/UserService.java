@@ -1,10 +1,7 @@
 package com.cstery.chengsterymall.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.cstery.chengsterymall.domain.dto.EditPasswordDTO;
-import com.cstery.chengsterymall.domain.dto.UserDTO;
-import com.cstery.chengsterymall.domain.dto.UserLoginDTO;
-import com.cstery.chengsterymall.domain.dto.UserRegisterDTO;
+import com.cstery.chengsterymall.domain.dto.*;
 import com.cstery.chengsterymall.domain.po.User;
 import com.cstery.chengsterymall.domain.vo.LoginVO;
 import com.cstery.chengsterymall.domain.vo.UserVO;
@@ -55,4 +52,12 @@ public interface UserService extends IService<User> {
      * @return
      */
     LoginVO adminLogin(UserLoginDTO userLoginDTO);
+
+    /**
+     * 获得用户总数
+     * @param chartDTO
+     * @param isCumulative
+     * @return
+     */
+    Integer getTotalUsers(ChartDTO chartDTO, Boolean isCumulative);
 }

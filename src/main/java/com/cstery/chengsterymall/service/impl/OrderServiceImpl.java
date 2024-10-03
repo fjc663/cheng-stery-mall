@@ -1,7 +1,6 @@
 package com.cstery.chengsterymall.service.impl;
 
 import cn.hutool.core.bean.BeanUtil;
-import cn.hutool.core.collection.CollUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -11,16 +10,18 @@ import com.baomidou.mybatisplus.extension.toolkit.Db;
 import com.cstery.chengsterymall.constant.MessageConstant;
 import com.cstery.chengsterymall.context.BaseContext;
 import com.cstery.chengsterymall.domain.dto.CartDTO;
+import com.cstery.chengsterymall.domain.dto.ChartDTO;
 import com.cstery.chengsterymall.domain.dto.OrderDTO;
 import com.cstery.chengsterymall.domain.dto.OrderPageQueryDTO;
 import com.cstery.chengsterymall.domain.po.*;
 import com.cstery.chengsterymall.domain.vo.CartVO;
+import com.cstery.chengsterymall.domain.vo.Hot10VO;
 import com.cstery.chengsterymall.domain.vo.OrderItemVO;
 import com.cstery.chengsterymall.domain.vo.OrderVO;
 import com.cstery.chengsterymall.exceptions.AddressException;
-import com.cstery.chengsterymall.exceptions.CartException;
 import com.cstery.chengsterymall.exceptions.OrderException;
 import com.cstery.chengsterymall.exceptions.ProductException;
+import com.cstery.chengsterymall.mapper.OrderItemsMapper;
 import com.cstery.chengsterymall.mapper.OrderMapper;
 import com.cstery.chengsterymall.result.PageResult;
 import com.cstery.chengsterymall.service.CartService;
@@ -31,6 +32,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -40,6 +42,7 @@ import java.util.Set;
 public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements OrderService {
 
     private final CartService cartService;
+    private final OrderItemsMapper orderItemsMapper;
 
     /**
      * 为当前购物车商品创建订单
@@ -362,5 +365,121 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
 
         return orderVOList;
     }
+
+    /**
+     * 获得总销售额
+     * @param chartDTO
+     * @return
+     */
+    @Override
+    public BigDecimal getTotalSales(ChartDTO chartDTO, Boolean isCumulative) {
+        // 构造日期条件限制
+        LambdaQueryWrapper<Order> orderLambdaQueryWrapper = new LambdaQueryWrapper<>();
+        LocalDateTime beginTime = LocalDateTime.of(chartDTO.getStartData(), LocalTime.MIN);
+        LocalDateTime endTime = LocalDateTime.of(chartDTO.getEndData(), LocalTime.MAX);
+
+        orderLambdaQueryWrapper
+                .eq(Order::getStatus, Order.COMPLETED);
+        if (isCumulative) {
+            orderLambdaQueryWrapper.le(Order::getCanceledAt, endTime);
+        } else {
+            orderLambdaQueryWrapper
+                    .between(Order::getCreatedAt, beginTime, endTime);
+        }
+
+        List<Order> orderList = list(orderLambdaQueryWrapper);
+
+        // 计算总销售额，将所有订单的总金额相加
+        return orderList.stream()
+                .map(Order::getTotalAmount)  // 提取订单的总金额
+                .reduce(BigDecimal.ZERO, BigDecimal::add);  // 累加总金额
+
+    }
+
+    /**
+     * 获得总订单数
+     * @param chartDTO
+     * @return
+     */
+    @Override
+    public Integer getTotalOrders(ChartDTO chartDTO) {
+        // 构造日期条件限制
+        LambdaQueryWrapper<Order> orderLambdaQueryWrapper = new LambdaQueryWrapper<>();
+        LocalDateTime beginTime = LocalDateTime.of(chartDTO.getStartData(), LocalTime.MIN);
+        LocalDateTime endTime = LocalDateTime.of(chartDTO.getEndData(), LocalTime.MAX);
+
+        orderLambdaQueryWrapper
+                .between(Order::getCreatedAt, beginTime, endTime);
+
+        return (int) count(orderLambdaQueryWrapper);
+    }
+
+    /**
+     * 获得前10热门商品
+     * @param chartDTO
+     * @return
+     */
+    @Override
+    public List<Hot10VO> getHot10Product(ChartDTO chartDTO) {
+        // 构造日期条件限制
+        LocalDateTime beginTime = LocalDateTime.of(chartDTO.getStartData(), LocalTime.MIN);
+        LocalDateTime endTime = LocalDateTime.of(chartDTO.getEndData(), LocalTime.MAX);
+
+        LambdaQueryWrapper<Order> orderLambdaQueryWrapper = new LambdaQueryWrapper<Order>()
+                .between(Order::getCreatedAt, beginTime, endTime)
+                .eq(Order::getStatus, Order.COMPLETED);
+
+        List<Long> orderIdList = list(orderLambdaQueryWrapper).stream().map(Order::getId).toList();
+        if (orderIdList.isEmpty()) {
+            return null;
+        }
+
+        return orderItemsMapper.getHotProduct(orderIdList);
+    }
+
+    /**
+     * 获得最热门商品
+     * @param chartDTO
+     * @return
+     */
+    @Override
+    public String getHotProduct(ChartDTO chartDTO) {
+        List<Hot10VO> hot10VOList = getHot10Product(chartDTO);
+        if (hot10VOList == null) {
+            return "";
+        }
+
+        return hot10VOList.get(0).getProductName();
+    }
+
+    /**
+     * 获得各状态订单数
+     * @param chartDTO
+     * @return
+     */
+    @Override
+    public List<Integer> getStatusList(ChartDTO chartDTO) {
+
+        List<Integer> validStatuses = List.of(Order.PENDING_PAYMENT, Order.CONFIRM, Order.SHIPPED, Order.COMPLETED, Order.CANCELED);
+
+        List<Integer> statusList = new ArrayList<>();
+
+        // 构造日期条件限制
+        LocalDateTime beginTime = LocalDateTime.of(chartDTO.getStartData(), LocalTime.MIN);
+        LocalDateTime endTime = LocalDateTime.of(chartDTO.getEndData(), LocalTime.MAX);
+
+        for (Integer status : validStatuses) {
+            LambdaQueryWrapper<Order> orderLambdaQueryWrapper = new LambdaQueryWrapper<Order>()
+                    .between(Order::getCreatedAt, beginTime, endTime)
+                    .eq(Order::getStatus, status);
+
+            Integer countStatus = (int)count(orderLambdaQueryWrapper);
+            statusList.add(countStatus);
+        }
+
+        return statusList;
+
+    }
+
 
 }

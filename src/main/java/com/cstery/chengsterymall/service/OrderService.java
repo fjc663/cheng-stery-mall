@@ -1,12 +1,15 @@
 package com.cstery.chengsterymall.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.cstery.chengsterymall.domain.dto.ChartDTO;
 import com.cstery.chengsterymall.domain.dto.OrderDTO;
 import com.cstery.chengsterymall.domain.dto.OrderPageQueryDTO;
 import com.cstery.chengsterymall.domain.po.Order;
+import com.cstery.chengsterymall.domain.vo.Hot10VO;
 import com.cstery.chengsterymall.domain.vo.OrderVO;
 import com.cstery.chengsterymall.result.PageResult;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public interface OrderService extends IService<Order> {
@@ -70,4 +73,40 @@ public interface OrderService extends IService<Order> {
      * @param id
      */
     void completeOrder(Long id);
+
+    /**
+     * 获得总销售额
+     * @param chartDTO
+     * @param isCumulative
+     * @return
+     */
+    BigDecimal getTotalSales(ChartDTO chartDTO, Boolean isCumulative);
+
+    /**
+     * 获得总订单数
+     * @param chartDTO
+     * @return
+     */
+    Integer getTotalOrders(ChartDTO chartDTO);
+
+    /**
+     * 获得前10热门商品
+     * @param chartDTO
+     * @return
+     */
+    List<Hot10VO> getHot10Product(ChartDTO chartDTO);
+
+    /**
+     * 获得最热门商品
+     * @param chartDTO
+     * @return
+     */
+    String getHotProduct(ChartDTO chartDTO);
+
+    /**
+     * 获得各状态订单数
+     * @param chartDTO
+     * @return
+     */
+    public List<Integer> getStatusList(ChartDTO chartDTO);
 }

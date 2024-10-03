@@ -8,11 +8,10 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.cstery.chengsterymall.constant.JwtClaimConstant;
 import com.cstery.chengsterymall.constant.MessageConstant;
 import com.cstery.chengsterymall.constant.StatusConstant;
+import com.cstery.chengsterymall.constant.UserRoleConstant;
 import com.cstery.chengsterymall.context.BaseContext;
-import com.cstery.chengsterymall.domain.dto.EditPasswordDTO;
-import com.cstery.chengsterymall.domain.dto.UserDTO;
-import com.cstery.chengsterymall.domain.dto.UserLoginDTO;
-import com.cstery.chengsterymall.domain.dto.UserRegisterDTO;
+import com.cstery.chengsterymall.domain.dto.*;
+import com.cstery.chengsterymall.domain.po.Order;
 import com.cstery.chengsterymall.domain.po.User;
 import com.cstery.chengsterymall.domain.vo.LoginVO;
 import com.cstery.chengsterymall.domain.vo.UserVO;
@@ -27,8 +26,11 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -179,7 +181,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
         if (ID.equals(JwtClaimConstant.ADMIN_ID)) {
             // 判断用户权限
-            if (!user.getRole().equals("SUPER") && !user.getRole().equals("ADMIN")) {
+            if (!user.getRole().equals(UserRoleConstant.SUPER) && !user.getRole().equals(UserRoleConstant.ADMIN)) {
                 throw new LoginFailException(MessageConstant.PERMISSIONDENIED);
             }
         }
@@ -217,5 +219,32 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
                 .token(jwt)
                 .avatarUrl(user.getAvatarUrl())
                 .build();
+    }
+
+    /**
+     * 获得用户总数
+     * @param chartDTO
+     * @param isCumulative
+     * @return
+     */
+    @Override
+    public Integer getTotalUsers(ChartDTO chartDTO, Boolean isCumulative) {
+        // 构造日期条件限制
+        LocalDateTime beginTime = LocalDateTime.of(chartDTO.getStartData(), LocalTime.MIN);
+        LocalDateTime endTime = LocalDateTime.of(chartDTO.getEndData(), LocalTime.MAX);
+
+        LambdaQueryWrapper<User> orderLambdaQueryWrapper = new LambdaQueryWrapper<User>()
+                .ge(User::getRole, UserRoleConstant.USER);
+
+        // 判断是累计还是仅是今天的
+        if (isCumulative) {
+            orderLambdaQueryWrapper.le(User::getCreatedAt, endTime);
+        } else {
+            orderLambdaQueryWrapper.between(User::getCreatedAt, beginTime, endTime);
+        }
+
+        long count = count(orderLambdaQueryWrapper);
+
+        return (int) count;
     }
 }

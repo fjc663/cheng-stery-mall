@@ -28,9 +28,9 @@ public class OrderController {
      */
     @PostMapping
     @ApiOperation("为当前购物车商品创建订单")
-    public Result createOrder(@RequestBody OrderDTO orderDTO) {
-        orderService.createOrder(orderDTO);
-        return Result.success();
+    public Result<Long> createOrder(@RequestBody OrderDTO orderDTO) {
+        Long id = orderService.createOrder(orderDTO);
+        return Result.success(id);
     }
 
     /**
@@ -79,5 +79,29 @@ public class OrderController {
     public Result<List<Long>> buyAgain(@PathVariable @ApiParam("订单id") Long id) {
         List<Long> cartIds = orderService.buyAgain(id);
         return Result.success(cartIds);
+    }
+
+    /**
+     * 订单支付
+     * @param id
+     * @return
+     */
+    @PutMapping("/pay/{id}")
+    @ApiOperation("订单支付")
+    public Result payOrder(@PathVariable @ApiParam("订单id") Long id) {
+        orderService.payOrder(id);
+        return Result.success();
+    }
+
+    /**
+     * 订单完成
+     * @param id
+     * @return
+     */
+    @PutMapping("/complete/{id}")
+    @ApiOperation("订单完成")
+    public Result completeOrder(@PathVariable @ApiParam("订单id") Long id) {
+        orderService.completeOrder(id);
+        return Result.success();
     }
 }

@@ -3,12 +3,16 @@ package com.cstery.chengsterymall.service.impl;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.collection.CollUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.baomidou.mybatisplus.extension.toolkit.Db;
 import com.cstery.chengsterymall.constant.MessageConstant;
 import com.cstery.chengsterymall.context.BaseContext;
 import com.cstery.chengsterymall.domain.dto.CartDTO;
 import com.cstery.chengsterymall.domain.dto.OrderDTO;
+import com.cstery.chengsterymall.domain.dto.OrderPageQueryDTO;
 import com.cstery.chengsterymall.domain.po.*;
 import com.cstery.chengsterymall.domain.vo.CartVO;
 import com.cstery.chengsterymall.domain.vo.OrderItemVO;
@@ -18,6 +22,7 @@ import com.cstery.chengsterymall.exceptions.CartException;
 import com.cstery.chengsterymall.exceptions.OrderException;
 import com.cstery.chengsterymall.exceptions.ProductException;
 import com.cstery.chengsterymall.mapper.OrderMapper;
+import com.cstery.chengsterymall.result.PageResult;
 import com.cstery.chengsterymall.service.CartService;
 import com.cstery.chengsterymall.service.OrderService;
 import lombok.RequiredArgsConstructor;
@@ -39,13 +44,13 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
     /**
      * 为当前购物车商品创建订单
      * @param orderDTO
+     * @return
      */
     @Override
     @Transactional
-    public void createOrder(OrderDTO orderDTO) {
+    public Long createOrder(OrderDTO orderDTO) {
         // 查出购物车数据
         List<CartVO> cartList = cartService.getBySelectId(orderDTO.getSelectedCardId());
-
 
         // 校验订单总金额
         BigDecimal totalAmoun = BigDecimal.ZERO; // 订单总金额
@@ -108,6 +113,7 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         // 根据购物车id列表删除购物车数据
         cartService.deleteItemBySelectId(orderDTO.getSelectedCardId());
 
+        return orderId;
     }
 
     /**
@@ -130,23 +136,7 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
 
         List<Order> orderList = list(orderLambdaQueryWrapper);
 
-        // 将订单对象转化为订单VO
-        List<OrderVO> orderVOList = BeanUtil.copyToList(orderList, OrderVO.class);
-
-        // 为订单设置商品数据
-        orderVOList.forEach(orderVO -> {
-            // 根据订单id查询商品数据
-            List<OrderItem> orderItemList = Db.lambdaQuery(OrderItem.class)
-                    .eq(OrderItem::getOrderId, orderVO.getId())
-                    .list();
-
-            // 将订单商品对象转化为订单商品VO
-            List<OrderItemVO> orderItemVOList = BeanUtil.copyToList(orderItemList, OrderItemVO.class);
-
-            orderVO.setOrderItemVOList(orderItemVOList);
-        });
-
-        return orderVOList;
+        return setOrderItem(orderList);
     }
 
     /**
@@ -200,6 +190,57 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
                 .id(id)
                 .canceledAt(LocalDateTime.now())
                 .status(Order.CANCELED)
+                .updatedAt(LocalDateTime.now())
+                .build();
+
+        updateById(order);
+    }
+
+    /**
+     * 根据订单id支付订单
+     * @param id
+     */
+    @Override
+    @Transactional
+    public void payOrder(Long id) {
+        Order order = Order
+                .builder()
+                .id(id)
+                .paidAt(LocalDateTime.now())
+                .status(Order.CONFIRM)
+                .paymentStatus(Order.PAID)
+                .updatedAt(LocalDateTime.now())
+                .build();
+
+        updateById(order);
+    }
+
+    /**
+     * 完成订单
+     * @param id
+     */
+    @Override
+    @Transactional
+    public void completeOrder(Long id) {
+        // 查询订单商品
+        List<OrderItem> orderItemList = Db.lambdaQuery(OrderItem.class).eq(OrderItem::getOrderId, id).list();
+
+        // 增加商品销量
+        for (OrderItem orderItem : orderItemList) {
+            Product product = Db.getById(orderItem.getProductId(), Product.class);
+            product.setUpdatedAt(LocalDateTime.now());
+            product.setUpdatedBy(BaseContext.getCurrentId());
+            product.setSales(product.getSales() + orderItem.getQuantity());
+
+            Db.updateById(product);
+        }
+
+        Order order = Order
+                .builder()
+                .id(id)
+                .completedAt(LocalDateTime.now())
+                .status(Order.COMPLETED)
+                .updatedAt(LocalDateTime.now())
                 .build();
 
         updateById(order);
@@ -242,4 +283,84 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
 
         return cartIds;
     }
+
+    /**
+     * 订单数据分页查询
+     * @param orderPageQueryDTO
+     * @return
+     */
+    @Override
+    public PageResult pageQuery(OrderPageQueryDTO orderPageQueryDTO) {
+        // 设置分页条件
+        IPage<Order> orderIPage = new Page<>(orderPageQueryDTO.getPage(), orderPageQueryDTO.getPageSize());
+
+        LambdaQueryWrapper<Order> orderLambdaQueryWrapper = new LambdaQueryWrapper<>();
+        orderLambdaQueryWrapper.orderByDesc(Order::getCreatedAt);
+        // 设置状态筛选
+        if (orderPageQueryDTO.getStatus() != null) {
+            orderLambdaQueryWrapper.eq(Order::getStatus, orderPageQueryDTO.getStatus());
+        }
+
+        // 分页查询
+        IPage<Order> page = page(orderIPage, orderLambdaQueryWrapper);
+
+        // 设置返回分页结果
+        PageResult pageResult = new PageResult();
+        pageResult.setTotal(page.getTotal());
+        pageResult.setRecords(setOrderItem(page.getRecords()));
+
+        return pageResult;
+    }
+
+    /**
+     * 修改订单状态
+     * @param status
+     * @param id
+     */
+    @Override
+    @Transactional
+    public void setOrderStatus(Long id, Integer status) {
+        LambdaUpdateWrapper<Order> orderLambdaUpdateWrapper = new LambdaUpdateWrapper<>();
+        orderLambdaUpdateWrapper.eq(Order::getId, id);
+
+        // 根据要设置的状态设置对应操作的时间
+        if (status == Order.SHIPPED) {
+            orderLambdaUpdateWrapper.set(Order::getShippedAt, LocalDateTime.now());
+        } else if (status == Order.COMPLETED) {
+            orderLambdaUpdateWrapper.set(Order::getCompletedAt, LocalDateTime.now());
+        } else if (status == Order.CANCELED) {
+            orderLambdaUpdateWrapper.set(Order::getCanceledAt, LocalDateTime.now());
+        }
+
+        // 设置状态和更新时间
+        orderLambdaUpdateWrapper.set(Order::getStatus, status);
+        orderLambdaUpdateWrapper.set(Order::getUpdatedAt, LocalDateTime.now());
+
+        // 更新
+        update(orderLambdaUpdateWrapper);
+    }
+
+
+
+    // 为订单VO对象设置订单商品
+    private List<OrderVO> setOrderItem(List<Order> orderList) {
+        // 将订单对象转化为订单VO
+        List<OrderVO> orderVOList = BeanUtil.copyToList(orderList, OrderVO.class);
+
+        // 为订单设置商品数据
+        orderVOList.forEach(orderVO -> {
+            // 根据订单id查询商品数据
+            List<OrderItem> orderItemList = Db.lambdaQuery(OrderItem.class)
+                    .eq(OrderItem::getOrderId, orderVO.getId())
+                    .list();
+
+            // 将订单商品对象转化为订单商品VO
+            List<OrderItemVO> orderItemVOList = BeanUtil.copyToList(orderItemList, OrderItemVO.class);
+
+            orderVO.setOrderItemVOList(orderItemVOList);
+        });
+
+        return orderVOList;
+    }
+
 }

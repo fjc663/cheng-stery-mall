@@ -27,4 +27,7 @@ public class LoginVO implements Serializable {
 
     @ApiModelProperty(value = "用户头像URL", example = "http://localhost:8080/user/avatar.png")
     private String avatarUrl;
+
+    @ApiModelProperty(value = "职位", example = "ADMIN")
+    private String role;
 }

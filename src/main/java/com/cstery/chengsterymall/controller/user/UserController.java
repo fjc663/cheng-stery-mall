@@ -1,5 +1,6 @@
 package com.cstery.chengsterymall.controller.user;
 
+import com.cstery.chengsterymall.constant.UserRoleConstant;
 import com.cstery.chengsterymall.domain.dto.EditPasswordDTO;
 import com.cstery.chengsterymall.domain.dto.UserDTO;
 import com.cstery.chengsterymall.domain.dto.UserLoginDTO;
@@ -69,6 +70,7 @@ public class UserController {
     @PutMapping
     @ApiOperation("修改用户信息")
     public Result updateUserInfo(@Valid @RequestBody UserDTO userDTO) {
+        userDTO.setRole(UserRoleConstant.USER);
         userService.updateUserInfo(userDTO);
         return Result.success();
     }

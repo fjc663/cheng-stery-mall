@@ -1,10 +1,16 @@
 package com.cstery.chengsterymall.interceptors;
 
 import com.cstery.chengsterymall.constant.JwtClaimConstant;
+import com.cstery.chengsterymall.constant.MessageConstant;
+import com.cstery.chengsterymall.constant.UserRoleConstant;
 import com.cstery.chengsterymall.context.BaseContext;
+import com.cstery.chengsterymall.domain.po.User;
+import com.cstery.chengsterymall.exceptions.UserException;
 import com.cstery.chengsterymall.properties.JwtProperties;
+import com.cstery.chengsterymall.service.UserService;
 import com.cstery.chengsterymall.utils.JwtUtil;
 import io.jsonwebtoken.Claims;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
@@ -14,10 +20,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @Component
+@RequiredArgsConstructor
 public class JwtTokenAdminInterceptor implements HandlerInterceptor {
 
-    @Autowired
-    private JwtProperties jwtProperties;
+    private final JwtProperties jwtProperties;
+    private final UserService userService;
+
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
@@ -34,6 +42,12 @@ public class JwtTokenAdminInterceptor implements HandlerInterceptor {
             Claims claims = JwtUtil.parseJWT(jwtProperties.getAdminSecretKey(), adminJwtToken);
             // 获得令牌里的用户id信息
             Long adminId = claims.get(JwtClaimConstant.ADMIN_ID, Long.class);
+
+            // 判断用户是否有权限
+            User user = userService.getById(adminId);
+            if (!user.getRole().equals(UserRoleConstant.ADMIN) && !user.getRole().equals(UserRoleConstant.SUPER)) {
+                throw new UserException(MessageConstant.PERMISSIONDENIED);
+            }
 
             // 将用户id信息存入当前线程副本空间
             BaseContext.setCurrentId(adminId);

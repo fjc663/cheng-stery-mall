@@ -4,6 +4,8 @@ import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.crypto.digest.DigestUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.cstery.chengsterymall.constant.JwtClaimConstant;
 import com.cstery.chengsterymall.constant.MessageConstant;
@@ -11,14 +13,15 @@ import com.cstery.chengsterymall.constant.StatusConstant;
 import com.cstery.chengsterymall.constant.UserRoleConstant;
 import com.cstery.chengsterymall.context.BaseContext;
 import com.cstery.chengsterymall.domain.dto.*;
-import com.cstery.chengsterymall.domain.po.Order;
 import com.cstery.chengsterymall.domain.po.User;
 import com.cstery.chengsterymall.domain.vo.LoginVO;
 import com.cstery.chengsterymall.domain.vo.UserVO;
 import com.cstery.chengsterymall.exceptions.LoginFailException;
 import com.cstery.chengsterymall.exceptions.UpdateFailException;
+import com.cstery.chengsterymall.exceptions.UserException;
 import com.cstery.chengsterymall.mapper.UserMapper;
 import com.cstery.chengsterymall.properties.JwtProperties;
+import com.cstery.chengsterymall.result.PageResult;
 import com.cstery.chengsterymall.service.UserService;
 import com.cstery.chengsterymall.utils.JwtUtil;
 import com.cstery.chengsterymall.utils.SaltGeneratorUtil;
@@ -26,11 +29,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @Service
@@ -58,6 +59,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         user.setPassword(password);
         user.setSalt(salt);
 
+        user.setRole(UserRoleConstant.USER);
         user.setAvatarUrl(DEFAULTAVATARURL);
         user.setCreatedAt(LocalDateTime.now());
         user.setUpdatedAt(LocalDateTime.now());
@@ -91,7 +93,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
     /**
      * 修改用户信息
-     *
      * @param userDTO
      */
     @Override
@@ -218,6 +219,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
                 .id(userId)
                 .token(jwt)
                 .avatarUrl(user.getAvatarUrl())
+                .role(user.getRole())
                 .build();
     }
 
@@ -247,4 +249,118 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
         return (int) count;
     }
+
+    /**
+     * 分页查询用户数据
+     * @param userPageQueryDTO
+     * @return
+     */
+    @Override
+    public PageResult pageQuery(UserPageQueryDTO userPageQueryDTO) {
+        // 设置分页条件
+        IPage<User> userIPage = new Page<>(userPageQueryDTO.getPage(), userPageQueryDTO.getPageSize());
+
+        LambdaQueryWrapper<User> userLambdaQueryWrapper = new LambdaQueryWrapper<>();
+        userLambdaQueryWrapper
+                .orderByDesc(User::getCreatedAt)
+                .ne(User::getRole, UserRoleConstant.SUPER);
+
+        // 不是超级管理员时不返回其它管理员信息
+        User user = getById(BaseContext.getCurrentId());
+        if (!user.getRole().equals(UserRoleConstant.SUPER)) {
+            userLambdaQueryWrapper.ne(User::getRole, UserRoleConstant.ADMIN);
+        }
+
+        // 设置过滤条件
+        if (userPageQueryDTO.getUsername() != null) {
+            userLambdaQueryWrapper.like(User::getUsername, userPageQueryDTO.getUsername());
+        }
+
+        if (userPageQueryDTO.getRole() != null) {
+            userLambdaQueryWrapper.eq(User::getRole, userPageQueryDTO.getRole());
+        }
+
+        IPage<User> page = page(userIPage, userLambdaQueryWrapper);
+
+        // 设置分页结果
+        PageResult pageResult = new PageResult();
+        pageResult.setTotal(page.getTotal());
+        pageResult.setRecords(BeanUtil.copyToList(page.getRecords(), UserVO.class));
+
+        return pageResult;
+    }
+
+    /**
+     * 设置用户角色
+     * @param id
+     * @param role
+     */
+    @Override
+    @Transactional
+    public void setRole(Long id, String role) {
+        // 判断是否设置正确role
+        if (!role.equals(UserRoleConstant.USER) && !role.equals(UserRoleConstant.ADMIN)) {
+            throw new UserException(MessageConstant.ERRORROLE);
+        }
+
+        // 只能超级管理员设置为普通用户或管理员
+        User user = getById(BaseContext.getCurrentId());
+        if (!user.getRole().equals(UserRoleConstant.SUPER)) {
+            throw new UserException(MessageConstant.PERMISSIONDENIED);
+        }
+
+        // 更新
+        User resetUser = User.builder()
+                .id(id)
+                .role(role)
+                .updatedAt(LocalDateTime.now())
+                .build();
+        updateById(resetUser);
+    }
+
+    /**
+     * 重设密码
+     * @param id
+     * @param password
+     */
+    @Override
+    @Transactional
+    public void resetPassword(Long id, String password) {
+
+        // 判断账号是否有权限重置密码
+        User user = getById(BaseContext.getCurrentId());
+        User resetUser = getById(id);
+
+        // 普通用户无权限
+        if (user.getRole().equals(UserRoleConstant.USER)) {
+            throw new UserException(MessageConstant.PERMISSIONDENIED);
+        }
+
+        // 管理员无权限操作管理员
+        if (!user.getRole().equals(UserRoleConstant.SUPER) && resetUser.getRole().equals(UserRoleConstant.ADMIN)) {
+            throw new UserException(MessageConstant.PERMISSIONDENIED);
+        }
+
+        // 超级管理员不能被操作
+        if (resetUser.getRole().equals(UserRoleConstant.SUPER)) {
+            throw new UserException(MessageConstant.PERMISSIONDENIED);
+        }
+
+        // 加密密码
+        String salt = SaltGeneratorUtil.generateSalt();
+        String saltPassword = salt + password;
+        String cpassword = DigestUtil.md5Hex(saltPassword.getBytes());
+
+
+        // 更新
+        User resetData = User
+                .builder()
+                .id(id)
+                .salt(salt)
+                .password(cpassword)
+                .updatedAt(LocalDateTime.now())
+                .build();
+        updateById(resetData);
+    }
+
 }

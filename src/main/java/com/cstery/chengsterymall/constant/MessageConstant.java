@@ -20,4 +20,5 @@ public class MessageConstant {
     public static final String CATEGORYRELATEDPRODUCT = "有商品属于该分类，无法删除";
     public static final String PERMISSIONDENIED = "账号权限不足";
     public static final String SPECRELATEDPRODUCT = "规格关联了商品，无法删除";
+    public static final String ERRORROLE = "请设置正确的用户职责";
 }

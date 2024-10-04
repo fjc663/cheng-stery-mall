@@ -1,15 +1,14 @@
 package com.cstery.chengsterymall.controller.admin;
 
-import com.cstery.chengsterymall.domain.dto.EditPasswordDTO;
-import com.cstery.chengsterymall.domain.dto.UserDTO;
-import com.cstery.chengsterymall.domain.dto.UserLoginDTO;
-import com.cstery.chengsterymall.domain.dto.UserRegisterDTO;
+import com.cstery.chengsterymall.domain.dto.*;
 import com.cstery.chengsterymall.domain.vo.LoginVO;
 import com.cstery.chengsterymall.domain.vo.UserVO;
+import com.cstery.chengsterymall.result.PageResult;
 import com.cstery.chengsterymall.result.Result;
 import com.cstery.chengsterymall.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -68,6 +67,44 @@ public class AdminUserController {
     @ApiOperation("修改密码")
     public Result editPassword(@Valid @RequestBody EditPasswordDTO editPasswordDTO) {
         userService.editPassword(editPasswordDTO);
+        return Result.success();
+    }
+
+    /**
+     * 分页查询用户数据
+     * @param userPageQueryDTO
+     * @return
+     */
+    @GetMapping("/page")
+    @ApiOperation("分页查询用户数据")
+    public Result<PageResult> pageQuery(UserPageQueryDTO userPageQueryDTO) {
+        PageResult pageResult = userService.pageQuery(userPageQueryDTO);
+        return Result.success(pageResult);
+    }
+
+    /**
+     * 设置用户角色
+     * @param id
+     * @param role
+     * @return
+     */
+    @PutMapping("/role/{id}")
+    @ApiOperation("设置用户角色")
+    public Result setRole(@PathVariable @ApiParam("用户id") Long id, @RequestParam @ApiParam("用户角色") String role) {
+        userService.setRole(id, role);
+        return Result.success();
+    }
+
+    /**
+     * 重设密码
+     * @param id
+     * @param password
+     * @return
+     */
+    @PutMapping("/reset/{id}")
+    @ApiOperation("重设密码")
+    public Result resetPassword(@PathVariable @ApiParam("用户id") Long id, @RequestParam @ApiParam("密码") String password) {
+        userService.resetPassword(id, password);
         return Result.success();
     }
 

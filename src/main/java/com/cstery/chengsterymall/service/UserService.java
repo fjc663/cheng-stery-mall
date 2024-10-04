@@ -5,6 +5,7 @@ import com.cstery.chengsterymall.domain.dto.*;
 import com.cstery.chengsterymall.domain.po.User;
 import com.cstery.chengsterymall.domain.vo.LoginVO;
 import com.cstery.chengsterymall.domain.vo.UserVO;
+import com.cstery.chengsterymall.result.PageResult;
 import org.springframework.transaction.annotation.Transactional;
 
 public interface UserService extends IService<User> {
@@ -60,4 +61,25 @@ public interface UserService extends IService<User> {
      * @return
      */
     Integer getTotalUsers(ChartDTO chartDTO, Boolean isCumulative);
+
+    /**
+     * 分页查询用户数据
+     * @param userPageQueryDTO
+     * @return
+     */
+    PageResult pageQuery(UserPageQueryDTO userPageQueryDTO);
+
+    /**
+     * 设置用户角色
+     * @param id
+     * @param role
+     */
+    void setRole(Long id, String role);
+
+    /**
+     * 重设密码
+     * @param id
+     * @param password
+     */
+    void resetPassword(Long id, String password);
 }

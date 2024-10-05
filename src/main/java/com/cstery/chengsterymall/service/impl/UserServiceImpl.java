@@ -98,7 +98,12 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     @Override
     @Transactional
     public void updateUserInfo(UserDTO userDTO) {
-        User user = BeanUtil.copyProperties(userDTO, User.class);
+        User user = getById(userDTO.getId());
+        if (!user.getRole().equals(userDTO.getRole())) {
+            throw new UserException(MessageConstant.PERMISSIONDENIED);
+        }
+
+        user = BeanUtil.copyProperties(userDTO, User.class);
         user.setUpdatedAt(LocalDateTime.now());
 
         updateById(user);

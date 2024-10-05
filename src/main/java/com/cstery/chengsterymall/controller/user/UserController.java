@@ -70,7 +70,6 @@ public class UserController {
     @PutMapping
     @ApiOperation("修改用户信息")
     public Result updateUserInfo(@Valid @RequestBody UserDTO userDTO) {
-        userDTO.setRole(UserRoleConstant.USER);
         userService.updateUserInfo(userDTO);
         return Result.success();
     }

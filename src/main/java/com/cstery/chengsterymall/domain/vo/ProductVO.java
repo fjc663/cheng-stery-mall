@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 import java.io.Serial;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Arrays;
 import java.util.List;
 
 @Data
@@ -54,4 +55,21 @@ public class ProductVO implements Serializable {
     @ApiModelProperty(value = "该商品是否被收藏", example = "true")
     private Boolean isFavorites;
 
+    @ApiModelProperty(value = "该商品是否为轮播图商品", example = "true")
+    private Boolean isSlides;
+
+    @ApiModelProperty(value = "该商品是否为热门商品", example = "true")
+    private Boolean isHot;
+
+    @ApiModelProperty(value = "该商品是否为新商品", example = "true")
+    private Boolean isNew;
+
+    @ApiModelProperty(value = "特色商品类型列表, 1-Slides, 2-Hot, 3-New", example = "[1, 2, 3]")
+    private List<Integer> featuredTypes;
+
+    // 查询到的featuredTypes为字符串类型的 "1, 2, 3", 需重写set方法转化
+    public void setFeaturedTypes(String featuredTypesStr) {
+        String[] featuredTypes = featuredTypesStr.split(",");
+        this.featuredTypes = Arrays.stream(featuredTypes).map(Integer::valueOf).toList();
+    }
 }

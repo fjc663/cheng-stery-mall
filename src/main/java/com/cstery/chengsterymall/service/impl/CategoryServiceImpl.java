@@ -149,6 +149,15 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
             throw new CategoryException(MessageConstant.CATEGORYRELATEDPRODUCT);
         }
 
+        // 如果该分类下有子分类无法删除
+        LambdaQueryWrapper<Category> categoryLambdaQueryWrapper = new LambdaQueryWrapper<Category>()
+                .eq(Category::getParentId, id);
+        List<Category> categoryList = list(categoryLambdaQueryWrapper);
+
+        if (categoryList != null && !categoryList.isEmpty()) {
+            throw new CategoryException(MessageConstant.CATEGORYRELATEDSUB);
+        }
+
         // 删除分类
         removeById(id);
     }
@@ -162,6 +171,7 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
         // 构造查询条件
         LambdaQueryWrapper<Category> categoryLambdaQueryWrapper = new LambdaQueryWrapper<Category>()
                 .isNotNull(Category::getParentId)
+                .orderByAsc(Category::getSortOrder)
                 .eq(Category::getStatus, StatusConstant.ENABLE);
 
         // 查询

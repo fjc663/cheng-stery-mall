@@ -6,19 +6,18 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.baomidou.mybatisplus.extension.toolkit.Db;
+import com.cstery.chengsterymall.constant.ProductConstant;
 import com.cstery.chengsterymall.constant.StatusConstant;
 import com.cstery.chengsterymall.context.BaseContext;
 import com.cstery.chengsterymall.domain.dto.ProductDTO;
 import com.cstery.chengsterymall.domain.dto.ProductPageQueryDTO;
-import com.cstery.chengsterymall.domain.po.Product;
-import com.cstery.chengsterymall.domain.po.ProductFavorite;
-import com.cstery.chengsterymall.domain.po.ProductSpecifications;
-import com.cstery.chengsterymall.domain.po.Specifications;
+import com.cstery.chengsterymall.domain.po.*;
 import com.cstery.chengsterymall.domain.vo.ProductVO;
 import com.cstery.chengsterymall.domain.vo.SpecificationVO;
 import com.cstery.chengsterymall.mapper.ProductMapper;
 import com.cstery.chengsterymall.result.PageResult;
 import com.cstery.chengsterymall.service.ProductService;
+import io.swagger.annotations.ApiModelProperty;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -140,51 +139,46 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
     @Override
     public PageResult adminProductPageQuery(ProductPageQueryDTO productPageQueryDTO) {
         // 分页条件
-        IPage<Product> productIPage = new Page<>(productPageQueryDTO.getPage(), productPageQueryDTO.getPageSize());
+        IPage<ProductVO> productIPage = new Page<>(productPageQueryDTO.getPage(), productPageQueryDTO.getPageSize());
 
-        // 根据要求构建查询语句
-        LambdaQueryWrapper<Product> productLambdaQueryWrapper = new LambdaQueryWrapper<Product>().orderByDesc(Product::getCreatedAt);
-
-        if (productPageQueryDTO.getName() != null) {
-            productLambdaQueryWrapper.like(Product::getName, productPageQueryDTO.getName());
-        }
-
-        if (productPageQueryDTO.getCategoryId() != null) {
-            productLambdaQueryWrapper.eq(Product::getCategoryId, productPageQueryDTO.getCategoryId());
-        }
-
-        if (productPageQueryDTO.getStatus() != null) {
-            productLambdaQueryWrapper.eq(Product::getStatus, productPageQueryDTO.getStatus());
-        }
-
-        IPage<Product> page = page(productIPage, productLambdaQueryWrapper);
+        // 联表查询商品及其对应的特色属性
+        IPage<ProductVO> page = baseMapper.selectProductPage(productIPage,
+                productPageQueryDTO.getName(),
+                productPageQueryDTO.getCategoryId(),
+                productPageQueryDTO.getStatus(),
+                productPageQueryDTO.getType());
 
         // 取出查询结果并返回
         PageResult pageResult = new PageResult();
         pageResult.setTotal(page.getTotal());
 
-        List<ProductVO> productVOList = BeanUtil.copyToList(page.getRecords(), ProductVO.class);
+        List<ProductVO> productVOS = page.getRecords();
+        for (ProductVO productVO : productVOS) {
+            // 设置是否为特色商品的判断
+            boolean isSlides = false;
+            boolean isHot = false;
+            boolean isNew = false;
 
-        // 设置规格数据
-        for (ProductVO productVO : productVOList) {
-            // 查询规格商品关联表
-            List<ProductSpecifications> productSpecificationsList = Db.lambdaQuery(ProductSpecifications.class).eq(ProductSpecifications::getProductId, productVO.getId()).list();
-            // 获得商品相关的规格id列表
-            List<Long> specificationsIds = productSpecificationsList.stream().map(ProductSpecifications::getSpecificationId).toList();
+            if (productVO.getFeaturedTypes() != null && !productVO.getFeaturedTypes().isEmpty()) {
+                if (productVO.getFeaturedTypes().contains(ProductConstant.SLIDES)) {
+                    isSlides = true;
+                }
 
-            if (!specificationsIds.isEmpty()) {
-                // 根据规格id列表获得规格列表
-                List<Specifications> specificationsList = Db.lambdaQuery(Specifications.class).in(Specifications::getId, specificationsIds).list();
+                if (productVO.getFeaturedTypes().contains(ProductConstant.HOT)) {
+                    isHot = true;
+                }
 
-                // 转化为VO对象
-                List<SpecificationVO> specificationVOList = BeanUtil.copyToList(specificationsList, SpecificationVO.class);
-
-                productVO.setSpecifications(specificationVOList);
+                if (productVO.getFeaturedTypes().contains(ProductConstant.NEW)) {
+                    isNew = true;
+                }
             }
 
+            productVO.setIsSlides(isSlides);
+            productVO.setIsHot(isHot);
+            productVO.setIsNew(isNew);
         }
 
-        pageResult.setRecords(productVOList);
+        pageResult.setRecords(productVOS);
 
         return pageResult;
     }

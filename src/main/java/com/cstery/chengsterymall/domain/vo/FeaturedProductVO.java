@@ -25,9 +25,6 @@ public class FeaturedProductVO implements Serializable {
     @ApiModelProperty(value = "显示位置类型：1-轮播图，2-热门商品，3-新品", example = "1")
     private Integer type;
 
-    @ApiModelProperty(value = "显示顺序", example = "1")
-    private Integer displayOrder;
-
     @ApiModelProperty(value = "对应的商品信息")
     private ProductVO product;
 }

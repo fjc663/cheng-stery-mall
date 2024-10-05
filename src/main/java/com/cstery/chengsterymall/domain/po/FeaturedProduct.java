@@ -18,16 +18,15 @@ import java.time.LocalDateTime;
 @TableName("featured_product")
 public class FeaturedProduct implements Serializable {
 
+    // 主键id
     @TableId(type = IdType.AUTO)
     private Long id;
 
+    // 商品id
     private Long productId;
 
     // 显示位置类型：1-轮播图，2-热门商品，3-新品
     private Integer type;
-
-    // 显示顺序
-    private Integer displayOrder;
 
     // 创建时间
     @TableField(fill = FieldFill.INSERT)

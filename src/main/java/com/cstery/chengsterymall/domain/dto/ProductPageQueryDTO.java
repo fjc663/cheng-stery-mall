@@ -48,4 +48,6 @@ public class ProductPageQueryDTO implements Serializable {
     @ApiModelProperty(value = "是否返回全部商品数据", example = "false")
     private Boolean isALLData;
 
+    @ApiModelProperty(value = "商品类型，1-轮播图，2-热门商品，3-新品", example = "1")
+    private Integer type;
 }

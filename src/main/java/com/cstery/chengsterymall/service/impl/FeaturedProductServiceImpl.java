@@ -11,7 +11,9 @@ import com.cstery.chengsterymall.domain.vo.ProductVO;
 import com.cstery.chengsterymall.mapper.FeaturedProductMapper;
 import com.cstery.chengsterymall.service.FeaturedProductService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -25,7 +27,7 @@ public class FeaturedProductServiceImpl extends ServiceImpl<FeaturedProductMappe
     public List<FeaturedProductVO> getFeaturedProducts() {
         // 查询特色商品表
         LambdaQueryWrapper<FeaturedProduct> featuredProductLambdaQueryWrapper = new LambdaQueryWrapper<FeaturedProduct>()
-                .orderByDesc(FeaturedProduct::getDisplayOrder);
+                .orderByDesc(FeaturedProduct::getCreatedAt);
         List<FeaturedProduct> featuredProductList = list(featuredProductLambdaQueryWrapper);
 
         // 判断是否为空
@@ -46,5 +48,38 @@ public class FeaturedProductServiceImpl extends ServiceImpl<FeaturedProductMappe
         }
 
         return featuredProductVOList;
+    }
+
+    /**
+     * 设置商品类型
+     * @param id
+     * @param type
+     */
+    @Override
+    @Transactional
+    public void setFeaturedType(Long id, Integer type) {
+        FeaturedProduct featuredProduct = FeaturedProduct
+                .builder()
+                .productId(id)
+                .type(type)
+                .createdAt(LocalDateTime.now())
+                .updatedAt(LocalDateTime.now())
+                .build();
+
+        save(featuredProduct);
+    }
+
+    /**
+     * 去除商品类型
+     * @param id
+     * @param type
+     */
+    @Override
+    @Transactional
+    public void resetFeaturedType(Long id, Integer type) {
+        LambdaQueryWrapper<FeaturedProduct> featuredProductLambdaQueryWrapper = new LambdaQueryWrapper<FeaturedProduct>()
+                .eq(FeaturedProduct::getProductId, id)
+                .eq(FeaturedProduct::getType, type);
+        remove(featuredProductLambdaQueryWrapper);
     }
 }

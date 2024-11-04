@@ -1,0 +1,23 @@
+csm:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    host: 192.168.88.147
+    port: 3306
+    database: csm-category
+    username: root
+    password: 1151259363
+  servlet:
+    multipart:
+      max-request-size: 50MB
+      max-file-size: 20MB   # 设置上传文件大小，默认是1M
+  alioss:
+    endpoint: oss-cn-beijing.aliyuncs.com
+    bucket-name: cstery-sky
+    access-key-secret: zZhUThCwH54quUEKL8l2UvBtavsj6W
+    access-key-id: LTAI5tMLyK8pQCwzKqqnPoyk
+  redis:
+    host: localhost
+    port: 6379
+    password: 123456
+    database: 7
+

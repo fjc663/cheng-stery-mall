@@ -1,0 +1,43 @@
+19:35:56:616  INFO 5096 --- [main] com.cstery.category.CategoryApplication  : Starting CategoryApplication using Java 17.0.9 on DESKTOP-0KBKC9H with PID 5096 (E:\coding\idea_program_file\myProject\chengstery-mall\category-service\target\classes started by win10 in E:\coding\idea_program_file\myProject\chengstery-mall)
+19:35:56:618  INFO 5096 --- [main] com.cstery.category.CategoryApplication  : The following 1 profile is active: "dev"
+19:35:58:459  INFO 5096 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+19:35:58:468  INFO 5096 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+19:35:58:522  INFO 5096 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces.
+19:35:59:771  INFO 5096 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+19:35:59:790  INFO 5096 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+19:35:59:791  INFO 5096 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+19:35:59:991  INFO 5096 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+19:35:59:991  INFO 5096 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3283 ms
+19:36:00:739  INFO 5096 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+19:36:00:953  INFO 5096 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+19:36:02:328  INFO 5096 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
+19:36:02:690  INFO 5096 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+19:36:02:690  INFO 5096 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
+19:36:02:696  INFO 5096 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 2 custom documentation plugin(s)
+19:36:02:742  INFO 5096 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+19:36:02:911  INFO 5096 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+19:36:02:999  INFO 5096 --- [main] com.cstery.category.CategoryApplication  : Started CategoryApplication in 7.112 seconds (JVM running for 9.736)
+19:36:23:264  INFO 5096 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+19:36:23:269  INFO 5096 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+19:36:44:426  INFO 7120 --- [main] com.cstery.category.CategoryApplication  : Starting CategoryApplication using Java 17.0.9 on DESKTOP-0KBKC9H with PID 7120 (E:\coding\idea_program_file\myProject\chengstery-mall\category-service\target\classes started by win10 in E:\coding\idea_program_file\myProject\chengstery-mall)
+19:36:44:432  INFO 7120 --- [main] com.cstery.category.CategoryApplication  : The following 1 profile is active: "dev"
+19:36:45:737  INFO 7120 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+19:36:45:743  INFO 7120 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+19:36:45:775  INFO 7120 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 0 Redis repository interfaces.
+19:36:46:795  INFO 7120 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+19:36:46:809  INFO 7120 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+19:36:46:809  INFO 7120 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+19:36:46:950  INFO 7120 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+19:36:46:950  INFO 7120 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2434 ms
+19:36:47:549  INFO 7120 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+19:36:47:709  INFO 7120 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+19:36:48:749  INFO 7120 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
+19:36:49:004  INFO 7120 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+19:36:49:005  INFO 7120 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
+19:36:49:009  INFO 7120 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 2 custom documentation plugin(s)
+19:36:49:048  INFO 7120 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+19:36:49:196  INFO 7120 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+19:36:49:257  INFO 7120 --- [main] com.cstery.category.CategoryApplication  : Started CategoryApplication in 5.527 seconds (JVM running for 6.551)
+19:37:57:999  INFO 7120 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+19:37:57:999  INFO 7120 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+19:37:58:001  INFO 7120 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms

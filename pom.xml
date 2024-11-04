@@ -25,6 +25,7 @@
         <module>cstery-mall-common</module>
         <module>cstery-mall-domain</module>
         <module>cstery-mall-server</module>
+        <module>category-service</module>
     </modules>
     <scm>
         <connection/>
@@ -105,6 +106,15 @@
 
         </dependencies>
     </dependencyManagement>
+
+    <dependencies>
+        <!--单元测定起步依赖-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>

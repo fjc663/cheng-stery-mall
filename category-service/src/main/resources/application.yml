@@ -1,8 +1,8 @@
 server:
-  port: 8080
+  port: 8081
 spring:
   application:
-    name: chengstery-mall
+    name: category-service # 微服务名称
   profiles:
     active: dev
   datasource:
@@ -42,53 +42,33 @@ logging:
         mapper: debug
         service: info
         controller: info
+  pattern:
+    dateformat: HH:mm:ss:SSS
+  file:
+    path: "logs/${spring.application.name}"
 
 knife4j:
   enable: true
   openapi:
-    title: 'cstery-mall接口文档'
-    description: 'cstery-mall接口文档'
+    title: 'cstery-mall分类相关接口文档'
+    description: 'cstery-mall分类相关接口文档'
     email: 'fjc663@outlook.com'
     concat: cstery
     url: https://www.cstery.com
     version: v1.0.0
     group:
       admin:
-        group-name: '管理端接口文档'
+        group-name: '管理端分类相关接口文档'
         api-rule: package
         api-rule-resources:
-          - com.cstery.controller.admin
+          - com.cstery.category.controller.admin
       user:
         group-name: '用户端接口文档'
         api-rule: package
         api-rule-resources:
-          - com.cstery.controller.user
+          - com.cstery.category.controller.user
 
 csm:
-  jwt:
-    admin-secret-key: ${csm.jwt.admin-secret-key} #设置jwt签名加密时使用的密钥
-    admin-ttl: ${csm.jwt.admin-ttl} #设置jwt过期的时间
-    admin-token-name: ${csm.jwt.admin-token-name} #设置前端传递过来的令牌名称
-    user-secret-key: ${csm.jwt.user-secret-key}
-    user-ttl: ${csm.jwt.user-ttl}
-    user-token-name: ${csm.jwt.user-token-name}
-  auth:
-    admin-include-paths: #设置需要拦截的路径
-      - /upload/admin/**
-      - /admin/**
-    admin-exclude-paths: #设置放行的路径
-      - /admin/user/login
-
-    user-include-paths:
-      - /upload/user/**
-      - /user/**
-    user-exclude-paths:
-      - /user/user/login
-      - /user/user/register
-      - /user/category/**
-      - /user/product/list
-      - /user/product/page
-      - /user/product/featured
   alioss:
     endpoint: ${sky.alioss.endpoint}
     bucket-name: ${sky.alioss.bucket-name}

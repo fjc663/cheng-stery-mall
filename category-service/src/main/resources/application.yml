@@ -18,14 +18,17 @@ spring:
     database: ${csm.redis.database}
   web:
     resources:
-      static-locations: classpath:/templates/,classpath:/static/images
+      static-locations: classpath:/static/images
   servlet:
     multipart:
       max-request-size: ${csm.servlet.multipart.max-request-size}
       max-file-size: ${csm.servlet.multipart.max-file-size}
+  cloud:
+    nacos:
+      server-addr: ${csm.nacos.server-addr}
 mybatis-plus:
   mapper-locations: classpath:mapper/**/*.xml # mapper.xml文件地址，默认值
-  type-aliases-package: com.cstery.chengsterymall.domain.po # 别名扫描包
+  type-aliases-package: com.cstery.category.domain.po # 别名扫描包
   configuration:
     map-underscore-to-camel-case: true  # 开启驼峰命名
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # mybatis-plus日志输出
@@ -38,7 +41,6 @@ logging:
   level:
     com:
       cstery:
-      chengsterymall:
         mapper: debug
         service: info
         controller: info
@@ -63,14 +65,14 @@ knife4j:
         api-rule-resources:
           - com.cstery.category.controller.admin
       user:
-        group-name: '用户端接口文档'
+        group-name: '用户端分类接口文档'
         api-rule: package
         api-rule-resources:
           - com.cstery.category.controller.user
 
 csm:
   alioss:
-    endpoint: ${sky.alioss.endpoint}
-    bucket-name: ${sky.alioss.bucket-name}
-    access-key-secret: ${sky.alioss.access-key-secret}
-    access-key-id: ${sky.alioss.access-key-id}
+    endpoint: ${csm.alioss.endpoint}
+    bucket-name: ${csm.alioss.bucket-name}
+    access-key-secret: ${csm.alioss.access-key-secret}
+    access-key-id: ${csm.alioss.access-key-id}

@@ -1,0 +1,99 @@
+17:11:28:296  INFO 14284 --- [main] com.cstery.user.UserApplication          : Starting UserApplication using Java 17.0.9 on DESKTOP-0KBKC9H with PID 14284 (E:\coding\idea_program_file\myProject\chengstery-mall\user-service\target\classes started by win10 in E:\coding\idea_program_file\myProject\chengstery-mall)
+17:11:28:300  INFO 14284 --- [main] com.cstery.user.UserApplication          : The following 1 profile is active: "dev"
+17:11:30:682  INFO 14284 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=dbd5b902-44bd-33e6-b0a2-bcb55a20596c
+17:11:31:890  INFO 14284 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8083 (http)
+17:11:31:909  INFO 14284 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+17:11:31:910  INFO 14284 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+17:11:32:152  INFO 14284 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+17:11:32:152  INFO 14284 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3771 ms
+17:11:32:616  INFO 14284 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+17:11:32:902  INFO 14284 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+17:11:33:622  INFO 14284 --- [main] c.c.user.config.WebMvcConfiguration      : 注册登录拦截器...
+17:11:34:070  INFO 14284 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
+17:11:34:372  WARN 14284 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+17:11:34:543  INFO 14284 --- [main] com.alibaba.nacos.common.remote.client   : [RpcClientFactory] create a new rpc client of 5cdbe21f-7622-4a80-93c4-7ac5baf70063
+17:11:34:631  INFO 14284 --- [main] org.reflections.Reflections              : Reflections took 38 ms to scan 1 urls, producing 3 keys and 6 values 
+17:11:34:665  INFO 14284 --- [main] org.reflections.Reflections              : Reflections took 5 ms to scan 1 urls, producing 4 keys and 9 values 
+17:11:34:675  INFO 14284 --- [main] org.reflections.Reflections              : Reflections took 3 ms to scan 1 urls, producing 3 keys and 10 values 
+17:11:34:680  WARN 14284 --- [main] org.reflections.Reflections              : given scan urls are empty. set urls in the configuration
+17:11:34:689  INFO 14284 --- [main] org.reflections.Reflections              : Reflections took 7 ms to scan 1 urls, producing 1 keys and 5 values 
+17:11:34:703  INFO 14284 --- [main] org.reflections.Reflections              : Reflections took 10 ms to scan 1 urls, producing 1 keys and 7 values 
+17:11:34:716  INFO 14284 --- [main] org.reflections.Reflections              : Reflections took 12 ms to scan 1 urls, producing 2 keys and 8 values 
+17:11:34:720  WARN 14284 --- [main] org.reflections.Reflections              : given scan urls are empty. set urls in the configuration
+17:11:34:723  INFO 14284 --- [main] com.alibaba.nacos.common.remote.client   : [5cdbe21f-7622-4a80-93c4-7ac5baf70063] RpcClient init label, labels = {module=naming, source=sdk}
+17:11:34:723  INFO 14284 --- [main] com.alibaba.nacos.common.remote.client   : [5cdbe21f-7622-4a80-93c4-7ac5baf70063] RpcClient init, ServerListFactory = com.alibaba.nacos.client.naming.core.ServerListManager
+17:11:34:725  INFO 14284 --- [main] com.alibaba.nacos.common.remote.client   : [5cdbe21f-7622-4a80-93c4-7ac5baf70063] Registry connection listener to current client:com.alibaba.nacos.client.naming.remote.gprc.redo.NamingGrpcRedoService
+17:11:34:726  INFO 14284 --- [main] com.alibaba.nacos.common.remote.client   : [5cdbe21f-7622-4a80-93c4-7ac5baf70063] Register server push request handler:com.alibaba.nacos.client.naming.remote.gprc.NamingPushRequestHandler
+17:11:34:727  INFO 14284 --- [main] com.alibaba.nacos.common.remote.client   : [5cdbe21f-7622-4a80-93c4-7ac5baf70063] Try to connect to server on start up, server: {serverIp = '192.168.88.156', server main port = 8848}
+17:11:35:785  INFO 14284 --- [main] com.alibaba.nacos.common.remote.client   : [5cdbe21f-7622-4a80-93c4-7ac5baf70063] Success to connect to server [192.168.88.156:8848] on start up, connectionId = 1730970695511_192.168.88.147_54569
+17:11:35:787  INFO 14284 --- [com.alibaba.nacos.client.remote.worker] com.alibaba.nacos.common.remote.client   : [5cdbe21f-7622-4a80-93c4-7ac5baf70063] Notify connected event to listeners.
+17:11:35:787  INFO 14284 --- [main] com.alibaba.nacos.common.remote.client   : [5cdbe21f-7622-4a80-93c4-7ac5baf70063] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$ConnectResetRequestHandler
+17:11:35:788  INFO 14284 --- [main] com.alibaba.nacos.common.remote.client   : [5cdbe21f-7622-4a80-93c4-7ac5baf70063] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$$Lambda$1033/0x0000018d1b7e5ef0
+17:11:35:866  INFO 14284 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8083 (http) with context path ''
+17:11:35:881  INFO 14284 --- [main] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, DEFAULT_GROUP user-service 192.168.88.147:8083 register finished
+17:11:35:908  INFO 14284 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
+17:11:35:913  INFO 14284 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 2 custom documentation plugin(s)
+17:11:35:972  INFO 14284 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+17:11:36:174  INFO 14284 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+17:11:36:185  INFO 14284 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: editPasswordUsingPUT_1
+17:11:36:195  INFO 14284 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUserInfoUsingPUT_1
+17:11:36:220  INFO 14284 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: loginUsingPOST_1
+17:11:36:248  INFO 14284 --- [main] com.cstery.user.UserApplication          : Started UserApplication in 8.811 seconds (JVM running for 10.094)
+17:11:36:339  INFO 14284 --- [nacos-grpc-client-executor-9] com.alibaba.nacos.common.remote.client   : [5cdbe21f-7622-4a80-93c4-7ac5baf70063] Receive server push request, request = NotifySubscriberRequest, requestId = 6
+17:11:36:351  INFO 14284 --- [nacos-grpc-client-executor-9] com.alibaba.nacos.common.remote.client   : [5cdbe21f-7622-4a80-93c4-7ac5baf70063] Ack server push request, request = NotifySubscriberRequest, requestId = 6
+17:12:51:273  WARN 14284 --- [Thread-7] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Start destroying common HttpClient
+17:12:51:273  WARN 14284 --- [Thread-4] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Start destroying Publisher
+17:12:51:285  WARN 14284 --- [Thread-4] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Destruction of the end
+17:12:51:299  WARN 14284 --- [Thread-7] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Destruction of the end
+17:12:51:581  INFO 14284 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registering from Nacos Server now...
+17:12:51:589  INFO 14284 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registration finished.
+17:12:51:928  INFO 14284 --- [SpringApplicationShutdownHook] com.alibaba.nacos.common.remote.client   : Shutdown rpc client, set status to shutdown
+17:12:51:928  INFO 14284 --- [SpringApplicationShutdownHook] com.alibaba.nacos.common.remote.client   : Shutdown client event executor java.util.concurrent.ScheduledThreadPoolExecutor@6aa9d908[Running, pool size = 2, active threads = 2, queued tasks = 0, completed tasks = 0]
+17:12:51:928  INFO 14284 --- [SpringApplicationShutdownHook] com.alibaba.nacos.common.remote.client   : Close current connection 1730970695511_192.168.88.147_54569
+17:12:51:934  INFO 14284 --- [nacos-grpc-client-executor-32] c.a.n.c.remote.client.grpc.GrpcClient    : [1730970695511_192.168.88.147_54569]Ignore complete event,isRunning:false,isAbandon=false
+17:12:51:949  INFO 14284 --- [SpringApplicationShutdownHook] c.a.n.c.remote.client.grpc.GrpcClient    : Shutdown grpc executor java.util.concurrent.ThreadPoolExecutor@58c6527c[Running, pool size = 7, active threads = 0, queued tasks = 0, completed tasks = 33]
+17:12:51:963  INFO 14284 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+17:12:51:969  INFO 14284 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+17:14:34:470  INFO 924 --- [main] com.cstery.user.UserApplication          : Starting UserApplication using Java 17.0.9 on DESKTOP-0KBKC9H with PID 924 (E:\coding\idea_program_file\myProject\chengstery-mall\user-service\target\classes started by win10 in E:\coding\idea_program_file\myProject\chengstery-mall)
+17:14:34:472  INFO 924 --- [main] com.cstery.user.UserApplication          : The following 1 profile is active: "dev"
+17:14:36:579  INFO 924 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=dbd5b902-44bd-33e6-b0a2-bcb55a20596c
+17:14:37:504  INFO 924 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8083 (http)
+17:14:37:522  INFO 924 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+17:14:37:523  INFO 924 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+17:14:37:807  INFO 924 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+17:14:37:808  INFO 924 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3231 ms
+17:14:38:104  INFO 924 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+17:14:38:334  INFO 924 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+17:14:39:417  INFO 924 --- [main] c.c.user.config.WebMvcConfiguration      : 注册登录拦截器...
+17:14:40:164  INFO 924 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
+17:14:40:665  WARN 924 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+17:14:40:938  INFO 924 --- [main] com.alibaba.nacos.common.remote.client   : [RpcClientFactory] create a new rpc client of 4d7040ae-7ba7-49d1-b0a5-816df8ae3455
+17:14:41:055  INFO 924 --- [main] org.reflections.Reflections              : Reflections took 60 ms to scan 1 urls, producing 3 keys and 6 values 
+17:14:41:106  INFO 924 --- [main] org.reflections.Reflections              : Reflections took 18 ms to scan 1 urls, producing 4 keys and 9 values 
+17:14:41:135  INFO 924 --- [main] org.reflections.Reflections              : Reflections took 15 ms to scan 1 urls, producing 3 keys and 10 values 
+17:14:41:138  WARN 924 --- [main] org.reflections.Reflections              : given scan urls are empty. set urls in the configuration
+17:14:41:155  INFO 924 --- [main] org.reflections.Reflections              : Reflections took 14 ms to scan 1 urls, producing 1 keys and 5 values 
+17:14:41:173  INFO 924 --- [main] org.reflections.Reflections              : Reflections took 11 ms to scan 1 urls, producing 1 keys and 7 values 
+17:14:41:190  INFO 924 --- [main] org.reflections.Reflections              : Reflections took 9 ms to scan 1 urls, producing 2 keys and 8 values 
+17:14:41:193  WARN 924 --- [main] org.reflections.Reflections              : given scan urls are empty. set urls in the configuration
+17:14:41:193  INFO 924 --- [main] com.alibaba.nacos.common.remote.client   : [4d7040ae-7ba7-49d1-b0a5-816df8ae3455] RpcClient init label, labels = {module=naming, source=sdk}
+17:14:41:193  INFO 924 --- [main] com.alibaba.nacos.common.remote.client   : [4d7040ae-7ba7-49d1-b0a5-816df8ae3455] RpcClient init, ServerListFactory = com.alibaba.nacos.client.naming.core.ServerListManager
+17:14:41:193  INFO 924 --- [main] com.alibaba.nacos.common.remote.client   : [4d7040ae-7ba7-49d1-b0a5-816df8ae3455] Registry connection listener to current client:com.alibaba.nacos.client.naming.remote.gprc.redo.NamingGrpcRedoService
+17:14:41:199  INFO 924 --- [main] com.alibaba.nacos.common.remote.client   : [4d7040ae-7ba7-49d1-b0a5-816df8ae3455] Register server push request handler:com.alibaba.nacos.client.naming.remote.gprc.NamingPushRequestHandler
+17:14:41:203  INFO 924 --- [main] com.alibaba.nacos.common.remote.client   : [4d7040ae-7ba7-49d1-b0a5-816df8ae3455] Try to connect to server on start up, server: {serverIp = '192.168.88.156', server main port = 8848}
+17:14:42:541  INFO 924 --- [main] com.alibaba.nacos.common.remote.client   : [4d7040ae-7ba7-49d1-b0a5-816df8ae3455] Success to connect to server [192.168.88.156:8848] on start up, connectionId = 1730970882222_192.168.88.147_54918
+17:14:42:542  INFO 924 --- [com.alibaba.nacos.client.remote.worker] com.alibaba.nacos.common.remote.client   : [4d7040ae-7ba7-49d1-b0a5-816df8ae3455] Notify connected event to listeners.
+17:14:42:543  INFO 924 --- [main] com.alibaba.nacos.common.remote.client   : [4d7040ae-7ba7-49d1-b0a5-816df8ae3455] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$ConnectResetRequestHandler
+17:14:42:543  INFO 924 --- [main] com.alibaba.nacos.common.remote.client   : [4d7040ae-7ba7-49d1-b0a5-816df8ae3455] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$$Lambda$1033/0x00000232c8825188
+17:14:42:646  INFO 924 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8083 (http) with context path ''
+17:14:42:662  INFO 924 --- [main] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, DEFAULT_GROUP user-service 192.168.88.147:8083 register finished
+17:14:42:697  INFO 924 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
+17:14:42:703  INFO 924 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 2 custom documentation plugin(s)
+17:14:42:761  INFO 924 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+17:14:43:016  INFO 924 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+17:14:43:029  INFO 924 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: editPasswordUsingPUT_1
+17:14:43:040  INFO 924 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: updateUserInfoUsingPUT_1
+17:14:43:076  INFO 924 --- [main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: loginUsingPOST_1
+17:14:43:110  INFO 924 --- [nacos-grpc-client-executor-7] com.alibaba.nacos.common.remote.client   : [4d7040ae-7ba7-49d1-b0a5-816df8ae3455] Receive server push request, request = NotifySubscriberRequest, requestId = 9
+17:14:43:115  INFO 924 --- [main] com.cstery.user.UserApplication          : Started UserApplication in 9.734 seconds (JVM running for 11.337)
+17:14:43:129  INFO 924 --- [nacos-grpc-client-executor-7] com.alibaba.nacos.common.remote.client   : [4d7040ae-7ba7-49d1-b0a5-816df8ae3455] Ack server push request, request = NotifySubscriberRequest, requestId = 9

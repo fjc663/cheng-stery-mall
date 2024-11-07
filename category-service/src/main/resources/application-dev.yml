@@ -1,7 +1,7 @@
 csm:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    host: 192.168.88.147
+    host: 192.168.88.156
     port: 3306
     database: csm-category
     username: root
@@ -20,4 +20,6 @@ csm:
     port: 6379
     password: 123456
     database: 7
+  nacos:
+    server-addr: 192.168.88.156:8848
 

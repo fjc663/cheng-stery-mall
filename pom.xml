@@ -23,9 +23,13 @@
     </developers>
     <modules>
         <module>cstery-mall-common</module>
-        <module>cstery-mall-domain</module>
-        <module>cstery-mall-server</module>
         <module>category-service</module>
+        <module>product-service</module>
+        <module>user-service</module>
+        <module>cstery-mall-api</module>
+        <module>cstery-mall-gateway</module>
+        <module>order-service</module>
+        <module>chart-service</module>
     </modules>
     <scm>
         <connection/>
@@ -44,10 +48,28 @@
         <jjwt>0.9.1</jjwt>
         <jaxb>2.3.1</jaxb>
         <aliyun.sdk.oss>3.10.2</aliyun.sdk.oss>
+        <spring-cloud.version>2021.0.3</spring-cloud.version>
+        <spring-cloud-alibaba.version>2021.0.4.0</spring-cloud-alibaba.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+            <!--spring cloud-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--spring cloud alibaba-->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
             <!--Mysql连接依赖-->
             <dependency>
                 <groupId>mysql</groupId>
@@ -113,6 +135,18 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+
+        <!--lombok依赖-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
+        <!--数据判空校验-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
         </dependency>
     </dependencies>
 

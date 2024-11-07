@@ -1,11 +1,11 @@
 package com.cstery.category.controller.admin;
 
+import com.cstery.category.domain.dto.CategoryDTO;
+import com.cstery.category.domain.dto.CategoryPageQueryDTO;
+import com.cstery.category.domain.vo.CategoryVO;
 import com.cstery.category.service.CategoryService;
-import com.cstery.dto.CategoryDTO;
-import com.cstery.dto.CategoryPageQueryDTO;
 import com.cstery.result.PageResult;
 import com.cstery.result.Result;
-import com.cstery.vo.CategoryVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;

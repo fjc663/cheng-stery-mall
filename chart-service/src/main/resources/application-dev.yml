@@ -1,0 +1,4 @@
+csm:
+  nacos:
+    server-addr: 192.168.88.156:8848
+

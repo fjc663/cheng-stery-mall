@@ -5,19 +5,19 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.baomidou.mybatisplus.extension.toolkit.Db;
+import com.cstery.api.client.ProductClient;
+import com.cstery.api.vo.ProductVO;
+import com.cstery.category.domain.dto.CategoryDTO;
+import com.cstery.category.domain.dto.CategoryPageQueryDTO;
+import com.cstery.category.domain.po.Category;
+import com.cstery.category.domain.vo.CategoryVO;
 import com.cstery.category.mapper.CategoryMapper;
 import com.cstery.category.service.CategoryService;
 import com.cstery.constant.MessageConstant;
 import com.cstery.constant.StatusConstant;
 import com.cstery.context.BaseContext;
-import com.cstery.dto.CategoryDTO;
-import com.cstery.dto.CategoryPageQueryDTO;
 import com.cstery.exceptions.CategoryException;
-import com.cstery.po.Category;
-import com.cstery.po.Product;
 import com.cstery.result.PageResult;
-import com.cstery.vo.CategoryVO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
@@ -31,6 +31,7 @@ import java.util.List;
 public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> implements CategoryService {
 
     private final RedisTemplate redisTemplate;
+    private final ProductClient productClient;
 
     /**
      * 获取一级分类
@@ -161,13 +162,13 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
         }
 
         // 查询商品表，如果该分类下有商品则无法删除
-        List<Product> productList = Db.lambdaQuery(Product.class).eq(Product::getCategoryId, id).list();
+        List<ProductVO> productList = productClient.queryProductByCategoryId(id).getData();
 
         if (productList != null && !productList.isEmpty()) {
             throw new CategoryException(MessageConstant.CATEGORYRELATEDPRODUCT);
         }
 
-        // 如果该分类下有子分类无法删除cart
+        // 如果该分类下有子分类无法删除
         LambdaQueryWrapper<Category> categoryLambdaQueryWrapper = new LambdaQueryWrapper<Category>()
                 .eq(Category::getParentId, id);
         List<Category> categoryList = list(categoryLambdaQueryWrapper);

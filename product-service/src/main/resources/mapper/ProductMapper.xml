@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cstery.product.mapper.ProductMapper">
+
+    <select id="selectProductPage" resultType="com.cstery.product.domain.vo.ProductVO">
+        select p.*,
+        fp.type AS featured_types
+        from product p
+        left join featured_product fp ON p.id = fp.product_id
+        <where>
+            <if test="name != null">
+                AND p.name LIKE CONCAT('%', #{name}, '%')
+            </if>
+            <if test="categoryId != null">
+                AND p.category_id = #{categoryId}
+            </if>
+            <if test="status != null">
+                AND p.status = #{status}
+            </if>
+            <if test="type != null">
+                AND fp.type = #{type}
+            </if>
+        </where>
+        order BY p.created_at DESC
+    </select>
+
+    <update id="batchIncreaseStock">
+        UPDATE product
+        <set>
+            stock = CASE id
+            <foreach collection="quantities.entrySet()" item="entry" separator=" ">
+                WHEN #{entry.key} THEN stock + #{entry.value}
+            </foreach>
+            END,
+            updated_at = NOW()
+        </set>
+        WHERE id IN
+        <foreach collection="quantities.keySet()" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </update>
+
+    <update id="batchIncreaseSale">
+        UPDATE product
+        <set>
+            sales = CASE id
+            <foreach collection="quantities.entrySet()" item="entry" separator=" ">
+                WHEN #{entry.key} THEN sales + #{entry.value}
+            </foreach>
+            END,
+            updated_at = NOW()
+        </set>
+        WHERE id IN
+        <foreach collection="quantities.keySet()" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </update>
+
+    <update id="batchDecreaseStock">
+        UPDATE product
+        <set>
+            stock = CASE id
+            <foreach collection="quantities.entrySet()" item="entry" separator=" ">
+                WHEN #{entry.key} THEN stock - #{entry.value}
+            </foreach>
+            END,
+            updated_at = NOW()
+        </set>
+        WHERE id IN
+        <foreach collection="quantities.keySet()" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </update>
+</mapper>

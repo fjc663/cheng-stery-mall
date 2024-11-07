@@ -1,43 +1,56 @@
-19:35:56:616  INFO 5096 --- [main] com.cstery.category.CategoryApplication  : Starting CategoryApplication using Java 17.0.9 on DESKTOP-0KBKC9H with PID 5096 (E:\coding\idea_program_file\myProject\chengstery-mall\category-service\target\classes started by win10 in E:\coding\idea_program_file\myProject\chengstery-mall)
-19:35:56:618  INFO 5096 --- [main] com.cstery.category.CategoryApplication  : The following 1 profile is active: "dev"
-19:35:58:459  INFO 5096 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-19:35:58:468  INFO 5096 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-19:35:58:522  INFO 5096 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 0 Redis repository interfaces.
-19:35:59:771  INFO 5096 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-19:35:59:790  INFO 5096 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-19:35:59:791  INFO 5096 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
-19:35:59:991  INFO 5096 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-19:35:59:991  INFO 5096 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3283 ms
-19:36:00:739  INFO 5096 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-19:36:00:953  INFO 5096 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-19:36:02:328  INFO 5096 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
-19:36:02:690  INFO 5096 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
-19:36:02:690  INFO 5096 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
-19:36:02:696  INFO 5096 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 2 custom documentation plugin(s)
-19:36:02:742  INFO 5096 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-19:36:02:911  INFO 5096 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-19:36:02:999  INFO 5096 --- [main] com.cstery.category.CategoryApplication  : Started CategoryApplication in 7.112 seconds (JVM running for 9.736)
-19:36:23:264  INFO 5096 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
-19:36:23:269  INFO 5096 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-19:36:44:426  INFO 7120 --- [main] com.cstery.category.CategoryApplication  : Starting CategoryApplication using Java 17.0.9 on DESKTOP-0KBKC9H with PID 7120 (E:\coding\idea_program_file\myProject\chengstery-mall\category-service\target\classes started by win10 in E:\coding\idea_program_file\myProject\chengstery-mall)
-19:36:44:432  INFO 7120 --- [main] com.cstery.category.CategoryApplication  : The following 1 profile is active: "dev"
-19:36:45:737  INFO 7120 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-19:36:45:743  INFO 7120 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-19:36:45:775  INFO 7120 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 0 Redis repository interfaces.
-19:36:46:795  INFO 7120 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
-19:36:46:809  INFO 7120 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-19:36:46:809  INFO 7120 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
-19:36:46:950  INFO 7120 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-19:36:46:950  INFO 7120 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2434 ms
-19:36:47:549  INFO 7120 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-19:36:47:709  INFO 7120 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-19:36:48:749  INFO 7120 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
-19:36:49:004  INFO 7120 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
-19:36:49:005  INFO 7120 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
-19:36:49:009  INFO 7120 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 2 custom documentation plugin(s)
-19:36:49:048  INFO 7120 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-19:36:49:196  INFO 7120 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-19:36:49:257  INFO 7120 --- [main] com.cstery.category.CategoryApplication  : Started CategoryApplication in 5.527 seconds (JVM running for 6.551)
-19:37:57:999  INFO 7120 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-19:37:57:999  INFO 7120 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-19:37:58:001  INFO 7120 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+17:09:14:693  INFO 7032 --- [main] com.cstery.category.CategoryApplication  : Starting CategoryApplication using Java 17.0.9 on DESKTOP-0KBKC9H with PID 7032 (E:\coding\idea_program_file\myProject\chengstery-mall\category-service\target\classes started by win10 in E:\coding\idea_program_file\myProject\chengstery-mall)
+17:09:14:696  INFO 7032 --- [main] com.cstery.category.CategoryApplication  : The following 1 profile is active: "dev"
+17:09:16:229  INFO 7032 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+17:09:16:234  INFO 7032 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+17:09:16:264  INFO 7032 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+17:09:16:588  INFO 7032 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=968eaaff-afa2-3531-a325-071f770c69a4
+17:09:17:294  INFO 7032 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+17:09:17:313  INFO 7032 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+17:09:17:314  INFO 7032 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+17:09:17:505  INFO 7032 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+17:09:17:506  INFO 7032 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2718 ms
+17:09:18:224  INFO 7032 --- [main] o.s.c.openfeign.FeignClientFactoryBean   : For 'product-service' URL not provided. Will try picking an instance via load-balancing.
+17:09:18:346  INFO 7032 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+17:09:18:527  INFO 7032 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+17:09:19:522  INFO 7032 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
+17:09:19:932  WARN 7032 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+17:09:20:117  INFO 7032 --- [main] com.alibaba.nacos.common.remote.client   : [RpcClientFactory] create a new rpc client of c747e396-a769-402c-b9d9-d120860a0b02
+17:09:20:242  INFO 7032 --- [main] org.reflections.Reflections              : Reflections took 57 ms to scan 1 urls, producing 3 keys and 6 values 
+17:09:20:279  INFO 7032 --- [main] org.reflections.Reflections              : Reflections took 10 ms to scan 1 urls, producing 4 keys and 9 values 
+17:09:20:291  INFO 7032 --- [main] org.reflections.Reflections              : Reflections took 8 ms to scan 1 urls, producing 3 keys and 10 values 
+17:09:20:294  WARN 7032 --- [main] org.reflections.Reflections              : given scan urls are empty. set urls in the configuration
+17:09:20:303  INFO 7032 --- [main] org.reflections.Reflections              : Reflections took 8 ms to scan 1 urls, producing 1 keys and 5 values 
+17:09:20:319  INFO 7032 --- [main] org.reflections.Reflections              : Reflections took 13 ms to scan 1 urls, producing 1 keys and 7 values 
+17:09:20:330  INFO 7032 --- [main] org.reflections.Reflections              : Reflections took 7 ms to scan 1 urls, producing 2 keys and 8 values 
+17:09:20:334  WARN 7032 --- [main] org.reflections.Reflections              : given scan urls are empty. set urls in the configuration
+17:09:20:336  INFO 7032 --- [main] com.alibaba.nacos.common.remote.client   : [c747e396-a769-402c-b9d9-d120860a0b02] RpcClient init label, labels = {module=naming, source=sdk}
+17:09:20:339  INFO 7032 --- [main] com.alibaba.nacos.common.remote.client   : [c747e396-a769-402c-b9d9-d120860a0b02] RpcClient init, ServerListFactory = com.alibaba.nacos.client.naming.core.ServerListManager
+17:09:20:339  INFO 7032 --- [main] com.alibaba.nacos.common.remote.client   : [c747e396-a769-402c-b9d9-d120860a0b02] Registry connection listener to current client:com.alibaba.nacos.client.naming.remote.gprc.redo.NamingGrpcRedoService
+17:09:20:340  INFO 7032 --- [main] com.alibaba.nacos.common.remote.client   : [c747e396-a769-402c-b9d9-d120860a0b02] Register server push request handler:com.alibaba.nacos.client.naming.remote.gprc.NamingPushRequestHandler
+17:09:20:342  INFO 7032 --- [main] com.alibaba.nacos.common.remote.client   : [c747e396-a769-402c-b9d9-d120860a0b02] Try to connect to server on start up, server: {serverIp = '192.168.88.156', server main port = 8848}
+17:09:21:826  INFO 7032 --- [main] com.alibaba.nacos.common.remote.client   : [c747e396-a769-402c-b9d9-d120860a0b02] Success to connect to server [192.168.88.156:8848] on start up, connectionId = 1730970561532_192.168.88.147_54373
+17:09:21:827  INFO 7032 --- [com.alibaba.nacos.client.remote.worker] com.alibaba.nacos.common.remote.client   : [c747e396-a769-402c-b9d9-d120860a0b02] Notify connected event to listeners.
+17:09:21:827  INFO 7032 --- [main] com.alibaba.nacos.common.remote.client   : [c747e396-a769-402c-b9d9-d120860a0b02] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$ConnectResetRequestHandler
+17:09:21:828  INFO 7032 --- [main] com.alibaba.nacos.common.remote.client   : [c747e396-a769-402c-b9d9-d120860a0b02] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$$Lambda$1227/0x00000188868ff618
+17:09:21:927  INFO 7032 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+17:09:21:946  INFO 7032 --- [main] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, DEFAULT_GROUP category-service 192.168.88.147:8081 register finished
+17:09:21:978  INFO 7032 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
+17:09:21:983  INFO 7032 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 2 custom documentation plugin(s)
+17:09:22:027  INFO 7032 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+17:09:22:179  INFO 7032 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+17:09:22:242  INFO 7032 --- [main] com.cstery.category.CategoryApplication  : Started CategoryApplication in 8.386 seconds (JVM running for 10.42)
+17:09:22:459  INFO 7032 --- [nacos-grpc-client-executor-9] com.alibaba.nacos.common.remote.client   : [c747e396-a769-402c-b9d9-d120860a0b02] Receive server push request, request = NotifySubscriberRequest, requestId = 4
+17:09:22:473  INFO 7032 --- [nacos-grpc-client-executor-9] com.alibaba.nacos.common.remote.client   : [c747e396-a769-402c-b9d9-d120860a0b02] Ack server push request, request = NotifySubscriberRequest, requestId = 4
+17:12:54:680  WARN 7032 --- [Thread-7] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Start destroying common HttpClient
+17:12:54:680  WARN 7032 --- [Thread-4] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Start destroying Publisher
+17:12:54:703  WARN 7032 --- [Thread-4] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Destruction of the end
+17:12:54:718  WARN 7032 --- [Thread-7] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Destruction of the end
+17:12:55:190  INFO 7032 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registering from Nacos Server now...
+17:12:55:197  INFO 7032 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registration finished.
+17:12:55:539  INFO 7032 --- [SpringApplicationShutdownHook] com.alibaba.nacos.common.remote.client   : Shutdown rpc client, set status to shutdown
+17:12:55:540  INFO 7032 --- [SpringApplicationShutdownHook] com.alibaba.nacos.common.remote.client   : Shutdown client event executor java.util.concurrent.ScheduledThreadPoolExecutor@6f4249a6[Running, pool size = 2, active threads = 2, queued tasks = 0, completed tasks = 0]
+17:12:55:540  INFO 7032 --- [SpringApplicationShutdownHook] com.alibaba.nacos.common.remote.client   : Close current connection 1730970561532_192.168.88.147_54373
+17:12:55:545  INFO 7032 --- [nacos-grpc-client-executor-67] c.a.n.c.remote.client.grpc.GrpcClient    : [1730970561532_192.168.88.147_54373]Ignore complete event,isRunning:false,isAbandon=false
+17:12:55:558  INFO 7032 --- [SpringApplicationShutdownHook] c.a.n.c.remote.client.grpc.GrpcClient    : Shutdown grpc executor java.util.concurrent.ThreadPoolExecutor@4d7c5d1d[Running, pool size = 6, active threads = 0, queued tasks = 0, completed tasks = 68]
+17:12:55:571  INFO 7032 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+17:12:55:574  INFO 7032 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed

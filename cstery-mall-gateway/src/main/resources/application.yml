@@ -1,0 +1,34 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: gateway
+  cloud:
+    nacos:
+      server-addr: 192.168.88.156
+    gateway:
+      routes:
+        - id: category-service
+          uri: lb://category-service
+          predicates:
+            - Path=/admin/category/**
+            - Path=/user/category/**
+        - id: product-service
+          uri: lb://product-service
+          predicates:
+            - Path=/admin/product/**, /admin/spec/**
+            - Path=/user/product/**, /user/favorites/**
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/admin/user/**
+            - Path=/user/user/**, /user/address/**
+        - id: order-service
+          uri: lb://user-service
+          predicates:
+            - Path=/admin/order/**
+            - Path=/user/order/**, /user/cart/**
+        - id: chart-service
+          uri: lb://user-service
+          predicates:
+            - Path=/admin/chart/**

@@ -1,8 +1,10 @@
 package com.cstery.user.controller.admin;
 
 
-import com.cstery.result.PageResult;
-import com.cstery.result.Result;
+import com.cstery.api.dto.ChartDTO;
+import com.cstery.common.result.PageResult;
+import com.cstery.common.result.Result;
+import com.cstery.common.utils.AliOssUtil;
 import com.cstery.user.domain.dto.*;
 import com.cstery.user.domain.vo.LoginVO;
 import com.cstery.user.domain.vo.UserVO;
@@ -12,8 +14,10 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
+import java.time.LocalDate;
 
 @RestController
 @RequestMapping("/admin/user")
@@ -22,6 +26,7 @@ import javax.validation.Valid;
 public class AdminUserController {
 
     private final UserService userService;
+    private final AliOssUtil aliOssUtil;
 
     /**
      * 管理端用户登录
@@ -111,15 +116,31 @@ public class AdminUserController {
 
     /**
      * 获得用户总数
-     * @param chartDTO
-     * @param isCumulative
      * @return
      */
     @GetMapping("/users")
     @ApiOperation("获得用户总数")
-    public Result<Integer> getTotalUsers(ChartDTO chartDTO, Boolean isCumulative) {
+    public Result<Integer> getTotalUsers(LocalDate startData, LocalDate endData, Boolean isCumulative) {
+        ChartDTO chartDTO = ChartDTO
+                .builder()
+                .startData(startData)
+                .endData(endData)
+                .build();
         Integer totalUsers = userService.getTotalUsers(chartDTO, isCumulative);
         return Result.success(totalUsers);
+    }
+
+    /**
+     * 管理员头像上传
+     * @param avatarFile
+     * @return
+     */
+    @PostMapping("/upload/avatar")
+    @ApiOperation("管理员头像上传")
+    public Result<String> uploadAdminAvatar(MultipartFile avatarFile){
+        String avatar = aliOssUtil.upload(avatarFile, "avatar/");
+        userService.updateAvatarUrl(avatar);
+        return Result.success(avatar);
     }
 
 }

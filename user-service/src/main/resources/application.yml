@@ -18,7 +18,7 @@ spring:
     database: ${csm.redis.database}
   web:
     resources:
-      static-locations: classpath:/static/images
+      static-locations: classpath:/static
   servlet:
     multipart:
       max-request-size: ${csm.servlet.multipart.max-request-size}
@@ -78,23 +78,6 @@ csm:
     user-secret-key: ${csm.jwt.user-secret-key}
     user-ttl: ${csm.jwt.user-ttl}
     user-token-name: ${csm.jwt.user-token-name}
-  auth:
-    admin-include-paths: #设置需要拦截的路径
-      - /upload/admin/**
-      - /admin/**
-    admin-exclude-paths: #设置放行的路径
-      - /admin/user/login
-
-    user-include-paths:
-      - /upload/user/**
-      - /user/**
-    user-exclude-paths:
-      - /user/user/login
-      - /user/user/register
-      - /user/category/**
-      - /user/product/list
-      - /user/product/page
-      - /user/product/featured
   alioss:
     endpoint: ${csm.alioss.endpoint}
     bucket-name: ${csm.alioss.bucket-name}

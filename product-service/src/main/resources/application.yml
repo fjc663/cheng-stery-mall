@@ -18,7 +18,7 @@ spring:
     database: ${csm.redis.database}
   web:
     resources:
-      static-locations: classpath:/templates/,classpath:/static/images
+      static-locations: classpath:/static/images
   servlet:
     multipart:
       max-request-size: ${csm.servlet.multipart.max-request-size}

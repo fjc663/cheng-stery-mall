@@ -5,7 +5,7 @@ import com.cstery.product.domain.dto.SpecificationDTO;
 import com.cstery.product.domain.dto.SpecificationPageQueryDTO;
 import com.cstery.product.domain.po.Specifications;
 import com.cstery.product.domain.vo.SpecificationVO;
-import com.cstery.result.PageResult;
+import com.cstery.common.result.PageResult;
 
 import java.util.List;
 

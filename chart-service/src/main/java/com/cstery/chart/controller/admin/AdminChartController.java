@@ -4,7 +4,7 @@ import com.cstery.api.dto.ChartDTO;
 import com.cstery.chart.domain.vo.ChartVO;
 import com.cstery.chart.domain.vo.ReportVO;
 import com.cstery.chart.service.ChartService;
-import com.cstery.result.Result;
+import com.cstery.common.result.Result;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;

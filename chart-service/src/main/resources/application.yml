@@ -13,7 +13,6 @@ logging:
   level:
     com:
       cstery:
-        mapper: debug
         service: info
         controller: info
   pattern:

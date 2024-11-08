@@ -5,7 +5,7 @@ import com.cstery.category.domain.dto.CategoryDTO;
 import com.cstery.category.domain.dto.CategoryPageQueryDTO;
 import com.cstery.category.domain.vo.CategoryVO;
 import com.cstery.category.domain.po.Category;
-import com.cstery.result.PageResult;
+import com.cstery.common.result.PageResult;
 
 import java.util.List;
 

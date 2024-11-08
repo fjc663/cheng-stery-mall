@@ -7,24 +7,25 @@ import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.cstery.constant.JwtClaimConstant;
-import com.cstery.constant.MessageConstant;
-import com.cstery.constant.StatusConstant;
-import com.cstery.constant.UserRoleConstant;
-import com.cstery.context.BaseContext;
-import com.cstery.exceptions.LoginFailException;
-import com.cstery.exceptions.UpdateFailException;
-import com.cstery.exceptions.UserException;
-import com.cstery.user.properties.JwtProperties;
-import com.cstery.result.PageResult;
+import com.cstery.api.dto.ChartDTO;
+import com.cstery.common.constant.JwtClaimConstant;
+import com.cstery.common.constant.MessageConstant;
+import com.cstery.common.constant.StatusConstant;
+import com.cstery.common.constant.UserRoleConstant;
+import com.cstery.common.context.BaseContext;
+import com.cstery.common.exceptions.LoginFailException;
+import com.cstery.common.exceptions.UpdateFailException;
+import com.cstery.common.exceptions.UserException;
+import com.cstery.common.result.PageResult;
+import com.cstery.common.utils.JwtUtil;
+import com.cstery.common.utils.SaltGeneratorUtil;
 import com.cstery.user.domain.dto.*;
 import com.cstery.user.domain.po.User;
 import com.cstery.user.domain.vo.LoginVO;
 import com.cstery.user.domain.vo.UserVO;
 import com.cstery.user.mapper.UserMapper;
+import com.cstery.user.properties.JwtProperties;
 import com.cstery.user.service.UserService;
-import com.cstery.utils.JwtUtil;
-import com.cstery.utils.SaltGeneratorUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -38,7 +39,7 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
 
-    private static final String DEFAULTAVATARURL = "http://localhost:8080/defaultAvatar.png";
+    private static final String DEFAULTAVATARURL = "http://localhost:8080/imgs/defaultAvatar.png";
 
     private final JwtProperties jwtProperties;
 
@@ -112,15 +113,15 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     /**
      * 更新头像
      *
-     * @param newAvaratUrl
+     * @param newAvatarUrl
      */
     @Override
     @Transactional
-    public void updateAvatarUrl(String newAvaratUrl) {
+    public void updateAvatarUrl(String newAvatarUrl) {
         User user = User
                 .builder()
                 .id(BaseContext.getCurrentId())
-                .avatarUrl(newAvaratUrl)
+                .avatarUrl(newAvatarUrl)
                 .build();
         updateById(user);
     }

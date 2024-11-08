@@ -1,7 +1,8 @@
 package com.cstery.user.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.cstery.result.PageResult;
+import com.cstery.api.dto.ChartDTO;
+import com.cstery.common.result.PageResult;
 import com.cstery.user.domain.dto.*;
 import com.cstery.user.domain.po.User;
 import com.cstery.user.domain.vo.LoginVO;

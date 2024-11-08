@@ -1,18 +1,20 @@
 package com.cstery.product.controller.admin;
 
 
+import com.cstery.common.utils.AliOssUtil;
 import com.cstery.product.domain.dto.ProductDTO;
 import com.cstery.product.domain.dto.ProductPageQueryDTO;
 import com.cstery.product.service.FeaturedProductService;
 import com.cstery.product.service.ProductService;
-import com.cstery.result.PageResult;
-import com.cstery.result.Result;
+import com.cstery.common.result.PageResult;
+import com.cstery.common.result.Result;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Map;
 
@@ -24,6 +26,7 @@ public class AdminProductController {
 
     private final ProductService productService;
     private final FeaturedProductService featuredProductService;
+    private final AliOssUtil aliOssUtil;
 
 
     /**
@@ -139,6 +142,18 @@ public class AdminProductController {
     public Result decreaseStock(@RequestParam @ApiParam("商品ID和数量集合") Map<String, Integer> quantities) {
         productService.decreaseStock(quantities);
         return Result.success();
+    }
+
+    /**
+     * 商品图片上传
+     * @param productFile
+     * @return
+     */
+    @PostMapping("/upload")
+    @ApiOperation("商品图片上传")
+    public Result<String> uploadProduct(MultipartFile productFile){
+        String product = aliOssUtil.upload(productFile, "product/");
+        return Result.success(product);
     }
 
 }

@@ -2,7 +2,7 @@ package com.cstery.product.controller.user;
 
 import com.cstery.product.domain.vo.ProductFavoriteVO;
 import com.cstery.product.service.ProductFavoritesService;
-import com.cstery.result.Result;
+import com.cstery.common.result.Result;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;

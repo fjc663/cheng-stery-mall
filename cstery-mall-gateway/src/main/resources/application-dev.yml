@@ -1,0 +1,12 @@
+csm:
+  jwt:
+    admin-secret-key: cstery
+    admin-ttl: 72000000
+    admin-token-name: token
+
+    user-secret-key: fjcstery
+    user-ttl: 72000000
+    user-token-name: authorization
+  nacos:
+    server-addr: 192.168.88.156:8848
+

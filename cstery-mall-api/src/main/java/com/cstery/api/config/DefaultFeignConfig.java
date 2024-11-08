@@ -1,7 +1,7 @@
 package com.cstery.api.config;
 
 
-import com.cstery.context.BaseContext;
+import com.cstery.common.context.BaseContext;
 import feign.Logger;
 import feign.RequestInterceptor;
 import org.springframework.context.annotation.Bean;

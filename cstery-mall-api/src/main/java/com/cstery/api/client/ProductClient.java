@@ -1,7 +1,7 @@
 package com.cstery.api.client;
 
 import com.cstery.api.vo.ProductVO;
-import com.cstery.result.Result;
+import com.cstery.common.result.Result;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;

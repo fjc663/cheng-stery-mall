@@ -1,7 +1,7 @@
 package com.cstery.user.config;
 
 import com.cstery.user.properties.AliOssProperties;
-import com.cstery.utils.AliOssUtil;
+import com.cstery.common.utils.AliOssUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

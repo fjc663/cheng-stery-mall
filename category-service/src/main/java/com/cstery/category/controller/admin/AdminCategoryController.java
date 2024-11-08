@@ -4,14 +4,16 @@ import com.cstery.category.domain.dto.CategoryDTO;
 import com.cstery.category.domain.dto.CategoryPageQueryDTO;
 import com.cstery.category.domain.vo.CategoryVO;
 import com.cstery.category.service.CategoryService;
-import com.cstery.result.PageResult;
-import com.cstery.result.Result;
+import com.cstery.common.result.PageResult;
+import com.cstery.common.result.Result;
+import com.cstery.common.utils.AliOssUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -22,6 +24,7 @@ import java.util.List;
 public class AdminCategoryController {
 
     private final CategoryService categoryService;
+    private final AliOssUtil aliOssUtil;
 
 
     /**
@@ -83,5 +86,17 @@ public class AdminCategoryController {
     public Result<List<CategoryVO>> getAllSubCategory() {
         List<CategoryVO> categoryVOList = categoryService.getAllSubCategory();
         return Result.success(categoryVOList);
+    }
+
+    /**
+     * 分类图片上传
+     * @param categoryFile
+     * @return
+     */
+    @PostMapping("/upload")
+    @ApiOperation("分类图片上传")
+    public Result<String> uploadCategory(MultipartFile categoryFile){
+        String category = aliOssUtil.upload(categoryFile, "category/");
+        return Result.success(category);
     }
 }

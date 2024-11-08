@@ -7,7 +7,7 @@ import com.cstery.order.domain.dto.OrderPageQueryDTO;
 import com.cstery.order.domain.po.Order;
 import com.cstery.order.domain.vo.Hot10VO;
 import com.cstery.order.domain.vo.OrderVO;
-import com.cstery.result.PageResult;
+import com.cstery.common.result.PageResult;
 
 import java.math.BigDecimal;
 import java.util.List;

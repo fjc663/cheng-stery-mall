@@ -5,8 +5,8 @@ import com.cstery.order.domain.dto.ChartDTO;
 import com.cstery.order.domain.dto.OrderPageQueryDTO;
 import com.cstery.order.domain.vo.Hot10VO;
 import com.cstery.order.service.OrderService;
-import com.cstery.result.PageResult;
-import com.cstery.result.Result;
+import com.cstery.common.result.PageResult;
+import com.cstery.common.result.Result;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -14,6 +14,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -51,61 +52,75 @@ public class AdminOrderController {
 
     /**
      * 获得总销售额
-     * @param chartDTO
-     * @param isCumulative
-     * @return
      */
     @GetMapping("/sales")
     @ApiOperation("获得总销售额")
-    public Result<BigDecimal> getTotalSales(ChartDTO chartDTO, Boolean isCumulative) {
+    public Result<BigDecimal> getTotalSales(LocalDate startData, LocalDate endData, Boolean isCumulative) {
+        ChartDTO chartDTO = ChartDTO
+                .builder()
+                .startData(startData)
+                .endData(endData)
+                .build();
         BigDecimal totalSales = orderService.getTotalSales(chartDTO, isCumulative);
         return Result.success(totalSales);
     }
 
     /**
      * 获得总订单数
-     * @param chartDTO
-     * @return
      */
     @GetMapping("/orders")
     @ApiOperation("获得总订单数")
-    public Result<Integer> getTotalOrders(ChartDTO chartDTO) {
+    public Result<Integer> getTotalOrders(LocalDate startData, LocalDate endData) {
+        ChartDTO chartDTO = ChartDTO
+                .builder()
+                .startData(startData)
+                .endData(endData)
+                .build();
         Integer totalOrders = orderService.getTotalOrders(chartDTO);
         return Result.success(totalOrders);
     }
 
     /**
      * 获得前10热门商品
-     * @param chartDTO
-     * @return
      */
     @GetMapping("/hot10")
     @ApiOperation("获得前10热门商品")
-    public Result<List<Hot10VO>> getHot10Product(ChartDTO chartDTO) {
+    public Result<List<Hot10VO>> getHot10Product(LocalDate startData, LocalDate endData) {
+        ChartDTO chartDTO = ChartDTO
+                .builder()
+                .startData(startData)
+                .endData(endData)
+                .build();
         List<Hot10VO> hot10Product = orderService.getHot10Product(chartDTO);
         return Result.success(hot10Product);
     }
 
     /**
      * 获得最热门商品
-     * @param chartDTO
-     * @return
      */
     @GetMapping("/hottest")
     @ApiOperation("获得最热门商品")
-    public Result<String> getHotProduct(ChartDTO chartDTO) {
+    public Result<String> getHotProduct(LocalDate startData, LocalDate endData) {
+        ChartDTO chartDTO = ChartDTO
+                .builder()
+                .startData(startData)
+                .endData(endData)
+                .build();
         String hotProduct = orderService.getHotProduct(chartDTO);
         return Result.success(hotProduct);
     }
 
     /**
      * 获得各状态订单数
-     * @param chartDTO
-     * @return
      */
     @GetMapping("/statuses")
     @ApiOperation("获得各状态订单数")
-    public Result<List<Integer>> getStatusList(ChartDTO chartDTO) {
+    public Result<List<Integer>> getStatusList(LocalDate startData, LocalDate endData) {
+        ChartDTO chartDTO = ChartDTO
+                .builder()
+                .startData(startData)
+                .endData(endData)
+                .build();
         List<Integer> statusList = orderService.getStatusList(chartDTO);
         return Result.success(statusList);
     }

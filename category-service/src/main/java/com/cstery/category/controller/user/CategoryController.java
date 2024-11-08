@@ -2,7 +2,7 @@ package com.cstery.category.controller.user;
 
 import com.cstery.category.domain.vo.CategoryVO;
 import com.cstery.category.service.CategoryService;
-import com.cstery.result.Result;
+import com.cstery.common.result.Result;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;

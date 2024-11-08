@@ -8,11 +8,11 @@ csm:
     password: 1151259363
   jwt:
     admin-secret-key: cstery
-    admin-ttl: 72000000
+    admin-ttl: 7200000
     admin-token-name: token
 
     user-secret-key: fjcstery
-    user-ttl: 72000000
+    user-ttl: 7200000
     user-token-name: authorization
   servlet:
     multipart:

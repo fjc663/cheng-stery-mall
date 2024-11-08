@@ -1,7 +1,8 @@
 package com.cstery.user.controller.user;
 
 
-import com.cstery.result.Result;
+import com.cstery.common.result.Result;
+import com.cstery.common.utils.AliOssUtil;
 import com.cstery.user.domain.dto.EditPasswordDTO;
 import com.cstery.user.domain.dto.UserDTO;
 import com.cstery.user.domain.dto.UserLoginDTO;
@@ -13,6 +14,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
 
@@ -23,6 +25,7 @@ import javax.validation.Valid;
 public class UserController {
 
     private final UserService userService;
+    private final AliOssUtil aliOssUtil;
 
     /**
      * 用户端用户注册
@@ -83,6 +86,19 @@ public class UserController {
     public Result editPassword(@Valid @RequestBody EditPasswordDTO editPasswordDTO) {
         userService.editPassword(editPasswordDTO);
         return Result.success();
+    }
+
+    /**
+     * 头像上传
+     * @param avatarFile
+     * @return
+     */
+    @PostMapping("/upload/avatar")
+    @ApiOperation("头像上传")
+    public Result<String> uploadAvatar(MultipartFile avatarFile){
+        String avatar = aliOssUtil.upload(avatarFile, "avatar/");
+        userService.updateAvatarUrl(avatar);
+        return Result.success(avatar);
     }
 
 }

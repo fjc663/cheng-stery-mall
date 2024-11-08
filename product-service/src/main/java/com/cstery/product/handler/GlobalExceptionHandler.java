@@ -1,7 +1,7 @@
 package com.cstery.product.handler;
 
-import com.cstery.exceptions.BaseException;
-import com.cstery.result.Result;
+import com.cstery.common.exceptions.BaseException;
+import com.cstery.common.result.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.BindException;
 import org.springframework.web.bind.annotation.ExceptionHandler;

@@ -3,32 +3,54 @@ server:
 spring:
   application:
     name: gateway
+  profiles:
+    active: dev
   cloud:
     nacos:
-      server-addr: 192.168.88.156
+      server-addr: ${csm.nacos.server-addr}
     gateway:
       routes:
         - id: category-service
           uri: lb://category-service
           predicates:
-            - Path=/admin/category/**
-            - Path=/user/category/**
+            - Path=/admin/category/**,/user/category/**,/category/**
         - id: product-service
           uri: lb://product-service
           predicates:
-            - Path=/admin/product/**, /admin/spec/**
-            - Path=/user/product/**, /user/favorites/**
+            - Path=/admin/product/**,/admin/spec/**,/user/product/**,/user/favorites/**,/product/**
         - id: user-service
           uri: lb://user-service
           predicates:
-            - Path=/admin/user/**
-            - Path=/user/user/**, /user/address/**
+            - Path=/admin/user/**,/user/user/**,/user/address/**,/imgs/**
         - id: order-service
-          uri: lb://user-service
+          uri: lb://order-service
           predicates:
-            - Path=/admin/order/**
-            - Path=/user/order/**, /user/cart/**
+            - Path=/admin/order/**,/user/order/**,/user/cart/**
         - id: chart-service
-          uri: lb://user-service
+          uri: lb://chart-service
           predicates:
             - Path=/admin/chart/**
+
+csm:
+  jwt:
+    admin-secret-key: ${csm.jwt.admin-secret-key} #设置jwt签名加密时使用的密钥
+    admin-ttl: ${csm.jwt.admin-ttl} #设置jwt过期的时间
+    admin-token-name: ${csm.jwt.admin-token-name} #设置前端传递过来的令牌名称
+    user-secret-key: ${csm.jwt.user-secret-key}
+    user-ttl: ${csm.jwt.user-ttl}
+    user-token-name: ${csm.jwt.user-token-name}
+  auth:
+    admin-include-paths: #设置需要拦截的路径
+      - /admin/**
+    admin-exclude-paths: #设置放行的路径
+      - /admin/user/login
+
+    user-include-paths:
+      - /user/**
+    user-exclude-paths:
+      - /user/user/login
+      - /user/user/register
+      - /user/category/**
+      - /user/product/list
+      - /user/product/page
+      - /user/product/featured

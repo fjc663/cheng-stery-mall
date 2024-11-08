@@ -1,7 +1,7 @@
 package com.cstery.user.controller.user;
 
 
-import com.cstery.result.Result;
+import com.cstery.common.result.Result;
 import com.cstery.user.domain.dto.AddressDTO;
 import com.cstery.user.domain.vo.AddressVO;
 import com.cstery.user.service.AddressService;

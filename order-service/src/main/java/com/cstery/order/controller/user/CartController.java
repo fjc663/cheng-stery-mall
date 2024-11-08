@@ -4,7 +4,7 @@ package com.cstery.order.controller.user;
 import com.cstery.order.domain.dto.CartDTO;
 import com.cstery.order.domain.vo.CartVO;
 import com.cstery.order.service.CartService;
-import com.cstery.result.Result;
+import com.cstery.common.result.Result;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;

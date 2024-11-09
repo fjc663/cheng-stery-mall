@@ -6,6 +6,14 @@ csm:
     database: csm-order
     username: root
     password: 1151259363
+    package: com.cstery.order.domain.po
+  swagger:
+    title: 'cstery-mall订单相关接口文档'
+    desc: 'cstery-mall订单相关接口文档'
+    admin-group-name: '管理端订单相关接口文档'
+    admin-package: com.cstery.order.controller.admin
+    user-group-name: '用户端订单接口文档'
+    user-package: com.cstery.order.controller.user
   servlet:
     multipart:
       max-request-size: 50MB
@@ -15,6 +23,4 @@ csm:
     bucket-name: cstery-sky
     access-key-secret: zZhUThCwH54quUEKL8l2UvBtavsj6W
     access-key-id: LTAI5tMLyK8pQCwzKqqnPoyk
-  nacos:
-    server-addr: 192.168.88.156:8848
 

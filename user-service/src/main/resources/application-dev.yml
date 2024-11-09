@@ -10,10 +10,16 @@ csm:
     admin-secret-key: cstery
     admin-ttl: 7200000
     admin-token-name: token
-
     user-secret-key: fjcstery
     user-ttl: 7200000
     user-token-name: authorization
+  swagger:
+    title: 'cstery-mall用户相关接口文档'
+    desc: 'cstery-mall用户相关接口文档'
+    admin-group-name: '管理端用户相关接口文档'
+    admin-package: com.cstery.user.controller.admin
+    user-group-name: '用户端用户接口文档'
+    user-package: com.cstery.user.controller.user
   servlet:
     multipart:
       max-request-size: 50MB
@@ -23,6 +29,4 @@ csm:
     bucket-name: cstery-sky
     access-key-secret: zZhUThCwH54quUEKL8l2UvBtavsj6W
     access-key-id: LTAI5tMLyK8pQCwzKqqnPoyk
-  nacos:
-    server-addr: 192.168.88.156:8848
 

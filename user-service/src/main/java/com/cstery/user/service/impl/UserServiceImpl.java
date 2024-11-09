@@ -7,7 +7,6 @@ import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.cstery.api.dto.ChartDTO;
 import com.cstery.common.constant.JwtClaimConstant;
 import com.cstery.common.constant.MessageConstant;
 import com.cstery.common.constant.StatusConstant;
@@ -30,6 +29,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.HashMap;
@@ -231,15 +231,16 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
     /**
      * 获得用户总数
-     * @param chartDTO
+     * @param startData
+     * @param endData
      * @param isCumulative
      * @return
      */
     @Override
-    public Integer getTotalUsers(ChartDTO chartDTO, Boolean isCumulative) {
+    public Integer getTotalUsers(LocalDate startData, LocalDate endData, Boolean isCumulative) {
         // 构造日期条件限制
-        LocalDateTime beginTime = LocalDateTime.of(chartDTO.getStartData(), LocalTime.MIN);
-        LocalDateTime endTime = LocalDateTime.of(chartDTO.getEndData(), LocalTime.MAX);
+        LocalDateTime beginTime = LocalDateTime.of(startData, LocalTime.MIN);
+        LocalDateTime endTime = LocalDateTime.of(endData, LocalTime.MAX);
 
         LambdaQueryWrapper<User> orderLambdaQueryWrapper = new LambdaQueryWrapper<User>()
                 .ge(User::getRole, UserRoleConstant.USER);

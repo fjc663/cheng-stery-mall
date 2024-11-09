@@ -6,6 +6,14 @@ csm:
     database: csm-product
     username: root
     password: 1151259363
+    package: com.cstery.product.domain.po
+  swagger:
+    title: 'cstery-mall商品相关接口文档'
+    desc: 'cstery-mall商品相关接口文档'
+    admin-group-name: '管理端商品相关接口文档'
+    admin-package: com.cstery.product.controller.admin
+    user-group-name: '用户端商品接口文档'
+    user-package: com.cstery.product.controller.user
   servlet:
     multipart:
       max-request-size: 50MB
@@ -20,6 +28,4 @@ csm:
     port: 6379
     password: 123456
     database: 7
-  nacos:
-    server-addr: 192.168.88.156:8848
 

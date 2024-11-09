@@ -1,37 +1,5 @@
 server:
   port: 8085
-spring:
-  application:
-    name: chart-service # 微服务名称
-  profiles:
-    active: dev
-  cloud:
-    nacos:
-      server-addr: ${csm.nacos.server-addr}
-
-logging:
-  level:
-    com:
-      cstery:
-        service: info
-        controller: info
-  pattern:
-    dateformat: HH:mm:ss:SSS
-  file:
-    path: "logs/${spring.application.name}"
-
-knife4j:
-  enable: true
-  openapi:
-    title: 'cstery-mall图表相关接口文档'
-    description: 'cstery-mall图表相关接口文档'
-    email: 'fjc663@outlook.com'
-    concat: cstery
-    url: https://www.cstery.com
-    version: v1.0.0
-    group:
-      admin:
-        group-name: '管理端图表相关接口文档'
-        api-rule: package
-        api-rule-resources:
-          - com.cstery.chart.controller.admin
+feign:
+  okhttp:
+    enabled: true

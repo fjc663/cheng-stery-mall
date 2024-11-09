@@ -1,21 +1,6 @@
 server:
   port: 8083
 spring:
-  application:
-    name: user-service # 微服务名称
-  profiles:
-    active: dev
-  datasource:
-    druid:
-      driver-class-name: ${csm.datasource.driver-class-name}
-      url: jdbc:mysql://${csm.datasource.host}:${csm.datasource.port}/${csm.datasource.database}?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true
-      username: ${csm.datasource.username}
-      password: ${csm.datasource.password}
-  redis:
-    host: ${csm.redis.host}
-    port: ${csm.redis.port}
-    password: ${csm.redis.password}
-    database: ${csm.redis.database}
   web:
     resources:
       static-locations: classpath:/static
@@ -23,52 +8,7 @@ spring:
     multipart:
       max-request-size: ${csm.servlet.multipart.max-request-size}
       max-file-size: ${csm.servlet.multipart.max-file-size}
-  cloud:
-    nacos:
-      server-addr: ${csm.nacos.server-addr}
-mybatis-plus:
-  mapper-locations: classpath:mapper/**/*.xml # mapper.xml文件地址，默认值
-  type-aliases-package: com.cstery.user.domain.po # 别名扫描包
-  configuration:
-    map-underscore-to-camel-case: true  # 开启驼峰命名
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # mybatis-plus日志输出
-  global-config:
-    db-config:
-      id-type: auto  # id为自增长
-      update-strategy: not_null # 更新策略：只更新非空字段
 
-logging:
-  level:
-    com:
-      cstery:
-        mapper: debug
-        service: info
-        controller: info
-  pattern:
-    dateformat: HH:mm:ss:SSS
-  file:
-    path: "logs/${spring.application.name}"
-
-knife4j:
-  enable: true
-  openapi:
-    title: 'cstery-mall用户相关接口文档'
-    description: 'cstery-mall用户相关接口文档'
-    email: 'fjc663@outlook.com'
-    concat: cstery
-    url: https://www.cstery.com
-    version: v1.0.0
-    group:
-      admin:
-        group-name: '管理端用户相关接口文档'
-        api-rule: package
-        api-rule-resources:
-          - com.cstery.user.controller.admin
-      user:
-        group-name: '用户端用户接口文档'
-        api-rule: package
-        api-rule-resources:
-          - com.cstery.user.controller.user
 
 csm:
   jwt:

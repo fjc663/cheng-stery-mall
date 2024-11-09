@@ -1,11 +1,13 @@
 package com.cstery.user.controller.admin;
 
 
-import com.cstery.api.dto.ChartDTO;
 import com.cstery.common.result.PageResult;
 import com.cstery.common.result.Result;
 import com.cstery.common.utils.AliOssUtil;
-import com.cstery.user.domain.dto.*;
+import com.cstery.user.domain.dto.EditPasswordDTO;
+import com.cstery.user.domain.dto.UserDTO;
+import com.cstery.user.domain.dto.UserLoginDTO;
+import com.cstery.user.domain.dto.UserPageQueryDTO;
 import com.cstery.user.domain.vo.LoginVO;
 import com.cstery.user.domain.vo.UserVO;
 import com.cstery.user.service.UserService;
@@ -121,12 +123,7 @@ public class AdminUserController {
     @GetMapping("/users")
     @ApiOperation("获得用户总数")
     public Result<Integer> getTotalUsers(LocalDate startData, LocalDate endData, Boolean isCumulative) {
-        ChartDTO chartDTO = ChartDTO
-                .builder()
-                .startData(startData)
-                .endData(endData)
-                .build();
-        Integer totalUsers = userService.getTotalUsers(chartDTO, isCumulative);
+        Integer totalUsers = userService.getTotalUsers(startData, endData, isCumulative);
         return Result.success(totalUsers);
     }
 

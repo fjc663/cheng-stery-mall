@@ -25,13 +25,6 @@
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
-        <!-- api模块 -->
-        <dependency>
-            <groupId>com.cstery</groupId>
-            <artifactId>cstery-mall-api</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-
         <!--web起步依赖-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -75,10 +68,16 @@
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
 
-        <!--OK http 的依赖 -->
+        <!--nacos配置管理-->
         <dependency>
-            <groupId>io.github.openfeign</groupId>
-            <artifactId>feign-okhttp</artifactId>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        </dependency>
+
+        <!--读取bootstrap文件-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bootstrap</artifactId>
         </dependency>
 
     </dependencies>

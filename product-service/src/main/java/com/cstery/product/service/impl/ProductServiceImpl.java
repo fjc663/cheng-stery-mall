@@ -190,6 +190,19 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
 
         List<ProductVO> productVOS = page.getRecords();
         for (ProductVO productVO : productVOS) {
+            // 查询规格信息
+            List<ProductSpecifications> productSpecifications = Db.lambdaQuery(ProductSpecifications.class)
+                    .eq(ProductSpecifications::getProductId, productVO.getId()).list();
+            if (!productSpecifications.isEmpty()) {
+                List<Long> specificationsIds = productSpecifications.stream()
+                        .map(ProductSpecifications::getSpecificationId).toList();
+                List<Specifications> specificationsList = Db.lambdaQuery(Specifications.class)
+                        .in(Specifications::getId, specificationsIds)
+                        .eq(Specifications::getStatus, StatusConstant.ENABLE).list();
+                List<SpecificationVO> specificationVOList = BeanUtil.copyToList(specificationsList, SpecificationVO.class);
+                productVO.setSpecifications(specificationVOList);
+            }
+
             // 设置是否为特色商品的判断
             boolean isSlides = false;
             boolean isHot = false;
@@ -325,7 +338,6 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
 
     /**
      * 增加被取消商品的库存
-     * @param ids
      * @param quantities
      */
     @Override

@@ -1,4 +1,6 @@
 csm:
-  nacos:
-    server-addr: 192.168.88.156:8848
-
+  swagger:
+    title: 'cstery-mall图表相关接口文档'
+    desc: 'cstery-mall图表相关接口文档'
+    admin-group-name: '管理端图表相关接口文档'
+    admin-package: com.cstery.chart.controller.admin

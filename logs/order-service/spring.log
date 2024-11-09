@@ -1,395 +1,74 @@
-00:03:00:046 ERROR 17540 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, lastPacketReceivedIdleMillis : 60038
-00:05:00:022 ERROR 17540 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, lastPacketReceivedIdleMillis : 60003
-00:08:00:071 ERROR 17540 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, lastPacketReceivedIdleMillis : 60046
-00:14:00:028 ERROR 17540 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, lastPacketReceivedIdleMillis : 60012
-00:17:00:031 ERROR 17540 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, lastPacketReceivedIdleMillis : 60022
-00:20:00:046 ERROR 17540 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, lastPacketReceivedIdleMillis : 60034
-00:22:00:020 ERROR 17540 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, lastPacketReceivedIdleMillis : 60004
-00:23:00:085 ERROR 17540 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, lastPacketReceivedIdleMillis : 60037
-00:23:46:824  WARN 17540 --- [Thread-7] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Start destroying common HttpClient
-00:23:46:824  WARN 17540 --- [Thread-4] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Start destroying Publisher
-00:23:46:851  WARN 17540 --- [Thread-4] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Destruction of the end
-00:23:47:002  WARN 17540 --- [Thread-7] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Destruction of the end
-00:23:48:497  INFO 17540 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registering from Nacos Server now...
-00:23:48:542  INFO 17540 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registration finished.
-00:23:48:889  INFO 17540 --- [SpringApplicationShutdownHook] com.alibaba.nacos.common.remote.client   : Shutdown rpc client, set status to shutdown
-00:23:48:891  INFO 17540 --- [SpringApplicationShutdownHook] com.alibaba.nacos.common.remote.client   : Shutdown client event executor java.util.concurrent.ScheduledThreadPoolExecutor@3d71ba74[Running, pool size = 2, active threads = 2, queued tasks = 0, completed tasks = 0]
-00:23:48:893  INFO 17540 --- [SpringApplicationShutdownHook] com.alibaba.nacos.common.remote.client   : Close current connection 1730986209096_192.168.88.147_53881
-00:23:48:949  INFO 17540 --- [nacos-grpc-client-executor-2145] c.a.n.c.remote.client.grpc.GrpcClient    : [1730986209096_192.168.88.147_53881]Ignore complete event,isRunning:false,isAbandon=false
-00:23:48:984  INFO 17540 --- [SpringApplicationShutdownHook] c.a.n.c.remote.client.grpc.GrpcClient    : Shutdown grpc executor java.util.concurrent.ThreadPoolExecutor@4f62cb33[Running, pool size = 5, active threads = 0, queued tasks = 0, completed tasks = 2146]
-00:23:49:014  INFO 17540 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
-00:23:49:042  INFO 17540 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-00:24:21:152  INFO 17996 --- [main] com.cstery.order.OrderApplication        : Starting OrderApplication using Java 17.0.9 on DESKTOP-0KBKC9H with PID 17996 (E:\coding\idea_program_file\myProject\chengstery-mall\order-service\target\classes started by win10 in E:\coding\idea_program_file\myProject\chengstery-mall)
-00:24:21:156  INFO 17996 --- [main] com.cstery.order.OrderApplication        : The following 1 profile is active: "dev"
-00:24:23:199  INFO 17996 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=c24c45e5-8ec4-34a3-b39b-9ef3f7dfd947
-00:24:24:002  INFO 17996 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8084 (http)
-00:24:24:021  INFO 17996 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-00:24:24:022  INFO 17996 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
-00:24:24:260  INFO 17996 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-00:24:24:260  INFO 17996 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2947 ms
-00:24:24:630  INFO 17996 --- [main] o.s.c.openfeign.FeignClientFactoryBean   : For 'product-service' URL not provided. Will try picking an instance via load-balancing.
-00:24:24:769  INFO 17996 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-00:24:24:965  INFO 17996 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-00:24:25:477  INFO 17996 --- [main] o.s.c.openfeign.FeignClientFactoryBean   : For 'user-service' URL not provided. Will try picking an instance via load-balancing.
-00:24:26:432  INFO 17996 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
-00:24:27:052  INFO 17996 --- [main] com.alibaba.nacos.common.remote.client   : [RpcClientFactory] create a new rpc client of abdb351a-d0dc-4e68-acf2-b6b9c4046ea2
-00:24:27:153  INFO 17996 --- [main] org.reflections.Reflections              : Reflections took 49 ms to scan 1 urls, producing 3 keys and 6 values 
-00:24:27:192  INFO 17996 --- [main] org.reflections.Reflections              : Reflections took 12 ms to scan 1 urls, producing 4 keys and 9 values 
-00:24:27:208  INFO 17996 --- [main] org.reflections.Reflections              : Reflections took 10 ms to scan 1 urls, producing 3 keys and 10 values 
-00:24:27:211  WARN 17996 --- [main] org.reflections.Reflections              : given scan urls are empty. set urls in the configuration
-00:24:27:220  INFO 17996 --- [main] org.reflections.Reflections              : Reflections took 7 ms to scan 1 urls, producing 1 keys and 5 values 
-00:24:27:233  INFO 17996 --- [main] org.reflections.Reflections              : Reflections took 8 ms to scan 1 urls, producing 1 keys and 7 values 
-00:24:27:246  INFO 17996 --- [main] org.reflections.Reflections              : Reflections took 7 ms to scan 1 urls, producing 2 keys and 8 values 
-00:24:27:251  WARN 17996 --- [main] org.reflections.Reflections              : given scan urls are empty. set urls in the configuration
-00:24:27:253  INFO 17996 --- [main] com.alibaba.nacos.common.remote.client   : [abdb351a-d0dc-4e68-acf2-b6b9c4046ea2] RpcClient init label, labels = {module=naming, source=sdk}
-00:24:27:257  INFO 17996 --- [main] com.alibaba.nacos.common.remote.client   : [abdb351a-d0dc-4e68-acf2-b6b9c4046ea2] RpcClient init, ServerListFactory = com.alibaba.nacos.client.naming.core.ServerListManager
-00:24:27:257  INFO 17996 --- [main] com.alibaba.nacos.common.remote.client   : [abdb351a-d0dc-4e68-acf2-b6b9c4046ea2] Registry connection listener to current client:com.alibaba.nacos.client.naming.remote.gprc.redo.NamingGrpcRedoService
-00:24:27:258  INFO 17996 --- [main] com.alibaba.nacos.common.remote.client   : [abdb351a-d0dc-4e68-acf2-b6b9c4046ea2] Register server push request handler:com.alibaba.nacos.client.naming.remote.gprc.NamingPushRequestHandler
-00:24:27:261  INFO 17996 --- [main] com.alibaba.nacos.common.remote.client   : [abdb351a-d0dc-4e68-acf2-b6b9c4046ea2] Try to connect to server on start up, server: {serverIp = '192.168.88.156', server main port = 8848}
-00:24:28:638  INFO 17996 --- [main] com.alibaba.nacos.common.remote.client   : [abdb351a-d0dc-4e68-acf2-b6b9c4046ea2] Success to connect to server [192.168.88.156:8848] on start up, connectionId = 1730996668359_192.168.88.147_65174
-00:24:28:640  INFO 17996 --- [com.alibaba.nacos.client.remote.worker] com.alibaba.nacos.common.remote.client   : [abdb351a-d0dc-4e68-acf2-b6b9c4046ea2] Notify connected event to listeners.
-00:24:28:640  INFO 17996 --- [main] com.alibaba.nacos.common.remote.client   : [abdb351a-d0dc-4e68-acf2-b6b9c4046ea2] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$ConnectResetRequestHandler
-00:24:28:640  INFO 17996 --- [main] com.alibaba.nacos.common.remote.client   : [abdb351a-d0dc-4e68-acf2-b6b9c4046ea2] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$$Lambda$1084/0x0000017a81827b30
-00:24:28:732  INFO 17996 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8084 (http) with context path ''
-00:24:28:747  INFO 17996 --- [main] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, DEFAULT_GROUP order-service 192.168.88.147:8084 register finished
-00:24:28:778  INFO 17996 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
-00:24:28:785  INFO 17996 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 2 custom documentation plugin(s)
-00:24:28:832  INFO 17996 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-00:24:29:083  INFO 17996 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-00:24:29:159  INFO 17996 --- [main] com.cstery.order.OrderApplication        : Started OrderApplication in 9.215 seconds (JVM running for 11.035)
-00:24:29:273  INFO 17996 --- [nacos-grpc-client-executor-9] com.alibaba.nacos.common.remote.client   : [abdb351a-d0dc-4e68-acf2-b6b9c4046ea2] Receive server push request, request = NotifySubscriberRequest, requestId = 99
-00:24:29:288  INFO 17996 --- [nacos-grpc-client-executor-9] com.alibaba.nacos.common.remote.client   : [abdb351a-d0dc-4e68-acf2-b6b9c4046ea2] Ack server push request, request = NotifySubscriberRequest, requestId = 99
-00:27:00:059 ERROR 17996 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, lastPacketReceivedIdleMillis : 60015
-00:29:00:074 ERROR 17996 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, lastPacketReceivedIdleMillis : 60046
-00:32:00:024 ERROR 17996 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, lastPacketReceivedIdleMillis : 60010
-00:35:00:014 ERROR 17996 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, lastPacketReceivedIdleMillis : 60008
-00:38:00:019 ERROR 17996 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, lastPacketReceivedIdleMillis : 60009
-00:40:00:039 ERROR 17996 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, lastPacketReceivedIdleMillis : 60020
-00:43:00:016 ERROR 17996 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, lastPacketReceivedIdleMillis : 60007
-00:46:00:041 ERROR 17996 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, lastPacketReceivedIdleMillis : 60025
-00:48:43:027  INFO 17996 --- [http-nio-8084-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-00:48:43:036  INFO 17996 --- [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-00:48:43:207  INFO 17996 --- [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 170 ms
-00:50:00:021 ERROR 17996 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, lastPacketReceivedIdleMillis : 60010
-00:50:36:762  INFO 17996 --- [nacos-grpc-client-executor-337] com.alibaba.nacos.common.remote.client   : [abdb351a-d0dc-4e68-acf2-b6b9c4046ea2] Receive server push request, request = NotifySubscriberRequest, requestId = 106
-00:50:36:762  INFO 17996 --- [nacos-grpc-client-executor-337] com.alibaba.nacos.common.remote.client   : [abdb351a-d0dc-4e68-acf2-b6b9c4046ea2] Ack server push request, request = NotifySubscriberRequest, requestId = 106
-00:52:00:014 ERROR 17996 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, lastPacketReceivedIdleMillis : 60005
-00:53:02:315  WARN 17996 --- [Thread-4] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Start destroying Publisher
-00:53:02:318  WARN 17996 --- [Thread-7] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Start destroying common HttpClient
-00:53:02:322  WARN 17996 --- [Thread-4] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Destruction of the end
-00:53:02:353  WARN 17996 --- [Thread-7] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Destruction of the end
-00:53:02:917  INFO 17996 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registering from Nacos Server now...
-00:53:02:923  INFO 17996 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registration finished.
-00:53:03:260  INFO 17996 --- [SpringApplicationShutdownHook] com.alibaba.nacos.common.remote.client   : Shutdown rpc client, set status to shutdown
-00:53:03:260  INFO 17996 --- [SpringApplicationShutdownHook] com.alibaba.nacos.common.remote.client   : Shutdown client event executor java.util.concurrent.ScheduledThreadPoolExecutor@7ac1afd9[Running, pool size = 2, active threads = 2, queued tasks = 0, completed tasks = 0]
-00:53:03:262  INFO 17996 --- [SpringApplicationShutdownHook] com.alibaba.nacos.common.remote.client   : Close current connection 1730996668359_192.168.88.147_65174
-00:53:03:267  INFO 17996 --- [nacos-grpc-client-executor-371] c.a.n.c.remote.client.grpc.GrpcClient    : [1730996668359_192.168.88.147_65174]Ignore complete event,isRunning:false,isAbandon=false
-00:53:03:295  INFO 17996 --- [SpringApplicationShutdownHook] c.a.n.c.remote.client.grpc.GrpcClient    : Shutdown grpc executor java.util.concurrent.ThreadPoolExecutor@7f075e2f[Running, pool size = 6, active threads = 0, queued tasks = 0, completed tasks = 372]
-00:53:03:319  INFO 17996 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
-00:53:03:336  INFO 17996 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
-15:41:53:358  INFO 6904 --- [main] com.cstery.order.OrderApplication        : Starting OrderApplication using Java 17.0.9 on DESKTOP-0KBKC9H with PID 6904 (E:\coding\idea_program_file\myProject\chengstery-mall\order-service\target\classes started by win10 in E:\coding\idea_program_file\myProject\chengstery-mall)
-15:41:53:361  INFO 6904 --- [main] com.cstery.order.OrderApplication        : The following 1 profile is active: "dev"
-15:41:55:373  INFO 6904 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=c24c45e5-8ec4-34a3-b39b-9ef3f7dfd947
-15:41:56:441  INFO 6904 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8084 (http)
-15:41:56:458  INFO 6904 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-15:41:56:460  INFO 6904 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
-15:41:56:701  INFO 6904 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-15:41:56:701  INFO 6904 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3266 ms
-15:41:57:113  INFO 6904 --- [main] o.s.c.openfeign.FeignClientFactoryBean   : For 'product-service' URL not provided. Will try picking an instance via load-balancing.
-15:41:57:263  INFO 6904 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
-15:41:57:474  INFO 6904 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
-15:41:57:983  INFO 6904 --- [main] o.s.c.openfeign.FeignClientFactoryBean   : For 'user-service' URL not provided. Will try picking an instance via load-balancing.
-15:41:58:966  INFO 6904 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
-15:41:59:599  INFO 6904 --- [main] com.alibaba.nacos.common.remote.client   : [RpcClientFactory] create a new rpc client of 17a41d63-955b-4cb3-bbd5-558a24774d67
-15:41:59:689  INFO 6904 --- [main] org.reflections.Reflections              : Reflections took 36 ms to scan 1 urls, producing 3 keys and 6 values 
-15:41:59:718  INFO 6904 --- [main] org.reflections.Reflections              : Reflections took 8 ms to scan 1 urls, producing 4 keys and 9 values 
-15:41:59:721  INFO 6904 --- [main] org.reflections.Reflections              : Reflections took 0 ms to scan 1 urls, producing 3 keys and 10 values 
-15:41:59:731  WARN 6904 --- [main] org.reflections.Reflections              : given scan urls are empty. set urls in the configuration
-15:41:59:733  INFO 6904 --- [main] org.reflections.Reflections              : Reflections took 0 ms to scan 1 urls, producing 1 keys and 5 values 
-15:41:59:745  INFO 6904 --- [main] org.reflections.Reflections              : Reflections took 6 ms to scan 1 urls, producing 1 keys and 7 values 
-15:41:59:764  INFO 6904 --- [main] org.reflections.Reflections              : Reflections took 11 ms to scan 1 urls, producing 2 keys and 8 values 
-15:41:59:768  WARN 6904 --- [main] org.reflections.Reflections              : given scan urls are empty. set urls in the configuration
-15:41:59:770  INFO 6904 --- [main] com.alibaba.nacos.common.remote.client   : [17a41d63-955b-4cb3-bbd5-558a24774d67] RpcClient init label, labels = {module=naming, source=sdk}
-15:41:59:773  INFO 6904 --- [main] com.alibaba.nacos.common.remote.client   : [17a41d63-955b-4cb3-bbd5-558a24774d67] RpcClient init, ServerListFactory = com.alibaba.nacos.client.naming.core.ServerListManager
-15:41:59:773  INFO 6904 --- [main] com.alibaba.nacos.common.remote.client   : [17a41d63-955b-4cb3-bbd5-558a24774d67] Registry connection listener to current client:com.alibaba.nacos.client.naming.remote.gprc.redo.NamingGrpcRedoService
-15:41:59:774  INFO 6904 --- [main] com.alibaba.nacos.common.remote.client   : [17a41d63-955b-4cb3-bbd5-558a24774d67] Register server push request handler:com.alibaba.nacos.client.naming.remote.gprc.NamingPushRequestHandler
-15:41:59:776  INFO 6904 --- [main] com.alibaba.nacos.common.remote.client   : [17a41d63-955b-4cb3-bbd5-558a24774d67] Try to connect to server on start up, server: {serverIp = '192.168.88.156', server main port = 8848}
-15:42:00:832  INFO 6904 --- [main] com.alibaba.nacos.common.remote.client   : [17a41d63-955b-4cb3-bbd5-558a24774d67] Success to connect to server [192.168.88.156:8848] on start up, connectionId = 1731051720462_192.168.88.147_51537
-15:42:00:834  INFO 6904 --- [com.alibaba.nacos.client.remote.worker] com.alibaba.nacos.common.remote.client   : [17a41d63-955b-4cb3-bbd5-558a24774d67] Notify connected event to listeners.
-15:42:00:835  INFO 6904 --- [main] com.alibaba.nacos.common.remote.client   : [17a41d63-955b-4cb3-bbd5-558a24774d67] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$ConnectResetRequestHandler
-15:42:00:836  INFO 6904 --- [main] com.alibaba.nacos.common.remote.client   : [17a41d63-955b-4cb3-bbd5-558a24774d67] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$$Lambda$1084/0x000001cc0182b470
-15:42:00:919  INFO 6904 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8084 (http) with context path ''
-15:42:00:934  INFO 6904 --- [main] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, DEFAULT_GROUP order-service 192.168.88.147:8084 register finished
-15:42:00:956  INFO 6904 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
-15:42:00:964  INFO 6904 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 2 custom documentation plugin(s)
-15:42:01:006  INFO 6904 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-15:42:01:220  INFO 6904 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-15:42:01:287  INFO 6904 --- [main] com.cstery.order.OrderApplication        : Started OrderApplication in 8.844 seconds (JVM running for 10.151)
-15:42:01:403  INFO 6904 --- [nacos-grpc-client-executor-9] com.alibaba.nacos.common.remote.client   : [17a41d63-955b-4cb3-bbd5-558a24774d67] Receive server push request, request = NotifySubscriberRequest, requestId = 7
-15:42:01:415  INFO 6904 --- [nacos-grpc-client-executor-9] com.alibaba.nacos.common.remote.client   : [17a41d63-955b-4cb3-bbd5-558a24774d67] Ack server push request, request = NotifySubscriberRequest, requestId = 7
-15:45:00:029 ERROR 6904 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, lastPacketReceivedIdleMillis : 60007
-15:48:00:016 ERROR 6904 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, lastPacketReceivedIdleMillis : 60006
-15:50:00:015 ERROR 6904 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, lastPacketReceivedIdleMillis : 60011
-15:55:00:014 ERROR 6904 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, lastPacketReceivedIdleMillis : 60009
-16:00:00:014 ERROR 6904 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, lastPacketReceivedIdleMillis : 60007
-16:03:00:018 ERROR 6904 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, lastPacketReceivedIdleMillis : 60012
-16:05:00:014 ERROR 6904 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, lastPacketReceivedIdleMillis : 60006
-16:11:00:011 ERROR 6904 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, lastPacketReceivedIdleMillis : 60007
-16:14:00:014 ERROR 6904 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, lastPacketReceivedIdleMillis : 60007
-16:16:00:014 ERROR 6904 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, lastPacketReceivedIdleMillis : 60004
-16:18:00:017 ERROR 6904 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, lastPacketReceivedIdleMillis : 60009
-16:22:00:007 ERROR 6904 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, lastPacketReceivedIdleMillis : 60002
-16:25:00:012 ERROR 6904 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, lastPacketReceivedIdleMillis : 60006
-16:27:00:008 ERROR 6904 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, lastPacketReceivedIdleMillis : 60004
-16:29:52:654  INFO 6904 --- [http-nio-8084-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-16:29:52:660  INFO 6904 --- [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-16:29:52:724  INFO 6904 --- [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 63 ms
-16:29:52:954 ERROR 6904 --- [http-nio-8084-exec-1] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:29:53:079 ERROR 6904 --- [http-nio-8084-exec-3] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:29:53:201 ERROR 6904 --- [http-nio-8084-exec-2] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:29:53:224 ERROR 6904 --- [http-nio-8084-exec-4] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:29:53:229 ERROR 6904 --- [http-nio-8084-exec-5] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:29:53:237 ERROR 6904 --- [http-nio-8084-exec-6] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:33:00:027 ERROR 6904 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, lastPacketReceivedIdleMillis : 60018
-16:35:00:036 ERROR 6904 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, lastPacketReceivedIdleMillis : 60020
-16:39:06:828 ERROR 6904 --- [http-nio-8084-exec-8] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:39:06:874 ERROR 6904 --- [http-nio-8084-exec-9] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:39:07:032 ERROR 6904 --- [http-nio-8084-exec-10] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:39:07:046 ERROR 6904 --- [http-nio-8084-exec-1] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:39:07:057 ERROR 6904 --- [http-nio-8084-exec-3] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:39:07:066 ERROR 6904 --- [http-nio-8084-exec-2] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:40:00:020 ERROR 6904 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, lastPacketReceivedIdleMillis : 60009
-16:41:08:608 ERROR 6904 --- [http-nio-8084-exec-5] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:08:645 ERROR 6904 --- [http-nio-8084-exec-6] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:08:758 ERROR 6904 --- [http-nio-8084-exec-7] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:08:940 ERROR 6904 --- [http-nio-8084-exec-8] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:08:965 ERROR 6904 --- [http-nio-8084-exec-9] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:08:976 ERROR 6904 --- [http-nio-8084-exec-10] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:08:989 ERROR 6904 --- [http-nio-8084-exec-1] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:09:018 ERROR 6904 --- [http-nio-8084-exec-3] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:09:028 ERROR 6904 --- [http-nio-8084-exec-2] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:09:050 ERROR 6904 --- [http-nio-8084-exec-4] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:09:057 ERROR 6904 --- [http-nio-8084-exec-5] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:09:075 ERROR 6904 --- [http-nio-8084-exec-6] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:09:081 ERROR 6904 --- [http-nio-8084-exec-7] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:09:105 ERROR 6904 --- [http-nio-8084-exec-8] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:09:117 ERROR 6904 --- [http-nio-8084-exec-9] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:09:133 ERROR 6904 --- [http-nio-8084-exec-10] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:09:140 ERROR 6904 --- [http-nio-8084-exec-1] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:09:158 ERROR 6904 --- [http-nio-8084-exec-3] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:09:161 ERROR 6904 --- [http-nio-8084-exec-2] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:09:181 ERROR 6904 --- [http-nio-8084-exec-4] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:09:187 ERROR 6904 --- [http-nio-8084-exec-5] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:15:234 ERROR 6904 --- [http-nio-8084-exec-6] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:15:246 ERROR 6904 --- [http-nio-8084-exec-7] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:15:267 ERROR 6904 --- [http-nio-8084-exec-8] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:15:298 ERROR 6904 --- [http-nio-8084-exec-9] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:15:303 ERROR 6904 --- [http-nio-8084-exec-10] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:15:309 ERROR 6904 --- [http-nio-8084-exec-1] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:15:314 ERROR 6904 --- [http-nio-8084-exec-3] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:15:335 ERROR 6904 --- [http-nio-8084-exec-2] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:15:342 ERROR 6904 --- [http-nio-8084-exec-4] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:15:358 ERROR 6904 --- [http-nio-8084-exec-5] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:15:363 ERROR 6904 --- [http-nio-8084-exec-6] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:15:381 ERROR 6904 --- [http-nio-8084-exec-7] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:15:386 ERROR 6904 --- [http-nio-8084-exec-8] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:15:400 ERROR 6904 --- [http-nio-8084-exec-9] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:15:406 ERROR 6904 --- [http-nio-8084-exec-10] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:15:423 ERROR 6904 --- [http-nio-8084-exec-1] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:15:427 ERROR 6904 --- [http-nio-8084-exec-3] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:15:443 ERROR 6904 --- [http-nio-8084-exec-2] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:15:447 ERROR 6904 --- [http-nio-8084-exec-4] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:15:464 ERROR 6904 --- [http-nio-8084-exec-5] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:15:470 ERROR 6904 --- [http-nio-8084-exec-6] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:25:809 ERROR 6904 --- [http-nio-8084-exec-7] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:25:821 ERROR 6904 --- [http-nio-8084-exec-8] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:25:837 ERROR 6904 --- [http-nio-8084-exec-9] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:25:869 ERROR 6904 --- [http-nio-8084-exec-10] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:25:875 ERROR 6904 --- [http-nio-8084-exec-1] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:25:881 ERROR 6904 --- [http-nio-8084-exec-3] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:25:889 ERROR 6904 --- [http-nio-8084-exec-2] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:25:909 ERROR 6904 --- [http-nio-8084-exec-4] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:25:915 ERROR 6904 --- [http-nio-8084-exec-5] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:25:934 ERROR 6904 --- [http-nio-8084-exec-6] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:25:939 ERROR 6904 --- [http-nio-8084-exec-7] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:25:953 ERROR 6904 --- [http-nio-8084-exec-8] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:25:958 ERROR 6904 --- [http-nio-8084-exec-9] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:25:971 ERROR 6904 --- [http-nio-8084-exec-10] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:25:974 ERROR 6904 --- [http-nio-8084-exec-1] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:25:991 ERROR 6904 --- [http-nio-8084-exec-3] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:25:995 ERROR 6904 --- [http-nio-8084-exec-2] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:26:010 ERROR 6904 --- [http-nio-8084-exec-4] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:26:015 ERROR 6904 --- [http-nio-8084-exec-5] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:26:136 ERROR 6904 --- [http-nio-8084-exec-6] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:26:140 ERROR 6904 --- [http-nio-8084-exec-7] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:314 ERROR 6904 --- [http-nio-8084-exec-8] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:318 ERROR 6904 --- [http-nio-8084-exec-9] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:353 ERROR 6904 --- [http-nio-8084-exec-10] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:376 ERROR 6904 --- [http-nio-8084-exec-1] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:381 ERROR 6904 --- [http-nio-8084-exec-3] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:387 ERROR 6904 --- [http-nio-8084-exec-2] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:390 ERROR 6904 --- [http-nio-8084-exec-4] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:404 ERROR 6904 --- [http-nio-8084-exec-5] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:409 ERROR 6904 --- [http-nio-8084-exec-6] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:422 ERROR 6904 --- [http-nio-8084-exec-7] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:426 ERROR 6904 --- [http-nio-8084-exec-8] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:440 ERROR 6904 --- [http-nio-8084-exec-10] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:444 ERROR 6904 --- [http-nio-8084-exec-9] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:456 ERROR 6904 --- [http-nio-8084-exec-1] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:458 ERROR 6904 --- [http-nio-8084-exec-3] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:472 ERROR 6904 --- [http-nio-8084-exec-2] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:475 ERROR 6904 --- [http-nio-8084-exec-4] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:490 ERROR 6904 --- [http-nio-8084-exec-5] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:496 ERROR 6904 --- [http-nio-8084-exec-6] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:508 ERROR 6904 --- [http-nio-8084-exec-7] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:512 ERROR 6904 --- [http-nio-8084-exec-8] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:527 ERROR 6904 --- [http-nio-8084-exec-10] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:533 ERROR 6904 --- [http-nio-8084-exec-9] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:545 ERROR 6904 --- [http-nio-8084-exec-1] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:548 ERROR 6904 --- [http-nio-8084-exec-3] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:559 ERROR 6904 --- [http-nio-8084-exec-2] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:563 ERROR 6904 --- [http-nio-8084-exec-4] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:573 ERROR 6904 --- [http-nio-8084-exec-5] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:579 ERROR 6904 --- [http-nio-8084-exec-6] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:590 ERROR 6904 --- [http-nio-8084-exec-7] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:595 ERROR 6904 --- [http-nio-8084-exec-8] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:610 ERROR 6904 --- [http-nio-8084-exec-10] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:614 ERROR 6904 --- [http-nio-8084-exec-9] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:623 ERROR 6904 --- [http-nio-8084-exec-1] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:629 ERROR 6904 --- [http-nio-8084-exec-3] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:642 ERROR 6904 --- [http-nio-8084-exec-2] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:645 ERROR 6904 --- [http-nio-8084-exec-4] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:664 ERROR 6904 --- [http-nio-8084-exec-5] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:669 ERROR 6904 --- [http-nio-8084-exec-6] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:683 ERROR 6904 --- [http-nio-8084-exec-7] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:688 ERROR 6904 --- [http-nio-8084-exec-8] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:700 ERROR 6904 --- [http-nio-8084-exec-10] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:703 ERROR 6904 --- [http-nio-8084-exec-9] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:716 ERROR 6904 --- [http-nio-8084-exec-1] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:721 ERROR 6904 --- [http-nio-8084-exec-3] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:732 ERROR 6904 --- [http-nio-8084-exec-2] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:737 ERROR 6904 --- [http-nio-8084-exec-4] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:751 ERROR 6904 --- [http-nio-8084-exec-5] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:755 ERROR 6904 --- [http-nio-8084-exec-6] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:767 ERROR 6904 --- [http-nio-8084-exec-7] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:772 ERROR 6904 --- [http-nio-8084-exec-8] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:785 ERROR 6904 --- [http-nio-8084-exec-10] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:793 ERROR 6904 --- [http-nio-8084-exec-9] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:805 ERROR 6904 --- [http-nio-8084-exec-1] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:810 ERROR 6904 --- [http-nio-8084-exec-3] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:819 ERROR 6904 --- [http-nio-8084-exec-2] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:828 ERROR 6904 --- [http-nio-8084-exec-4] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:841 ERROR 6904 --- [http-nio-8084-exec-5] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:842 ERROR 6904 --- [http-nio-8084-exec-6] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:853 ERROR 6904 --- [http-nio-8084-exec-7] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:859 ERROR 6904 --- [http-nio-8084-exec-8] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:873 ERROR 6904 --- [http-nio-8084-exec-10] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:876 ERROR 6904 --- [http-nio-8084-exec-9] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:889 ERROR 6904 --- [http-nio-8084-exec-1] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:889 ERROR 6904 --- [http-nio-8084-exec-3] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:904 ERROR 6904 --- [http-nio-8084-exec-2] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:907 ERROR 6904 --- [http-nio-8084-exec-4] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:920 ERROR 6904 --- [http-nio-8084-exec-5] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:922 ERROR 6904 --- [http-nio-8084-exec-6] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:937 ERROR 6904 --- [http-nio-8084-exec-7] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:942 ERROR 6904 --- [http-nio-8084-exec-8] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:955 ERROR 6904 --- [http-nio-8084-exec-10] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:960 ERROR 6904 --- [http-nio-8084-exec-9] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:972 ERROR 6904 --- [http-nio-8084-exec-1] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:977 ERROR 6904 --- [http-nio-8084-exec-3] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:989 ERROR 6904 --- [http-nio-8084-exec-2] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:992 ERROR 6904 --- [http-nio-8084-exec-4] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:52:998 ERROR 6904 --- [http-nio-8084-exec-5] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:53:005 ERROR 6904 --- [http-nio-8084-exec-6] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:53:005 ERROR 6904 --- [http-nio-8084-exec-7] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:53:019 ERROR 6904 --- [http-nio-8084-exec-8] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:53:030 ERROR 6904 --- [http-nio-8084-exec-10] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:53:032 ERROR 6904 --- [http-nio-8084-exec-9] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:53:043 ERROR 6904 --- [http-nio-8084-exec-1] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:53:045 ERROR 6904 --- [http-nio-8084-exec-3] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:53:061 ERROR 6904 --- [http-nio-8084-exec-2] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:53:065 ERROR 6904 --- [http-nio-8084-exec-4] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:53:074 ERROR 6904 --- [http-nio-8084-exec-5] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:53:076 ERROR 6904 --- [http-nio-8084-exec-6] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:53:081 ERROR 6904 --- [http-nio-8084-exec-7] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:53:090 ERROR 6904 --- [http-nio-8084-exec-8] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:53:104 ERROR 6904 --- [http-nio-8084-exec-10] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:41:53:108 ERROR 6904 --- [http-nio-8084-exec-9] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:42:19:319 ERROR 6904 --- [http-nio-8084-exec-1] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:42:19:334 ERROR 6904 --- [http-nio-8084-exec-3] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:42:32:800 ERROR 6904 --- [http-nio-8084-exec-2] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:43:00:057 ERROR 6904 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, lastPacketReceivedIdleMillis : 60032
-16:43:23:987 ERROR 6904 --- [http-nio-8084-exec-4] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:43:24:000 ERROR 6904 --- [http-nio-8084-exec-5] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:43:24:259 ERROR 6904 --- [http-nio-8084-exec-6] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:43:24:326 ERROR 6904 --- [http-nio-8084-exec-7] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:43:24:349 ERROR 6904 --- [http-nio-8084-exec-8] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:43:24:364 ERROR 6904 --- [http-nio-8084-exec-10] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:43:24:394 ERROR 6904 --- [http-nio-8084-exec-9] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:43:24:432 ERROR 6904 --- [http-nio-8084-exec-1] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:43:24:446 ERROR 6904 --- [http-nio-8084-exec-3] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:43:24:468 ERROR 6904 --- [http-nio-8084-exec-2] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:43:24:475 ERROR 6904 --- [http-nio-8084-exec-4] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:43:24:500 ERROR 6904 --- [http-nio-8084-exec-5] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:43:24:506 ERROR 6904 --- [http-nio-8084-exec-6] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:43:24:527 ERROR 6904 --- [http-nio-8084-exec-7] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:43:24:531 ERROR 6904 --- [http-nio-8084-exec-8] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:43:24:546 ERROR 6904 --- [http-nio-8084-exec-10] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:43:24:551 ERROR 6904 --- [http-nio-8084-exec-9] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:43:24:566 ERROR 6904 --- [http-nio-8084-exec-1] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:43:24:570 ERROR 6904 --- [http-nio-8084-exec-3] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:43:24:585 ERROR 6904 --- [http-nio-8084-exec-2] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:43:24:591 ERROR 6904 --- [http-nio-8084-exec-4] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:44:47:606 ERROR 6904 --- [http-nio-8084-exec-6] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:46:00:012 ERROR 6904 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, lastPacketReceivedIdleMillis : 60008
-16:46:10:085 ERROR 6904 --- [http-nio-8084-exec-8] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:46:10:184 ERROR 6904 --- [http-nio-8084-exec-10] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:48:23:642 ERROR 6904 --- [http-nio-8084-exec-1] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:48:23:659 ERROR 6904 --- [http-nio-8084-exec-3] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:48:23:843 ERROR 6904 --- [http-nio-8084-exec-2] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:48:23:850 ERROR 6904 --- [http-nio-8084-exec-4] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:48:23:861 ERROR 6904 --- [http-nio-8084-exec-5] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:48:23:878 ERROR 6904 --- [http-nio-8084-exec-6] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:49:00:013 ERROR 6904 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, lastPacketReceivedIdleMillis : 60007
-16:51:45:427 ERROR 6904 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, lastPacketReceivedIdleMillis : 165383
-16:51:45:427 ERROR 6904 --- [http-nio-8084-exec-7] c.c.o.handler.GlobalExceptionHandler     : 异常信息：date
-16:51:45:439  INFO 6904 --- [nacos-grpc-client-executor-835] com.alibaba.nacos.common.remote.client   : [17a41d63-955b-4cb3-bbd5-558a24774d67] Receive server push request, request = ClientDetectionRequest, requestId = 47
-16:51:45:441  INFO 6904 --- [nacos-grpc-client-executor-835] com.alibaba.nacos.common.remote.client   : [17a41d63-955b-4cb3-bbd5-558a24774d67] Ack server push request, request = ClientDetectionRequest, requestId = 47
-16:51:45:452 ERROR 6904 --- [nacos-grpc-client-executor-835] c.a.n.c.remote.client.grpc.GrpcClient    : [1731051720462_192.168.88.147_51537]Request stream onCompleted, switch server
-16:51:45:493 ERROR 6904 --- [com.alibaba.nacos.client.naming.updater.2] com.alibaba.nacos.common.remote.client   : Send request fail, request = ServiceQueryRequest{headers={}, requestId='null'}, retryTimes = 0, errorMessage = java.util.concurrent.ExecutionException: com.alibaba.nacos.shaded.io.grpc.StatusRuntimeException: UNAVAILABLE: HTTP/2 error code: NO_ERROR
-Received Goaway
-app_requested
-16:51:45:493  INFO 6904 --- [com.alibaba.nacos.client.remote.worker] com.alibaba.nacos.common.remote.client   : [17a41d63-955b-4cb3-bbd5-558a24774d67] Server healthy check fail, currentConnection = 1731051720462_192.168.88.147_51537
-16:51:45:494  INFO 6904 --- [com.alibaba.nacos.client.remote.worker] com.alibaba.nacos.common.remote.client   : [17a41d63-955b-4cb3-bbd5-558a24774d67] Try to reconnect to a new server, server is  not appointed, will choose a random server.
-16:51:45:604 ERROR 6904 --- [com.alibaba.nacos.client.naming.updater.2] com.alibaba.nacos.common.remote.client   : Send request fail, request = ServiceQueryRequest{headers={}, requestId='null'}, retryTimes = 1, errorMessage = Client not connected, current status:UNHEALTHY
-16:51:45:636  INFO 6904 --- [com.alibaba.nacos.client.remote.worker] com.alibaba.nacos.common.remote.client   : [17a41d63-955b-4cb3-bbd5-558a24774d67] Success to connect a server [192.168.88.156:8848], connectionId = 1731055905361_192.168.88.147_53047
-16:51:45:637  INFO 6904 --- [com.alibaba.nacos.client.remote.worker] com.alibaba.nacos.common.remote.client   : [17a41d63-955b-4cb3-bbd5-558a24774d67] Abandon prev connection, server is 192.168.88.156:8848, connectionId is 1731051720462_192.168.88.147_51537
-16:51:45:637  INFO 6904 --- [com.alibaba.nacos.client.remote.worker] com.alibaba.nacos.common.remote.client   : Close current connection 1731051720462_192.168.88.147_51537
-16:51:45:655  INFO 6904 --- [com.alibaba.nacos.client.remote.worker] com.alibaba.nacos.common.remote.client   : [17a41d63-955b-4cb3-bbd5-558a24774d67] Try to reconnect to a new server, server is  not appointed, will choose a random server.
-16:51:45:656  INFO 6904 --- [com.alibaba.nacos.client.remote.worker] com.alibaba.nacos.common.remote.client   : [17a41d63-955b-4cb3-bbd5-558a24774d67] Notify disconnected event to listeners
-16:51:45:661  INFO 6904 --- [com.alibaba.nacos.client.remote.worker] com.alibaba.nacos.common.remote.client   : [17a41d63-955b-4cb3-bbd5-558a24774d67] Notify connected event to listeners.
-16:51:45:712 ERROR 6904 --- [com.alibaba.nacos.client.naming.updater.2] com.alibaba.nacos.common.remote.client   : Send request fail, request = ServiceQueryRequest{headers={}, requestId='null'}, retryTimes = 2, errorMessage = Client not connected, current status:UNHEALTHY
-16:51:45:790  INFO 6904 --- [com.alibaba.nacos.client.remote.worker] com.alibaba.nacos.common.remote.client   : [17a41d63-955b-4cb3-bbd5-558a24774d67] Success to connect a server [192.168.88.156:8848], connectionId = 1731055905520_192.168.88.147_53048
-16:51:45:790  INFO 6904 --- [com.alibaba.nacos.client.remote.worker] com.alibaba.nacos.common.remote.client   : [17a41d63-955b-4cb3-bbd5-558a24774d67] Abandon prev connection, server is 192.168.88.156:8848, connectionId is 1731055905361_192.168.88.147_53047
-16:51:45:790  INFO 6904 --- [com.alibaba.nacos.client.remote.worker] com.alibaba.nacos.common.remote.client   : Close current connection 1731055905361_192.168.88.147_53047
-16:51:45:796  INFO 6904 --- [com.alibaba.nacos.client.remote.worker] com.alibaba.nacos.common.remote.client   : [17a41d63-955b-4cb3-bbd5-558a24774d67] Notify disconnected event to listeners
-16:51:45:796  INFO 6904 --- [com.alibaba.nacos.client.remote.worker] com.alibaba.nacos.common.remote.client   : [17a41d63-955b-4cb3-bbd5-558a24774d67] Notify connected event to listeners.
-16:51:45:798  INFO 6904 --- [com.alibaba.nacos.client.remote.worker] com.alibaba.nacos.common.remote.client   : [17a41d63-955b-4cb3-bbd5-558a24774d67] Server check success, currentServer is 192.168.88.156:8848 
-16:51:45:801  WARN 6904 --- [nacos-grpc-client-executor-845] c.a.n.c.remote.client.grpc.GrpcClient    : [1731055905361_192.168.88.147_53047]Ignore error event,isRunning:true,isAbandon=true
-16:51:48:971  INFO 6904 --- [nacos-grpc-client-executor-849] com.alibaba.nacos.common.remote.client   : [17a41d63-955b-4cb3-bbd5-558a24774d67] Receive server push request, request = NotifySubscriberRequest, requestId = 50
-16:51:48:972  INFO 6904 --- [nacos-grpc-client-executor-849] com.alibaba.nacos.common.remote.client   : [17a41d63-955b-4cb3-bbd5-558a24774d67] Ack server push request, request = NotifySubscriberRequest, requestId = 50
-16:53:00:018 ERROR 6904 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, lastPacketReceivedIdleMillis : 60005
-16:56:00:024 ERROR 6904 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, lastPacketReceivedIdleMillis : 60010
-16:58:42:830  WARN 6904 --- [Thread-4] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Start destroying Publisher
-16:58:42:842  WARN 6904 --- [Thread-4] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Destruction of the end
-16:58:42:843  WARN 6904 --- [Thread-7] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Start destroying common HttpClient
-16:58:42:872  WARN 6904 --- [Thread-7] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Destruction of the end
-16:58:43:241  INFO 6904 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registering from Nacos Server now...
-16:58:43:245  INFO 6904 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registration finished.
-16:58:43:584  INFO 6904 --- [SpringApplicationShutdownHook] com.alibaba.nacos.common.remote.client   : Shutdown rpc client, set status to shutdown
-16:58:43:584  INFO 6904 --- [SpringApplicationShutdownHook] com.alibaba.nacos.common.remote.client   : Shutdown client event executor java.util.concurrent.ScheduledThreadPoolExecutor@4e1f789d[Running, pool size = 2, active threads = 2, queued tasks = 0, completed tasks = 0]
-16:58:43:585  INFO 6904 --- [SpringApplicationShutdownHook] com.alibaba.nacos.common.remote.client   : Close current connection 1731055905520_192.168.88.147_53048
-16:58:43:587  INFO 6904 --- [nacos-grpc-client-executor-934] c.a.n.c.remote.client.grpc.GrpcClient    : [1731055905520_192.168.88.147_53048]Ignore complete event,isRunning:false,isAbandon=false
-16:58:43:594  INFO 6904 --- [SpringApplicationShutdownHook] c.a.n.c.remote.client.grpc.GrpcClient    : Shutdown grpc executor java.util.concurrent.ThreadPoolExecutor@7fc011f0[Running, pool size = 5, active threads = 0, queued tasks = 0, completed tasks = 935]
-16:58:43:608  INFO 6904 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
-16:58:43:620  INFO 6904 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+00:01:00:028 ERROR 11456 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, lastPacketReceivedIdleMillis : 60016
+00:05:00:025 ERROR 11456 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, lastPacketReceivedIdleMillis : 60012
+00:10:00:042 ERROR 11456 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, lastPacketReceivedIdleMillis : 60024
+00:14:00:053 ERROR 11456 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, lastPacketReceivedIdleMillis : 60013
+00:16:00:008 ERROR 11456 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, lastPacketReceivedIdleMillis : 60001
+00:18:00:044 ERROR 11456 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, lastPacketReceivedIdleMillis : 60026
+00:20:00:014 ERROR 11456 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, lastPacketReceivedIdleMillis : 60007
+00:27:00:064 ERROR 11456 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, lastPacketReceivedIdleMillis : 60025
+00:29:00:013 ERROR 11456 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, lastPacketReceivedIdleMillis : 60007
+00:34:00:042 ERROR 11456 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, lastPacketReceivedIdleMillis : 60008
+00:35:33:118  WARN 11456 --- [Thread-4] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Start destroying Publisher
+00:35:33:118  WARN 11456 --- [Thread-7] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Start destroying common HttpClient
+00:35:33:133  WARN 11456 --- [Thread-4] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Destruction of the end
+00:35:33:194  WARN 11456 --- [Thread-7] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Destruction of the end
+00:35:34:619  INFO 11456 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registering from Nacos Server now...
+00:35:34:637  INFO 11456 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registration finished.
+00:35:34:981  INFO 11456 --- [SpringApplicationShutdownHook] com.alibaba.nacos.common.remote.client   : Shutdown rpc client, set status to shutdown
+00:35:34:984  INFO 11456 --- [SpringApplicationShutdownHook] com.alibaba.nacos.common.remote.client   : Shutdown client event executor java.util.concurrent.ScheduledThreadPoolExecutor@38222f11[Running, pool size = 2, active threads = 2, queued tasks = 0, completed tasks = 0]
+00:35:34:986  INFO 11456 --- [SpringApplicationShutdownHook] com.alibaba.nacos.common.remote.client   : Close current connection 1731056344393_192.168.88.147_53393
+00:35:34:997  INFO 11456 --- [nacos-grpc-client-executor-5617] c.a.n.c.remote.client.grpc.GrpcClient    : [1731056344393_192.168.88.147_53393]Ignore complete event,isRunning:false,isAbandon=false
+00:35:35:042  INFO 11456 --- [SpringApplicationShutdownHook] c.a.n.c.remote.client.grpc.GrpcClient    : Shutdown grpc executor java.util.concurrent.ThreadPoolExecutor@291384a8[Running, pool size = 5, active threads = 0, queued tasks = 0, completed tasks = 5618]
+00:35:35:065  INFO 11456 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+00:35:35:101  INFO 11456 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+00:35:48:465  INFO 11792 --- [main] com.cstery.order.OrderApplication        : The following 1 profile is active: "dev"
+00:35:50:004  INFO 11792 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=ba703189-c5ee-3090-b634-5e369c54cc4f
+00:35:50:843  INFO 11792 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8084 (http)
+00:35:50:858  INFO 11792 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+00:35:50:858  INFO 11792 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+00:35:51:014  INFO 11792 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+00:35:51:014  INFO 11792 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2520 ms
+00:35:51:289  INFO 11792 --- [main] o.s.c.openfeign.FeignClientFactoryBean   : For 'product-service' URL not provided. Will try picking an instance via load-balancing.
+00:35:51:793  INFO 11792 --- [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+00:35:51:992  INFO 11792 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+00:35:52:543  INFO 11792 --- [main] o.s.c.openfeign.FeignClientFactoryBean   : For 'user-service' URL not provided. Will try picking an instance via load-balancing.
+00:35:53:291  INFO 11792 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
+00:35:53:671  INFO 11792 --- [main] com.alibaba.nacos.common.remote.client   : [RpcClientFactory] create a new rpc client of 8f0f2f41-9154-47c4-b096-8cbdfa48fa06
+00:35:53:672  INFO 11792 --- [main] com.alibaba.nacos.common.remote.client   : [8f0f2f41-9154-47c4-b096-8cbdfa48fa06] RpcClient init label, labels = {module=naming, source=sdk}
+00:35:53:675  INFO 11792 --- [main] com.alibaba.nacos.common.remote.client   : [8f0f2f41-9154-47c4-b096-8cbdfa48fa06] RpcClient init, ServerListFactory = com.alibaba.nacos.client.naming.core.ServerListManager
+00:35:53:675  INFO 11792 --- [main] com.alibaba.nacos.common.remote.client   : [8f0f2f41-9154-47c4-b096-8cbdfa48fa06] Registry connection listener to current client:com.alibaba.nacos.client.naming.remote.gprc.redo.NamingGrpcRedoService
+00:35:53:675  INFO 11792 --- [main] com.alibaba.nacos.common.remote.client   : [8f0f2f41-9154-47c4-b096-8cbdfa48fa06] Register server push request handler:com.alibaba.nacos.client.naming.remote.gprc.NamingPushRequestHandler
+00:35:53:676  INFO 11792 --- [main] com.alibaba.nacos.common.remote.client   : [8f0f2f41-9154-47c4-b096-8cbdfa48fa06] Try to connect to server on start up, server: {serverIp = '192.168.88.156', server main port = 8848}
+00:35:53:819  INFO 11792 --- [main] com.alibaba.nacos.common.remote.client   : [8f0f2f41-9154-47c4-b096-8cbdfa48fa06] Success to connect to server [192.168.88.156:8848] on start up, connectionId = 1731083753623_192.168.88.147_53621
+00:35:53:819  INFO 11792 --- [com.alibaba.nacos.client.remote.worker] com.alibaba.nacos.common.remote.client   : [8f0f2f41-9154-47c4-b096-8cbdfa48fa06] Notify connected event to listeners.
+00:35:53:819  INFO 11792 --- [main] com.alibaba.nacos.common.remote.client   : [8f0f2f41-9154-47c4-b096-8cbdfa48fa06] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$ConnectResetRequestHandler
+00:35:53:819  INFO 11792 --- [main] com.alibaba.nacos.common.remote.client   : [8f0f2f41-9154-47c4-b096-8cbdfa48fa06] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$$Lambda$480/0x00000188814d62e8
+00:35:53:890  INFO 11792 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8084 (http) with context path ''
+00:35:53:906  INFO 11792 --- [main] c.a.c.n.registry.NacosServiceRegistry    : nacos registry, DEFAULT_GROUP order-service 192.168.88.147:8084 register finished
+00:35:53:936  INFO 11792 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
+00:35:53:942  INFO 11792 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 2 custom documentation plugin(s)
+00:35:53:995  INFO 11792 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+00:35:54:190  INFO 11792 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+00:35:54:265  INFO 11792 --- [main] com.cstery.order.OrderApplication        : Started OrderApplication in 8.658 seconds (JVM running for 10.011)
+00:35:54:273  INFO 11792 --- [main] c.a.c.n.refresh.NacosContextRefresher    : [Nacos Config] Listening config: dataId=order-service, group=DEFAULT_GROUP
+00:35:54:274  INFO 11792 --- [main] c.a.c.n.refresh.NacosContextRefresher    : [Nacos Config] Listening config: dataId=order-service-dev.yaml, group=DEFAULT_GROUP
+00:35:54:275  INFO 11792 --- [main] c.a.c.n.refresh.NacosContextRefresher    : [Nacos Config] Listening config: dataId=order-service.yaml, group=DEFAULT_GROUP
+00:35:54:453  INFO 11792 --- [nacos-grpc-client-executor-8] com.alibaba.nacos.common.remote.client   : [8f0f2f41-9154-47c4-b096-8cbdfa48fa06] Receive server push request, request = NotifySubscriberRequest, requestId = 146
+00:35:54:464  INFO 11792 --- [nacos-grpc-client-executor-8] com.alibaba.nacos.common.remote.client   : [8f0f2f41-9154-47c4-b096-8cbdfa48fa06] Ack server push request, request = NotifySubscriberRequest, requestId = 146
+00:36:03:190  INFO 11792 --- [http-nio-8084-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+00:36:03:191  INFO 11792 --- [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+00:36:03:195  INFO 11792 --- [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+00:40:00:143 ERROR 11792 --- [scheduling-1] c.a.druid.pool.DruidAbstractDataSource   : discard long time none received connection. , jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, jdbcUrl : jdbc:mysql://192.168.88.156:3306/csm-order?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true, lastPacketReceivedIdleMillis : 60045
+00:44:15:772  WARN 11792 --- [Thread-1] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Start destroying common HttpClient
+00:44:15:772  WARN 11792 --- [Thread-5] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Start destroying Publisher
+00:44:15:786  WARN 11792 --- [Thread-5] c.a.nacos.common.notify.NotifyCenter     : [NotifyCenter] Destruction of the end
+00:44:15:790  WARN 11792 --- [Thread-1] c.a.n.common.http.HttpClientBeanHolder   : [HttpClientBeanHolder] Destruction of the end
+00:44:16:247  INFO 11792 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registering from Nacos Server now...
+00:44:16:280  INFO 11792 --- [SpringApplicationShutdownHook] c.a.c.n.registry.NacosServiceRegistry    : De-registration finished.
+00:44:16:621  INFO 11792 --- [SpringApplicationShutdownHook] com.alibaba.nacos.common.remote.client   : Shutdown rpc client, set status to shutdown
+00:44:16:621  INFO 11792 --- [SpringApplicationShutdownHook] com.alibaba.nacos.common.remote.client   : Shutdown client event executor java.util.concurrent.ScheduledThreadPoolExecutor@43ad6e27[Running, pool size = 2, active threads = 2, queued tasks = 0, completed tasks = 0]
+00:44:16:621  INFO 11792 --- [SpringApplicationShutdownHook] com.alibaba.nacos.common.remote.client   : Close current connection 1731083753623_192.168.88.147_53621
+00:44:16:630  INFO 11792 --- [nacos-grpc-client-executor-112] c.a.n.c.remote.client.grpc.GrpcClient    : [1731083753623_192.168.88.147_53621]Ignore complete event,isRunning:false,isAbandon=false
+00:44:16:651  INFO 11792 --- [SpringApplicationShutdownHook] c.a.n.c.remote.client.grpc.GrpcClient    : Shutdown grpc executor java.util.concurrent.ThreadPoolExecutor@67b45ae9[Running, pool size = 6, active threads = 0, queued tasks = 0, completed tasks = 113]
+00:44:16:684  INFO 11792 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+00:44:16:701  INFO 11792 --- [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed

@@ -1,12 +1,13 @@
 package com.cstery.user.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.cstery.api.dto.ChartDTO;
 import com.cstery.common.result.PageResult;
 import com.cstery.user.domain.dto.*;
 import com.cstery.user.domain.po.User;
 import com.cstery.user.domain.vo.LoginVO;
 import com.cstery.user.domain.vo.UserVO;
+
+import java.time.LocalDate;
 
 
 public interface UserService extends IService<User> {
@@ -57,11 +58,12 @@ public interface UserService extends IService<User> {
 
     /**
      * 获得用户总数
-     * @param chartDTO
+     * @param startData
+     * @param endData
      * @param isCumulative
      * @return
      */
-    Integer getTotalUsers(ChartDTO chartDTO, Boolean isCumulative);
+    Integer getTotalUsers(LocalDate startData, LocalDate endData, Boolean isCumulative);
 
     /**
      * 分页查询用户数据

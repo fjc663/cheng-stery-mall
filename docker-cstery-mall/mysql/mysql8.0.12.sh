@@ -1,0 +1,2 @@
+#!/bin/sh
+docker run -p 3306:3306 --name cstery-mall-mysql --privileged=true --restart unless-stopped -v /mydata/mysql8.0.12/mysql:/etc/mysql -v /mydata/mysql8.0.12/logs:/logs -v /mydata/mysql8.0.12/data:/var/lib/mysql -v /etc/localtime:/etc/localtime -e MYSQL_ROOT_PASSWORD=1151259363 -d mysql:8.0.12

@@ -1,0 +1,10 @@
+import{d as k,i as V,G as D,H as r,c as N,w as e,j as M,x as O,D as z,r as t,o as p,a as s,b as u,f as d,t as E,u as n,h as I,z as S,_ as j}from"./index-CMV7StrB.js";import{u as H}from"./useOrder-mXwGJRjg.js";import"./http-Bo0dlXKR.js";import"./axios-BimPEqV4.js";import"./httpAdmin-C6IWq_Ob.js";const P={class:"pay-header"},R={key:0,class:"pay-main"},U=k({__name:"PayView",setup(G){const c=M(),m=O(),o=Number(m.params.orderId),{orderDetail:l,getOrderDetail:_,initCountdowns:f,countdowns:x,formatTime:g,getOrdersByStatus:h,payOrder:y}=H(),i=()=>{r({title:"扫码支付",message:`
+          <div style="text-align: center; padding: 20px;">
+            <img 
+                style="width: 200px; height: 200px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);" 
+                src="http://localhost:8080/pay.jpg" 
+                alt="二维码"/>
+            <p style="margin-top: 15px; font-size: 16px; font-weight: bold; color: #333;">请使用微信扫码支付</p>
+            <p style="color: #999; font-size: 14px; margin-top: 5px;">支付完成后点击确认按钮</p>
+          </div>
+        `,dangerouslyUseHTMLString:!0,confirmButtonText:"支付完成",cancelButtonText:"取消支付",showCancelButton:!0,center:!0}).then(async()=>{await y(o)!==0&&r({title:"支付成功",message:"您可以选择查看订单详情，或者返回主页。",showCancelButton:!0,confirmButtonText:"查看订单",cancelButtonText:"返回主页",type:"success"}).then(()=>{c.push(`/orderDetail/${o}`)}).catch(()=>{c.push("/")})}).catch(()=>{z.info("取消支付")})};return V(async()=>{await h(1),f(),await _(o),l.value.status===1&&i()}),D(()=>r.close()),(w,a)=>{const B=t("el-tag"),b=t("el-header"),C=t("el-button"),v=t("el-main"),T=t("el-container");return p(),N(T,{class:"pay-page"},{default:e(()=>[s(b,null,{default:e(()=>[u("div",P,[a[0]||(a[0]=u("h1",{class:"checkout-title"},"支付界面",-1)),s(B,{type:"danger",class:"countdown"},{default:e(()=>[d("请在 "+E(n(g)(n(x)[n(o)]))+" 内完成支付",1)]),_:1})])]),_:1}),s(v,null,{default:e(()=>[n(l).status===1?(p(),I("div",R,[s(C,{type:"primary",onClick:i,plain:""},{default:e(()=>a[1]||(a[1]=[d("支付")])),_:1})])):S("",!0)]),_:1})]),_:1})}}}),F=j(U,[["__scopeId","data-v-6bc7fefe"]]);export{F as default};

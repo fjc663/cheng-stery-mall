@@ -2,7 +2,7 @@
 
 欢迎来到 **cstery-mall** 后端项目，本项目基于 **Spring Boot** 实现，负责处理电商平台的核心业务逻辑和数据管理。
 
-对应的前端项目: [https://github.com/fjc663/cheng-stery-mall](https://github.com/fjc663/cheng-stery-mall)
+对应的前端项目: [https://github.com/fjc663/cstery-mall](https://github.com/fjc663/cstery-mall)
 
 ---
 
